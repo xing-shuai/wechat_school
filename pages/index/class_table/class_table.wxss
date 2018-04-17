@@ -1,0 +1,36 @@
+.week {
+  display: flex;
+  height: 23px;
+  padding-top: 6px;
+}
+
+.week .week_ {
+  width: 14%;
+  font-size: 14px;
+  text-align: center;
+}
+
+.classes {
+  display: flex;
+}
+
+.classes view {
+  width: 14%;
+  font-size: 12px;
+  text-align: center;
+  height: 145px;
+  border: 1px solid #edece8;
+}
+.classes view text{
+ display: block;
+}
+
+.class_time {
+  width: 45px;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  height: 86px;
+  border: 1px solid #edece8;
+  padding-top: 59px;
+}

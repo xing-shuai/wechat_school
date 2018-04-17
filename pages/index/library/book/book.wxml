@@ -1,0 +1,28 @@
+<view class='book_img '>
+  <image src="{{book_img}}" data-src="{{book_img}}" bindtap='preview_img'></image>
+</view>
+
+<view style='font-size:12px;margin:8px 0;line-height:19px;'>
+  <view class='table_header'>
+    <view style='width:25%;'>{{table.index}}</view>
+    <view style='width:19%;'>{{table.tiao_ma}}</view>
+    <view style='width:35%;'>{{table.xiao_qu}}</view>
+    <view style='width:20%;'>{{table.status}}</view>
+  </view>
+  <block wx:for="{{borrow_info}}">
+    <view class='table'>
+      <view style='width:25%;'>{{item.index}}</view>
+      <view style='width:19%;'>{{item.tiao_ma}}</view>
+      <view style='width:35%;'>{{item.xiao_qu}}</view>
+      <view style='width:20%;'>{{item.status}}</view>
+    </view>
+  </block>
+</view>
+<view class=' book_detail '>
+  <block wx:for="{{book_info}}">
+    <view class='detail'>
+      <view class='detail_title'>{{item.title}}</view>
+      <view class='detail_content'>{{item.content}}</view>
+    </view>
+  </block>
+</view>

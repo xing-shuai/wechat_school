@@ -1,0 +1,123 @@
+.setting {
+  background-color: #f0f0f0;
+  height: 90px;
+  overflow: hidden;
+}
+
+.setting_hover {
+  background-color: #179b16;
+}
+
+.setting_button {
+  width: 20%;
+  text-align: center;
+  padding-top: 31px;
+  height: 58px;
+  background-color: #1aac19;
+  color: white;
+}
+
+.setting_info {
+  padding: 0px 10px 10px 10px;
+  font-size: 15px;
+  color: gray;
+}
+
+.set {
+  display: flex;
+  padding: 10px;
+}
+
+.set label {
+  width: 23%;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.set slider {
+  width: 64%;
+}
+
+.setting  button {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.multi {
+  border-top: 1px solid #e8e9e9;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+}
+
+.muolti_set {
+  display: flex;
+  padding: 25px 10px 20px 20px;
+}
+
+.muolti_set label {
+  width: 12%;
+  font-size: 17px;
+  margin-top: 6px;
+}
+
+.muolti_set slider {
+  width: 74%;
+}
+
+.muolti_op {
+  display: flex;
+  margin: 0 auto;
+}
+
+.stu_list {
+  display: flex;
+  padding-top: 10px;
+  border-bottom: 1px solid #edece8;
+  padding-bottom: 10px;
+}
+
+.stu_image {
+  width: 30%;
+}
+
+.stu_image image {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto;
+  display: block;
+}
+
+.stu_info {
+  width: 60%;
+  font-size: 14px;
+}
+
+.stu_info label {
+  margin-right: 10px;
+}
+
+.pingding {
+  width: 15%;
+  text-align: center;
+  padding-top: 21px;
+  font-size: 15px;
+  border-left: 1px solid #edece8;
+}
+
+.pingding_hover {
+  background-color: #f0f0f0;
+}
+
+.float_button {
+  width: 60px;
+  background-color: #f00;
+  border-radius: 32px;
+  height: 60px;
+  text-align: center;
+  line-height: 68px;
+  color: white;
+  position: fixed;
+  right: 26px;
+  box-shadow: 5px 6px 20px 0px #dcdada;
+}

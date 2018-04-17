@@ -1,0 +1,46 @@
+<form style='height:{{height}}px'>
+  <view>
+    <picker disabled='{{picker_attendance_type}}' bindchange='choose_attendance' value='{{attendance_type_index}}' range="{{attendance_type}}" range-key="name">
+      <view class='picker_label'>
+        <view class='label'>方式:</view>
+        <view class='type'>{{attendance_type[attendance_type_index].name}}</view>
+      </view>
+    </picker>
+    <view class='form_input'>
+      <view class='form_label' style='margin-top:8px;'>人数:</view>
+      <slider bindchange='select_attendance_count' min='1' max="{{attendance_total}}" disabled="{{slider_attendance_count}}" name='attendance_count' value='{{attendance_count}}' show-value="true"></slider>
+    </view>
+  </view>
+
+  <view wx:if="{{is_begin}}">
+    <view>
+      <image class='stu_head' src='{{attendancing_stu[current_index].head_url?attendancing_stu[current_index].head_url:"../../../../../resources/icons/default_user_boy.png"}}'></image>
+    </view>
+    <view class='stu_info'>
+      <view>{{attendancing_stu[current_index].name}}</view>
+      <view>{{attendancing_stu[current_index].stu_id}}</view>
+      <view>{{attendancing_stu[current_index].c_name}}</view>
+    </view>
+    <radio-group bindchange="radioChange">
+      <label>
+        <radio value="0" />请假
+      </label>
+      <label>
+        <radio value="1" />迟到
+      </label>
+      <label style='color:red;'>
+        <radio value="2" />缺勤
+      </label>
+      <label style='color:green;'>
+        <radio checked="true" value="3" />已到
+      </label>
+    </radio-group>
+    <button disabled='{{button_next_stu}}' style='width:98%;' bindtap='next_stu'>下一位({{current_index+1}}/{{attendance_count}})</button>
+  </view>
+
+  <view class='form_button'>
+    <button bindtap='begin' animation="{{begin_ani}}" style='bottom:-80px;z-index:10;' disabled="{{begin_attendance}}" type='primary'>开始</button>
+    <button bindtap='submit' animation="{{submit_ani}}" style='bottom:-39px;' disabled="{{submit_attendance}}" type='primary'>提交</button>
+    <button bindtap='cancel' animation="{{cancel_ani}}" style='bottom:2px;' disabled="{{cancel_attendance}}" type='warn'>取消</button>
+  </view>
+</form>

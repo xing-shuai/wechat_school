@@ -1,0 +1,19 @@
+<!--pages/newsContent/newsContent.wxml-->
+
+<view class='title'>
+  {{title}}
+</view>
+<view class='time'>
+  {{time}}
+</view>
+<text class='content'>
+  {{content}}
+</text>
+
+<!-- <block wx:if="{{dataType==0}}">
+  <text>text</text>
+</block>
+
+<block wx:else>
+  <image src='../../resources/images/me_head_boy.jpg'> </image>
+</block> -->

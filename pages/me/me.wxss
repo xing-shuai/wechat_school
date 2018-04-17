@@ -1,0 +1,57 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.me_menu {
+  height: 50px;
+  display: flex;
+  width: 93%;
+  margin: 0px auto;
+  border-bottom: 1px solid #edece8;
+  padding-top: 5px;
+}
+
+.me_menu .menu_icon {
+  height: 25px;
+  width: 25px;
+  margin: 12px 10px 12px 20px;
+}
+
+.me_menu .menu_open {
+  height: 20px;
+  width: 20px;
+  margin: 14px 0px 12px 20px;
+}
+
+.me_menu .menu_name {
+  padding-top: 12px;
+  color: gray;
+  width: 69%;
+}
+
+.user {
+  height: 65px;
+  display: flex;
+  padding: 10px 16px;
+  margin: 0 auto;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.user_head {
+  height: 65px;
+  width: 65px;
+}
+
+.user_info {
+  display: flex;
+  padding: 10px 0 0 10px;
+  width: 77%;
+}
+
+.edit_info {
+  height: 20px;
+  width: 20px;
+  float: right;
+  margin-top: 15px;
+}

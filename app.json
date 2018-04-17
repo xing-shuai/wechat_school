@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/course_t/dailygrade/dailygrade",
+    "pages/index/course_t/course",
+    "pages/index/course_t/attendance/attendancing/attendancing",
+    "pages/index/course_t/attendance/attendance",
+    "pages/index/course_t/attendance/attendance_detail/attendance_detail",
+    "pages/index/index",
+    "pages/me/me",
+    "pages/campus/campus",
+    "pages/campus/newsContent/newsContent",
+    "pages/bind/bind",
+    "pages/index/weather/weather",
+    "pages/index/school_scenery/school_scenery",
+    "pages/index/class_table/class_table",
+    "pages/index/library/library",
+    "pages/index/library/book/book",
+    "pages/index/course_t/more/more",
+    "pages/index/course_t/more/homework/homework"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1ABC9C",
+    "navigationBarTitleText": "智慧校园",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "校园",
+        "iconPath": "resources/icons/jiaoxue.png",
+        "selectedIconPath": "resources/icons/jiaoxue_selected.png"
+      },
+      {
+        "pagePath": "pages/campus/campus",
+        "text": "动态",
+        "iconPath": "resources/icons/school.png",
+        "selectedIconPath": "resources/icons/school_selected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我",
+        "iconPath": "resources/icons/me.png",
+        "selectedIconPath": "resources/icons/me_selected.png"
+      }
+    ]
+  }
+}

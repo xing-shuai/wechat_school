@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  background-color: white;
+  margin-top: 6px;
+  height: 57px;
+  margin-bottom: 6px;
+}
+
+.search_type {
+  padding: 19px 10px;
+  font-size: 15px;
+  width: 50px;
+  text-align: center;
+}
+
+.search_keyword {
+  height: 56px;
+  padding-left: 10px;
+  display: flex;
+}
+
+.search_keyword input {
+  font-size: 15px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  height: 28px;
+  margin-top: 9px;
+  padding: 4px 6px;
+  width: 69%;
+}
+
+.search_keyword button {
+  height: 30px;
+  margin: 13px 5px 0 5px;
+}
+
+page {
+  background-color: #f3f3f3;
+}
+
+.book_list {
+  font-size: 13px;
+  background-color: white;
+  border-bottom: 1px dashed gray;
+  padding: 10px;
+}
+
+.book_info {
+  display: flex;
+  margin: 6px 0;
+}
+
+.book_name {
+  width: 93%;
+  font-size: 14px;
+}
+
+.book_language {
+  color: gray;
+  font-size: 12px;
+}
+
+.book_detail {
+  display: flex;
+}
+
+.book_borrow {
+  color: gray;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.book_press {
+  width: 80%;
+}

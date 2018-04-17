@@ -1,0 +1,35 @@
+.item {
+  width: 100%;
+  display: flex;
+  padding-top: 16px;
+  margin-bottom: 1px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f0f0f0;
+  height: 74px;
+}
+
+.item_hover {
+  background-color: #f0f0f0;
+}
+
+.head {
+  width: 27%;
+}
+
+.head image {
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+  display: block;
+}
+
+.info {
+  width: 70%;
+  margin-left: 14px;
+}
+
+.info_d {
+  display: flex;
+  font-size: 14px;
+  padding: 5px 0 5px 10px;
+}

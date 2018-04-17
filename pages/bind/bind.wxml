@@ -1,0 +1,22 @@
+<view class='header'>
+  <image src='/resources/images/school_logo.jpg' style='height:65px;width:65px;'></image>
+  <view style='text-align:center;width:74%;padding-top:19px;'>安徽工业大学智慧校园</view>
+</view>
+
+
+<form bindsubmit="formSubmit" class="form_panel">
+  <view class="section">
+    <image src='/resources/icons/user.png' style='margin-top:3px;'></image>
+    <input name="number" type='number' style='padding:1px 0 10px 10px;margin-left:9px;' placeholder="学号/工号" />
+  </view>
+  <view class="section">
+    <image src='/resources/icons/identity.png' style='margin-top:3px;'></image>
+    <radio-group name="identity" style='padding:0 0 10px 16px;'>
+      <label style='color:gray;margin-right:14px;'>
+        <radio value="s" checked='true' />学生</label>
+      <label styleradio='color:gray;'>
+        <radio value="t" />老师</label>
+    </radio-group>
+  </view>
+  <button form-type='submit' class='bind_button'>绑定</button>
+</form>

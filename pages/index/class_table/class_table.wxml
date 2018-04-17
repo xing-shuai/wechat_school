@@ -1,0 +1,131 @@
+<view>
+  <view class='week'>
+    <view style='width:5%;'></view>
+    <view  class='week_'wx:for="{{week}}">{{item}}</view>
+  </view>
+
+  <view class='classes'>
+    <text class='class_time' style='width:5%;'>1</text>
+    <view data-e_course_id="{{eci_c_1_1}}">
+      <text style='padding-top:{{pad_c_1_1}}'>{{c_1_1}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_2_1}}">
+      <text style='padding-top:{{pad_c_2_1}}'>{{c_2_1}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_3_1}}">
+      <text style='padding-top:{{pad_c_3_1}}'>{{c_3_1}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_4_1}}">
+      <text style='padding-top:{{pad_c_4_1}}'>{{c_4_1}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_5_1}}">
+      <text style='padding-top:{{pad_c_5_1}}'>{{c_5_1}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_6_1}}">
+      <text style='padding-top:{{pad_c_6_1}}'>{{c_6_1}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_7_1}}">
+      <text style='padding-top:{{pad_c_7_1}}'>{{c_7_1}}</text>
+    </view>
+  </view>
+
+  <view class='classes'>
+    <text class='class_time' style='width:5%;'>2</text>
+    <view data-e_course_id="{{eci_c_1_2}}">
+      <text style='padding-top:{{pad_c_1_2}}'>{{c_1_2}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_2_2}}">
+      <text style='padding-top:{{pad_c_2_2}}'>{{c_2_2}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_3_2}}">
+      <text style='padding-top:{{pad_c_3_2}}'>{{c_3_2}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_4_2}}">
+      <text style='padding-top:{{pad_c_4_2}}'>{{c_4_2}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_5_2}}">
+      <text style='padding-top:{{pad_c_5_2}}'>{{c_5_2}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_6_2}}">
+      <text style='padding-top:{{pad_c_6_2}}'>{{c_6_2}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_7_2}}">
+      <text style='padding-top:{{pad_c_7_2}}'>{{c_7_2}}</text>
+    </view>
+  </view>
+
+  <view class='classes'>
+    <text class='class_time' style='width:5%;'>3</text>
+    <view data-e_course_id="{{eci_c_1_3}}">
+      <text style='padding-top:{{pad_c_1_3}}'>{{c_1_3}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_2_3}}">
+      <text style='padding-top:{{pad_c_2_3}}'>{{c_2_3}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_3_3}}">
+      <text style='padding-top:{{pad_c_3_3}}'>{{c_3_3}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_4_3}}">
+      <text style='padding-top:{{pad_c_4_3}}'>{{c_4_3}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_5_3}}">
+      <text style='padding-top:{{pad_c_5_3}}'>{{c_5_3}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_6_3}}">
+      <text style='padding-top:{{pad_c_6_3}}'>{{c_6_3}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_7_3}}">
+      <text style='padding-top:{{pad_c_7_3}}'>{{c_7_3}}</text>
+    </view>
+  </view>
+
+  <view class='classes'>
+    <text class='class_time' style='width:5%;'>4</text>
+    <view data-e_course_id="{{eci_c_1_4}}">
+      <text style='padding-top:{{pad_c_1_4}}'>{{c_1_4}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_2_4}}">
+      <text style='padding-top:{{pad_c_2_4}}'>{{c_2_4}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_3_4}}">
+      <text style='padding-top:{{pad_c_3_4}}'>{{c_3_4}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_4_4}}">
+      <text style='padding-top:{{pad_c_4_4}}'>{{c_4_4}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_5_4}}">
+      <text style='padding-top:{{pad_c_5_4}}'>{{c_5_4}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_6_4}}">
+      <text style='padding-top:{{pad_c_6_4}}'>{{c_6_4}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_7_4}}">
+      <text style='padding-top:{{pad_c_7_4}}'>{{c_7_4}}</text>
+    </view>
+  </view>
+
+  <view class='classes'>
+    <text class='class_time' style='width:5%;'>5</text>
+    <view data-e_course_id="{{eci_c_1_5}}">
+      <text style='padding-top:{{pad_c_1_5}}'>{{c_1_5}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_2_5}}">
+      <text style='padding-top:{{pad_c_2_5}}'>{{c_2_5}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_3_5}}">
+      <text style='padding-top:{{pad_c_3_5}}'>{{c_3_5}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_4_5}}">
+      <text style='padding-top:{{pad_c_4_5}}'>{{c_4_5}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_5_5}}">
+      <text style='padding-top:{{pad_c_5_5}}'>{{c_5_5}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_6_5}}">
+      <text style='padding-top:{{pad_c_6_5}}'>{{c_6_5}}</text>
+    </view>
+    <view data-e_course_id="{{eci_c_7_5}}">
+      <text style='padding-top:{{pad_c_7_5}}'>{{c_7_5}}</text>
+    </view>
+  </view>
+</view>

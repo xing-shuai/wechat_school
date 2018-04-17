@@ -1,0 +1,89 @@
+form {
+  width: 98%;
+  display: block;
+  margin: 0 auto;
+}
+
+.form_input {
+  display: flex;
+  padding: 0px 5px;
+  font-size: 15px;
+}
+
+.form_label {
+  width: 20%;
+  text-align: center;
+}
+
+slider {
+  width: 75%;
+  margin: 10px 0 10px 15px;
+}
+
+picker {
+  font-size: 15px;
+  padding: 2px 5px;
+}
+
+.picker_label {
+  display: flex;
+}
+
+.picker_label .type {
+  height: 26px;
+  border: 1px solid gray;
+  width: 67%;
+  padding: 5px 0 0 20px;
+  border-radius: 20px;
+}
+
+.picker_label .label {
+  width: 20%;
+  margin-top: 6px;
+  margin-right: 6px;
+  text-align: center;
+}
+
+.form_button {
+  position: absolute;
+  width: 98%;
+  bottom: 2px;
+  height: 124px;
+}
+
+.form_button button {
+  margin-top: 2px;
+  height: 39px;
+  line-height: 38px;
+  font-size: 15px;
+}
+
+.stu_head {
+  padding-top: 16px;
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  display: block;
+}
+
+.stu_info {
+  display: flex;
+}
+
+.stu_info view {
+  padding: 16px;
+  text-align: center;
+  width: 30%;
+  font-size: 15px;
+}
+
+radio-group {
+  display: flex;
+  margin: 3px 5px 20px 5px;
+}
+
+radio-group label {
+  width: 25%;
+  display: block;
+  text-align: center;
+}

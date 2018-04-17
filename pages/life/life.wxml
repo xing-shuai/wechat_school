@@ -1,0 +1,32 @@
+<view class="card">
+  <image src="../../resources/images/sunny.png" style="width:100%;height:100%;border-radius:3px;">
+  </image>
+  <view class="weather_title">
+    <view class="weather_location">马鞍山</view>
+    <view class="weather_time">2018.4.1</view>
+  </view>
+  <view class="weather_tempture">
+    <view class="">22</view>
+    <view class="">℃</view>
+  </view>
+</view>
+
+<view class="card">
+  <map 
+  latitude="{{latitude}}" 
+  longitude="{{longitude}}" 
+  style="width:100%;height:100%;border-radius:3px;"
+  controls='{{controls}}'
+  bindcontroltap='controTap'
+  >
+  </map>
+
+</view>
+
+
+<view class="card">
+
+</view>
+<view class="card">
+
+</view>

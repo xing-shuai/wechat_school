@@ -1,0 +1,8 @@
+<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='scrolltolower'>
+  <block wx:for="{{images}}">
+    <view style='padding:9px;' data-img-url="{{host+item.url}}" bindtap='prereview'>
+      <image style='border-radius:3px;' src="{{host+item.url}}"> </image>
+      <view style='text-align:center;'>{{item.description}}</view>
+    </view>
+  </block>
+</scroll-view>

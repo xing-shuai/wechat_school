@@ -1,0 +1,15 @@
+<block wx:for="{{courses}}">
+  <view class='card' style="background-color:{{colors[index%7]}};">
+    <view class='course_name'>{{item.course}}</view>
+    <view class='course_detail'>
+      <view style='width:75%;'>{{item.course_time}}</view>
+      <view>{{item.course_place}}</view>
+    </view>
+    <view class='card_button'>
+      <view class='kaoqin_count'>已考勤{{item.kaoqin_count}}次</view>
+      <view class='kaoqin' data-e_course_id="{{item.esc_id}}" bindtap='attendance'>考勤</view>
+      <view class='kaoqin' data-e_course_id="{{item.esc_id}}" bindtap='dailygrade'>平时分</view>
+      <view data-e_course_id="{{item.esc_id}}" bindtap='more'>更多</view>
+    </view>
+  </view>
+</block>

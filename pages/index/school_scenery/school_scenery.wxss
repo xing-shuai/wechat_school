@@ -1,0 +1,10 @@
+/* pages/index/school_scenery/school_scenery.wxss */
+
+page {
+  background-color: #f7f7f7;
+}
+
+image {
+  width: 100%;
+  height: 253px;
+}

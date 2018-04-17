@@ -1,0 +1,5 @@
+.card{border:1px solid #EDECE8;height:196px;margin:11px auto;width:95%;box-shadow:0px 0px 10px -1px #bbbbbb;border-radius:5px;margin-bottom:12px;}
+.weather_title{height:50px;display:flex;text-align:center;margin-top:-197px;color:white;}
+.weather_location{width: 43%;margin-top:12px;}
+.weather_time{width: 57%;margin-top:12px;}
+.weather_tempture{display:flex;font-size:67px;color:white;padding-left:184px;margin-top:6px;}

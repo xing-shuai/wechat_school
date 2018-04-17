@@ -1,0 +1,39 @@
+<view class='header'>
+
+  <picker class='search_type' bindchange='picker_change' value='{{search_type_index}}' range='{{search_type_array}}' range-key='text'>
+    {{search_type_array[search_type_index].text}}
+  </picker>
+
+  <form style="width: 85%;" bindsubmit='search'>
+    <view class='search_keyword'>
+      <input name='keyword' placeholder='输入查询关键字'></input>
+      <button size='mini' type='primary' form-type='submit'>搜索</button>
+    </view>
+  </form>
+
+</view>
+
+<template name="list_item">
+  <navigator class='book_list' url='book/book?book_id={{book_id}}'>
+    <view class='book_info'>
+      <view class='book_name'>{{book_name}}</view>
+      <view class='book_language'>{{book_language_type}}</view>
+    </view>
+    <view class='book_detail'>
+      <view class='book_press'>
+        <view>{{book_index}}</view>
+        <view>{{book_author+' '+book_press}}</view>
+      </view>
+      <view class='book_borrow'>
+        <view>{{book_store_info}}</view>
+        <view>{{book_borrow_info}}</view>
+      </view>
+    </view>
+  </navigator>
+</template>
+
+<scroll-view bindscrolltolower='scrolltolower' scroll-y="true" style='height:{{scroll_height}}px'>
+  <block wx:for="{{books}}">
+    <template is='list_item' data="{{...item}}" />
+  </block>
+</scroll-view>

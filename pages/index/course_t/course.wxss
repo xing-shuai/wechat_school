@@ -1,0 +1,33 @@
+.card {
+  margin: 10px;
+  border-radius: 5px;
+  height: 110px;
+}
+
+.course_name {
+  font-size: 19px;
+  color: white;
+  padding: 10px;
+}
+
+.course_detail {
+  display: flex;
+  color: white;
+  padding: 0px 0 10px 10px;
+  font-size: 13px;
+}
+
+.card_button {
+  display: flex;
+  color: white;
+}
+
+.kaoqin {
+  margin-right: 15px;
+}
+
+.kaoqin_count {
+  width: 45%;
+  font-size: 13px;
+  padding: 5px 10px;
+}

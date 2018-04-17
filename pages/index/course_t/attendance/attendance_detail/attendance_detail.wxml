@@ -1,0 +1,19 @@
+<block wx:for="{{absences}}">
+  <view class="item" bindtap='press' hover-class='item_hover' data-absence-id="{{item.id}}">
+    <view class='head'>
+      <image src="{{item.stu_head?item.stu_head:'../../../../../resources/icons/default_user_boy.png'}}" data-stu-number="{{item.student_id}}" catchtap='check_stu'></image>
+    </view>
+    <view class='info'>
+      <view class='info_d'>
+        <view style='width:27%;font-size:15px;'>{{item.stu_name}}</view>
+        <view style='font-size:15px;width:115px;'>{{item.student_id}}</view>
+        <view style='font-size:15px;'>{{absence_type[item.absence_type]}}</view>
+      </view>
+      <view class='info_d' style='color:gray;'>
+        <view style='width:47%;'>{{item.stu_class_name}}</view>
+        <view style='margin-right:11px;'>总缺勤次数</view>
+        <view>{{item.absence_count}}</view>
+      </view>
+    </view>
+  </view>
+</block>

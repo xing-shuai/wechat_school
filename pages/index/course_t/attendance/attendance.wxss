@@ -1,0 +1,84 @@
+/* pages/index/course_t/attendance/attendance.wxss */
+
+.card {
+  display: flex;
+  height: 95px;
+  font-size: 16px;
+}
+
+.card_hover {
+  background-color: #f3f3f3;
+}
+
+.left {
+  width: 22%;
+}
+
+.line_top {
+  height: 38px;
+}
+
+.line_top view {
+  width: 0px;
+  border: 1px solid #dcdcdc;
+  height: inherit;
+  margin: 0 auto;
+  background-color: #dcdcdc;
+}
+
+.circle {
+  height: 17px;
+}
+
+.circle view {
+  width: 13px;
+  height: 13px;
+  border-radius: 15px;
+  border: 2px solid #63d6f5;
+  margin: 0 auto;
+}
+
+.line_down view {
+  width: 0px;
+  border: 1px solid #dcdcdc;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #dcdcdc;
+}
+
+.time {
+  padding: 35px 20px 0 0;
+  font-size: 15px;
+  width: 25%;
+}
+
+.record {
+  padding: 25px 0 0 10px;
+  width: 51%;
+}
+
+.record_info {
+  display: flex;
+  font-size: 14px;
+  padding: 0 0 5px 0;
+}
+
+.record_number {
+  display: flex;
+  font-size: 13px;
+  color: gray;
+}
+
+.float_button {
+  width: 60px;
+  background-color: #1eadbf;
+  border-radius: 32px;
+  height: 60px;
+  text-align: center;
+  line-height: 57px;
+  color: white;
+  position: fixed;
+  right: 26px;
+  box-shadow: 5px 6px 20px 0px #dcdada;
+  font-size: 23px;
+}

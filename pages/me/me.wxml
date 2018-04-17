@@ -1,0 +1,41 @@
+<view class='user'>
+  <image class='user_head' src="../../resources/icons/default_user_boy.png"></image>
+  <view class='user_info'>
+    <view style='width:90%;'>
+      <view>邢帅</view>
+      <view style='font-size:14px;color:gray;margin-top:2px;'>查看主页或修改资料</view>
+    </view>
+    <image class='edit_info' src='../../resources/icons/open.png'></image>
+  </view>
+</view>
+
+<view style='background-color:white;margin-bottom:10px;'>
+  <view class='me_menu'>
+    <image class='menu_icon' src='../../resources/icons/classes.png'></image>
+    <view class='menu_name'>我的班级</view>
+    <image class='menu_open' src='../../resources/icons/open.png'></image>
+  </view>
+  <view class='me_menu'>
+    <image class='menu_icon' src='../../resources/icons/dynamic.png'></image>
+    <view class='menu_name'>我的动态</view>
+    <image class='menu_open' src='../../resources/icons/open.png'></image>
+  </view>
+  <view class='me_menu'>
+    <image class='menu_icon' src='../../resources/icons/notification.png'></image>
+    <view class='menu_name'>我的消息</view>
+    <image class='menu_open' src='../../resources/icons/open.png'></image>
+  </view>
+</view>
+
+<view style='background-color:white;'>
+  <view class='me_menu'>
+    <image class='menu_icon' src='../../resources/icons/setting.png'></image>
+    <view class='menu_name'>设置</view>
+    <image class='menu_open' src='../../resources/icons/open.png'></image>
+  </view>
+  <view class='me_menu'>
+    <image class='menu_icon' src='../../resources/icons/about.png'></image>
+    <view class='menu_name'>关于</view>
+    <image class='menu_open' src='../../resources/icons/open.png'></image>
+  </view>
+</view>
