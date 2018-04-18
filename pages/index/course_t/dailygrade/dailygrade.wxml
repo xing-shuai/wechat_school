@@ -17,11 +17,11 @@
   <view>
     <view class='set'>
       <label>缺勤</label>
-      <slider disabled='{{queqin}}' show-value='true' max='5' value='1'></slider>
+      <slider disabled='{{queqin}}' show-value='true' max='5' value='{{queqin_value}}'></slider>
     </view>
     <view class='set'>
       <label>作业未交</label>
-      <slider disabled='{{zuoye}}' show-value='true' max='5' value='1'></slider>
+      <slider disabled='{{zuoye}}' show-value='true' max='5' value='{{zuoye_value}}'></slider>
     </view>
   </view>
 
@@ -31,24 +31,24 @@
 <checkbox-group bindchange="checkboxChange">
   <scroll-view animation="{{ani_muti_panel}}" scroll-y="true" style='height:{{height}}px'>
 
-    <block wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}">
+    <block wx:for="{{stu}}">
       <view class='stu_list'>
         <checkbox style='margin:21px -15px 0 10px;' wx:if="{{multi_mode}}" value="{{index}}" checked="{{default_checkbox}}" />
         <view class='stu_image'>
-          <image src='../../../../resources/icons/default_user_boy.png'></image>
+          <image src='{{item.head?item.head:"../../../../resources/icons/default_user_boy.png"}}'></image>
         </view>
         <view class='stu_info'>
-          <view style='padding:11px 0 0 0;font-size:17px;'>
-            <label>邢帅</label>
-            <label>计142</label>
-            <label>149074064</label>
+          <view style='padding:11px 0 0 0;font-size:15px;'>
+            <label>{{item.name}}</label>
+            <label>{{item.c_name}}</label>
+            <label>{{item.stu_id}}</label>
           </view>
           <view style='display:flex;padding:6px 0 0 0;color:gray;'>
-            <label>期末成绩90</label>
-            <label>平时分90</label>
+            <label>期末成绩:{{item.f_grade?item.f_grade:"--"}}</label>
+            <label>平时分:{{item.p_grade}}</label>
           </view>
         </view>
-        <view wx:if="{{!multi_mode}}" hover-class='pingding_hover' class='pingding'>评定</view>
+        <view wx:if="{{!multi_mode}}" data-stu-index="{{index}}" hover-class='pingding_hover' class='pingding'>评定</view>
       </view>
     </block>
   </scroll-view>

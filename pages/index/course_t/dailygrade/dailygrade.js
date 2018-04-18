@@ -1,5 +1,4 @@
-var url = getApp().globalData.server_url;
-var common = require("../../../../utils/util.js");
+var common = require("../../../../utils/util.js")
 
 Page({
   data: {
@@ -8,8 +7,10 @@ Page({
     stu: [],
     switch_checked: true,
     auto_switch: true,
-    queqin: true,
-    zuoye: true,
+    queqin: false,
+    zuoye: false,
+    queqin_value: 1,
+    zuoye_value: 1,
     setting_mode: false,
     multi_mode: false,
     muti_panel: true,
@@ -20,13 +21,42 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.setData({
-      // e_course_id: options.e_course_id,
-      switch_checked: false
+      // e_course_id: options.e_course_id
     });
     wx.getSystemInfo({
       success: function (res) {
         that.setData({ height: res.windowHeight - 90 })
       },
+    });
+    wx.showLoading({
+      title: '加载设置',
+    })
+    //加载设置
+    common.get_request({
+      url: '/teacher/get_dailygrade_setting?e_course_id=' + that.data.e_course_id,
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          switch_checked: res.data.auto,
+          queqin_value: res.data.queqin,
+          zuoye_value: res.data.zuoye,
+          queqin: res.data.auto ? false : true,
+          zuoye: res.data.auto ? false : true
+        });
+        that.loadStu();
+      }
+    })
+  },
+  //加载学生列表
+  loadStu: function () {
+    var that = this;
+    common.get_request({
+      url: '/teacher/get_students?e_course_id=' + that.data.e_course_id,
+      success: function (res_) {
+        that.setData({
+          stu: res_.data
+        });
+      }
     })
   },
   //设置
@@ -36,7 +66,7 @@ Page({
       timingFunction: 'ease'
     });
     this.setData({
-      ani_settingData: animation.height(256).step().export(),
+      ani_settingData: animation.height(260).step().export(),
       auto_switch: false,
       setting_mode: true,
       multi_mode: false,
@@ -134,32 +164,26 @@ Page({
       title: '保存中...',
     });
     var stu = [];
-    for (var i in that.data.multi_pingding) {
-      stu.push(that.data.stu[i].stu_id);
-    }
-    wx.request({
-      url: url + '/teacher/set_performance_score',
-      method: "POST",
+    that.data.multi_pingding.forEach(function (currentValue) {
+      stu.push(that.data.stu[currentValue].stu_id);
+    })
+    common.post_request({
+      url: '/teacher/set_performance_score',
       data: {
         "e_course_id": that.data.e_course_id,
         "stu": stu,
         "dailygrade": that.data.multi_grade
       },
-      // header: {
-
-      // },
+      header: {
+      },
       success: function (res) {
         wx.hideLoading();
-        if (res.data.code == 1) {
-
+        if (res.data.code === 1) {
           common.showMsg("保存成功", "success");
-        } else {
-          common.showMsg("保存失败");
+          that.loadStu();
         }
-      },
-      fail: function () {
-        wx.hideLoading();
-        common.shoMsg("出错啦");
+        else
+          common.showMsg("保存失败")
       }
     })
   }

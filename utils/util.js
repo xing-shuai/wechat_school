@@ -13,7 +13,7 @@ const showMsg = function (msg, icon) {
 }
 
 const getWeatherImg = function (weather_info) {
-  var img_url='';
+  var img_url = '';
   switch (weather_info) {
     case '多云': {
       img_url += "cloudy";
@@ -46,7 +46,42 @@ const getWeatherImg = function (weather_info) {
   return img_url;
 }
 
+const get_request = function (config) {
+  var server_url = getApp().globalData.server_url;
+  wx.request({
+    url: server_url + config.url,
+    header: config.header ? config.header : {},
+    success: function (res) {
+      config.success(res);
+    },
+    fail: function () {
+      wx.hideLoading();
+      wx.hideNavigationBarLoading();
+      showMsg("出错啦");
+    }
+  })
+}
+
+const post_request = function (config) {
+  var server_url = getApp().globalData.server_url;
+  wx.request({
+    url: server_url + config.url,
+    method: 'POST',
+    header: config.header ? config.header : {},
+    data: config.data,
+    success: function (res) {
+      config.success(res);
+    },
+    fail: function () {
+      wx.hideLoading();
+      wx.hideNavigationBarLoading();
+      showMsg("出错啦");
+    }
+  })
+}
+
 module.exports = {
   showMsg: showMsg,
-  getWeatherImg: getWeatherImg
+  get_request: get_request,
+  post_request: post_request
 }
