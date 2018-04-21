@@ -16,12 +16,13 @@ Page({
     muti_panel: true,
     multi_pingding: [],
     start_multi_pingding: false,
-    multi_grade: 80
+    multi_grade: 80,
+    single_pingding_stu_index: 0
   },
   onLoad: function (options) {
     var that = this;
     that.setData({
-      // e_course_id: options.e_course_id
+      e_course_id: options.e_course_id
     });
     wx.getSystemInfo({
       success: function (res) {
@@ -79,21 +80,35 @@ Page({
       this.ani_start_multi("back");
     }
   },
+  queqin_change: function (e) {
+    this.setData({ queqin_value: e.detail.value });
+  },
+  zuoye_change: function (e) {
+    this.setData({ zuoye_value: e.detail.value });
+  },
   //保存设置
   save_setting: function (e) {
+    var that = this;
     var animation = wx.createAnimation({
       duration: 300,
       timingFunction: 'ease'
     })
-    this.setData({
-      ani_settingData: animation.height(90).step().export(),
-      auto_switch: true,
-      setting_mode: false
+    common.get_request({
+      url: '/teacher/modify_dailygrade_setting?e_course_id=' + that.data.e_course_id + "&switch_checked=" + that.data.switch_checked + "&queqin_value=" + that.data.queqin_value + "&zuoye_value=" + that.data.zuoye_value,
+      success: function (res) {
+        common.showMsg("以保存修改", "success");
+        that.setData({
+          ani_settingData: animation.height(90).step().export(),
+          auto_switch: true,
+          setting_mode: false
+        });
+      }
     });
   },
   switch_change: function (e) {
     var flag = e.detail.value ? false : true;
     this.setData({
+      switch_checked: e.detail.value,
       queqin: flag,
       zuoye: flag
     });
@@ -151,7 +166,8 @@ Page({
     });
     this.setData({
       muti_panel: mode == "back" ? false : true,
-      ani_muti_panel: mode == "back" ? animation.height(this.data.height).step().export() : animation.height(348).step().export()
+      ani_muti_panel: mode == "back" ? animation.height(this.data.height).step().export() : animation.height(348).step().export(),
+      multi_grade: mode == "back" ? this.data.multi_grade : 80
     })
   },
   multigradechange: function (e) {
@@ -164,9 +180,13 @@ Page({
       title: '保存中...',
     });
     var stu = [];
-    that.data.multi_pingding.forEach(function (currentValue) {
-      stu.push(that.data.stu[currentValue].stu_id);
-    })
+    if (that.data.start_multi_pingding) {
+      that.data.multi_pingding.forEach(function (currentValue) {
+        stu.push(that.data.stu[currentValue].stu_id);
+      })
+    } else {
+      stu.push(that.data.stu[that.data.single_pingding_stu_index].stu_id);
+    }
     common.post_request({
       url: '/teacher/set_performance_score',
       data: {
@@ -180,11 +200,26 @@ Page({
         wx.hideLoading();
         if (res.data.code === 1) {
           common.showMsg("保存成功", "success");
+          that.setData({
+            multi_mode: false,
+            default_checkbox: false,
+            single_pingding_stu_index: 0
+          });
+          if (that.data.start_multi_pingding) {
+            that.ani_start_multi("back");
+          }
+          that.ani_multi_panel("back");
           that.loadStu();
         }
         else
           common.showMsg("保存失败")
       }
     })
-  }
+  },
+  //单选评定
+  single_pingding: function (e) {
+    var that = this;
+    that.setData({ single_pingding_stu_index: e.currentTarget.dataset.stuIndex });
+    that.ani_multi_panel("show");
+  },
 })

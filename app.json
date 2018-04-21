@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/course_t/dailygrade/dailygrade",
     "pages/index/course_t/course",
+    "pages/index/course_t/dailygrade/dailygrade",
     "pages/index/course_t/attendance/attendancing/attendancing",
     "pages/index/course_t/attendance/attendance",
     "pages/index/course_t/attendance/attendance_detail/attendance_detail",

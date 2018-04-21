@@ -25,11 +25,12 @@ Page({
     current_index: 0,
     current_absence_type: 3,
     attendancing_stu: [],
-    absence_stu: []
+    absence_stu: [],
+    default_check: true
   },
   onLoad: function (options) {
     var that = this;
-    this.setData({ e_course_id: options.e_course_id});
+    this.setData({ e_course_id: options.e_course_id });
     wx.getSystemInfo({
       success: function (res) {
         that.setData({ height: res.windowHeight })
@@ -124,7 +125,7 @@ Page({
       return;
     }
     //加载下一位
-    this.setData({ current_index: this.data.current_index + 1 });
+    this.setData({ current_index: this.data.current_index + 1, default_check: true });
   },
   end_attendance: function () {
     var that = this;

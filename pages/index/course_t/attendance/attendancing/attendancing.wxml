@@ -32,7 +32,7 @@
         <radio value="2" />缺勤
       </label>
       <label style='color:green;'>
-        <radio checked="true" value="3" />已到
+        <radio checked="{{default_check}}" value="3" />已到
       </label>
     </radio-group>
     <button disabled='{{button_next_stu}}' style='width:98%;' bindtap='next_stu'>下一位({{current_index+1}}/{{attendance_count}})</button>

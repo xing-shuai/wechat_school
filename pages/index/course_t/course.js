@@ -1,5 +1,5 @@
-var url = getApp().globalData.server_url;
-var common = require('../../../utils/util.js');
+var common = require('../../../utils/util.js')
+
 Page({
   data: {
     colors: ['#FFA500', '#409DEA', '#F46665', '#9563B2', '#04C576', '#02497F', '#7A9CB5'],
@@ -18,21 +18,17 @@ Page({
     var that = this;
     wx.showLoading({
       title: '加载课程'
-    })
-    wx.request({
-      url: url + '/teacher/get_courses',
+    });
+    common.get_request({
+      url: '/teacher/get_courses',
       // header: {
       //   'cookie': wx.getStorageSync("sessionid")
       // },
       success: function (res) {
         that.setData({ courses: res.data });
-        wx.hideLoading();
-      },
-      fail: function () {
-        wx.hideLoading();
-        common.showMsg("出错啦");
+        wx.hideLoading()
       }
-    })
+    });
   },
   attendance: function (e) {
     wx.navigateTo({

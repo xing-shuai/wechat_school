@@ -7,8 +7,8 @@
         <switch bindchange='switch_change' checked='{{switch_checked}}' disabled='{{auto_switch}}' style='float:right;'></switch>
       </view>
       <view class='setting_info'>
-        <label style='margin-right:15px;'>缺勤：1分/次</label>
-        <label>作业未交：1分/次</label>
+        <label style='margin-right:15px;'>缺勤：{{queqin_value}}分/次</label>
+        <label>作业未交：{{zuoye_value}}分/次</label>
       </view>
     </view>
     <view bindtap='setting' class='setting_button' hover-class='setting_hover'>设置</view>
@@ -17,11 +17,11 @@
   <view>
     <view class='set'>
       <label>缺勤</label>
-      <slider disabled='{{queqin}}' show-value='true' max='5' value='{{queqin_value}}'></slider>
+      <slider bindchange='queqin_change' disabled='{{queqin}}' show-value='true' max='5' value='{{queqin_value}}'></slider>
     </view>
     <view class='set'>
       <label>作业未交</label>
-      <slider disabled='{{zuoye}}' show-value='true' max='5' value='{{zuoye_value}}'></slider>
+      <slider bindchange='zuoye_change' disabled='{{zuoye}}' show-value='true' max='5' value='{{zuoye_value}}'></slider>
     </view>
   </view>
 
@@ -48,7 +48,7 @@
             <label>平时分:{{item.p_grade}}</label>
           </view>
         </view>
-        <view wx:if="{{!multi_mode}}" data-stu-index="{{index}}" hover-class='pingding_hover' class='pingding'>评定</view>
+        <view wx:if="{{!multi_mode}}" data-stu-index="{{index}}" hover-class='pingding_hover' class='pingding' bindtap='single_pingding'>评定</view>
       </view>
     </block>
   </scroll-view>
