@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/index/course_t/course",
     "pages/index/course_t/dailygrade/dailygrade",
     "pages/index/course_t/attendance/attendancing/attendancing",
     "pages/index/course_t/attendance/attendance",
     "pages/index/course_t/attendance/attendance_detail/attendance_detail",
-    "pages/index/index",
     "pages/me/me",
     "pages/campus/campus",
     "pages/campus/newsContent/newsContent",
@@ -15,8 +15,7 @@
     "pages/index/class_table/class_table",
     "pages/index/library/library",
     "pages/index/library/book/book",
-    "pages/index/course_t/more/more",
-    "pages/index/course_t/more/homework/homework"
+    "pages/index/course_t/notification/notification"
   ],
   "window": {
     "backgroundTextStyle": "light",

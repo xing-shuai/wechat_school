@@ -1,4 +1,4 @@
-// pages/index/course_t/more/homework/homework.js
+// pages/index/course_t/notification/notification.js
 Page({
 
   /**
