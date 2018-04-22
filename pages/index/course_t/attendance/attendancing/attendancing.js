@@ -125,7 +125,7 @@ Page({
       return;
     }
     //加载下一位
-    this.setData({ current_index: this.data.current_index + 1, default_check: true });
+    this.setData({ current_index: this.data.current_index + 1, default_check: true, current_absence_type: 3 });
   },
   end_attendance: function () {
     var that = this;

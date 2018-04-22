@@ -6,11 +6,9 @@ Page({
     courses: [],
     // animationData1: {},
     // animationData2: {},
-    // button_show: false
+    // button_show: false,
   },
   onLoad: function (options) {
-  },
-  onShow: function () {
     var that = this;
     wx.showLoading({
       title: '加载课程'
@@ -41,4 +39,17 @@ Page({
       url: 'notification/notification?e_course_id=' + e.currentTarget.dataset.e_course_id
     })
   },
+  onPullDownRefresh: function () {
+    var that = this;
+    common.get_request({
+      url: '/teacher/get_courses',
+      // header: {
+      //   'cookie': wx.getStorageSync("sessionid")
+      // },
+      success: function (res) {
+        that.setData({ courses: res.data });
+        wx.stopPullDownRefresh();
+      }
+    });
+  }
 })

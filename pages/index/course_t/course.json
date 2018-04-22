@@ -1,5 +1,7 @@
 {
   "navigationBarBackgroundColor": "white",
   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "课程列表"
+  "navigationBarTitleText": "课程列表",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

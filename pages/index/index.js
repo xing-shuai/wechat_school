@@ -3,6 +3,7 @@ var common = require('../../utils/util.js')
 
 Page({
   data: {
+    display: false,
     imgUrls: [
       url + '/image/school1.jpg',
       url + '/image/school2.jpg',
@@ -28,7 +29,7 @@ Page({
         'cookie': wx.getStorageSync("sessionid")
       },
       success: function (res) {
-        that.setData({ user_type: res.data.user_type });
+        that.setData({ user_type: res.data.user_type, display: true });
       }
     })
   },

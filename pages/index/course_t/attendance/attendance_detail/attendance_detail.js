@@ -5,7 +5,7 @@ Page({
   data: {
     absences: [],
     height: 0,
-    absence_type: ['缺勤', '迟到', '请假'],
+    absence_type: ['请假', '迟到', '缺勤'],
     attendance_id: ''
   },
   loadList: function () {
@@ -58,7 +58,7 @@ Page({
       })
     }
     wx.showActionSheet({
-      itemList: ["缺勤", "迟到", "请假", "删除"],
+      itemList: ["请假", "迟到", "缺勤", "删除"],
       success: function (res) {
         if (res.tapIndex == 3) {
           wx.showModal({

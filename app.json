@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/index/course_t/course",
     "pages/index/course_t/notification/notification",
     "pages/index/course_t/notification/notiop/notiop",
-    "pages/index/index",
     "pages/index/course_t/dailygrade/dailygrade",
     "pages/index/course_t/attendance/attendancing/attendancing",
     "pages/index/course_t/attendance/attendance",

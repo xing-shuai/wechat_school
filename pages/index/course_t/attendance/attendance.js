@@ -31,10 +31,10 @@ Page({
       success: function (res) {
         wx.hideNavigationBarLoading();
         if (res.data.has_next_page) {
-          that.setData({ attendance_records: res.data.data, has_next_page: true, cur_page: that.data.cur_page + 1 });
+          that.setData({ attendance_records: that.data.attendance_records.concat(res.data.data), has_next_page: true, cur_page: that.data.cur_page + 1 });
           return;
         }
-        that.setData({ attendance_records: res.data.data, has_next_page: false, cur_page: that.data.cur_page });
+        that.setData({ attendance_records: that.data.attendance_records.concat(res.data.data), has_next_page: false, cur_page: that.data.cur_page });
       },
       fail: function () {
         wx.hideNavigationBarLoading();
@@ -44,6 +44,11 @@ Page({
   },
   onShow: function () {
     wx.showNavigationBarLoading()
+    this.setData({
+      attendance_records: [],
+      has_next_page: true,
+      cur_page: 0
+    })
     this.loadList();
   },
   scrolltolower: function () {
