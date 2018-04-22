@@ -1,4 +1,5 @@
 {
-  "navigationBarBackgroundColor":"white",
-  "navigationBarTextStyle":"black"
+  "navigationBarBackgroundColor": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "课程列表"
 }

@@ -1,0 +1,15 @@
+<form bindsubmit="formSubmit" bindreset="formReset" wx:if="{{mode=='1'}}">
+  <input name='title' placeholder="标题" auto-focus/>
+  <textarea name='content' placeholder="正文"></textarea>
+  <view>
+    <button form-type='submit' type='primary'>发送</button>
+    <button formType="reset" type='warn'>取消</button>
+  </view>
+</form>
+
+
+<view wx:else style='background-color:white;'>
+  <view class='title'>{{title}}</view>
+  <view class='time'>{{time}}</view>
+  <text class='cotent'>{{content}}</text>
+</view>

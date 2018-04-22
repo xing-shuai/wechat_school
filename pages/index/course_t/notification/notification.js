@@ -1,66 +1,57 @@
-// pages/index/course_t/notification/notification.js
+var common = require("../../../../utils/util.js");
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    e_course_id: 'db048f31-3a35-11e8-8bfe-f46d04228b99',
+    notifications: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    this.setData({ e_course_id: options.e_course_id });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  load_list: function () {
+    var that = this;
+    common.get_request({
+      url: "/teacher/load_e_course_nitification?e_course_id=" + that.data.e_course_id,
+      success: function (res) {
+        that.setData({ notifications: res.data });
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-  
+    this.load_list();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  add_notification: function () {
+    wx.navigateTo({
+      url: 'notiop/notiop?mode=1&e_course_id=' + this.data.e_course_id,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  delete_noti: function (e) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ["删除"],
+      itemColor: 'red',
+      success: function (res) {
+        if (res.tapIndex === 0)
+          wx.showModal({
+            title: '提示',
+            content: '确认删除?',
+            confirmText: '删除',
+            confirmColor: 'red',
+            success: function (res) {
+              if (res.confirm) {
+                common.get_request({
+                  url: '/teacher/delete_noti?id=' + e.currentTarget.dataset.id,
+                  success: function (res_) {
+                    if (res_.data.code == 1) {
+                      common.showMsg("删除成功", 'success');
+                      that.load_list();
+                    }
+                  }
+                })
+              }
+            }
+          })
+      }
+    })
   }
 })

@@ -1,0 +1,50 @@
+page {
+  /* background-color: #edece8; */
+}
+
+form {
+  width: 100%;
+  margin-top: 2px;
+  display: block;
+  background-color: #edece8;
+  padding-top: 2px;
+}
+
+form input {
+  padding: 10px 20px;
+  background-color: white;
+}
+
+form textarea {
+  padding: 5px 20px;
+  background-color: white;
+  width: inherit;
+  margin-top: 3px;
+  height: 253px;
+}
+
+form view {
+  margin-top: 3px;
+}
+
+form button {
+  margin: 2px 0;
+}
+
+.title {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #edece8;
+}
+
+.time {
+  font-size: 14px;
+  color: gray;
+  text-align: right;
+  padding: 10px 20px 0 0;
+}
+
+.cotent {
+  display: block;
+  padding: 10px;
+}

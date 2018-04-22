@@ -1,2 +1,12 @@
-<!--pages/index/course_t/notification/notification.wxml-->
-<text>pages/index/course_t/notification/notification.wxml</text>
+<block wx:for="{{notifications}}">
+  <view bindlongpress='delete_noti' data-id="{{item.id}}" class='list'>
+    <navigator url='notiop/notiop?mode=0&noti_id={{item.id}}' class='title'>{{item.noti_title}}</navigator>
+    <view class='desc'>
+      <view style='width:80%;'>{{item.create_time}}</view>
+      <view>{{item.read_count}}次阅读</view>
+    </view>
+  </view>
+</block>
+
+<view class='float_button' style='bottom: 45px;' bindtap='add_notification'>＋
+</view>

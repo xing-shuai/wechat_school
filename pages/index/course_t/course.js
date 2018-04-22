@@ -9,10 +9,6 @@ Page({
     // button_show: false
   },
   onLoad: function (options) {
-    var that = this;
-    wx.setNavigationBarTitle({
-      title: '课程列表',
-    });
   },
   onShow: function () {
     var that = this;
@@ -40,9 +36,9 @@ Page({
       url: 'dailygrade/dailygrade?e_course_id=' + e.currentTarget.dataset.e_course_id
     })
   },
-  more: function (e) {
+  notification: function (e) {
     wx.navigateTo({
-      url: 'more/more?e_course_id=' + e.currentTarget.dataset.e_course_id
+      url: 'notification/notification?e_course_id=' + e.currentTarget.dataset.e_course_id
     })
   },
 })

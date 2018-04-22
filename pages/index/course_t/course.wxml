@@ -9,7 +9,7 @@
       <view class='kaoqin_count'>已考勤{{item.kaoqin_count}}次</view>
       <view class='kaoqin' data-e_course_id="{{item.esc_id}}" bindtap='attendance'>考勤</view>
       <view class='kaoqin' data-e_course_id="{{item.esc_id}}" bindtap='dailygrade'>平时分</view>
-      <view data-e_course_id="{{item.esc_id}}" bindtap='more'>更多</view>
+      <view data-e_course_id="{{item.esc_id}}" bindtap='notification'>通知</view>
     </view>
   </view>
 </block>
