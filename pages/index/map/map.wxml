@@ -1,0 +1,2 @@
+<map style="height:{{height-50}}px" scale='16' longitude="{{longitude}}" latitude="{{latitude}}" show-location controls='{{controls}}' bindcontroltap='controTap'></map>
+<button type='primary' bindtap='choose_location'>选择位置开始导航</button>

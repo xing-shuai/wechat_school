@@ -30,7 +30,7 @@
         <text>校园风光</text>
       </view>
     </navigator>
-    <navigator class="flex-item" hover-class='flex-item_hover'>
+    <navigator class="flex-item" url='map/map' hover-class='flex-item_hover'>
       <view class='menu_icon'>
         <image src='../../resources/icons/map.png'></image>
       </view>

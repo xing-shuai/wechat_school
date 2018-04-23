@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/map/map",
     "pages/index/course_t/course",
     "pages/index/course_t/notification/notification",
     "pages/index/course_t/notification/notiop/notiop",
@@ -12,16 +13,16 @@
     "pages/campus/campus",
     "pages/campus/newsContent/newsContent",
     "pages/bind/bind",
-    "pages/index/weather/weather",
     "pages/index/school_scenery/school_scenery",
     "pages/index/class_table/class_table",
     "pages/index/library/library",
-    "pages/index/library/book/book"
+    "pages/index/library/book/book",
+    "pages/index/lostandfound/lostandfound"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1ABC9C",
-    "navigationBarTitleText": "智慧校园",
+    "navigationBarTitleText": "校园助手",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
