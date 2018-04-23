@@ -16,9 +16,10 @@ Page({
     weather_info: '',
     weather_img: '',
     weather_margin: 0,
-    user_type: 's'
+    user_type: 's',
+    reload_this_page: false
   },
-  onLoad: function (option) {
+  index_init: function () {
     var that = this;
     var app = getApp();
     wx.setNavigationBarTitle({
@@ -42,8 +43,13 @@ Page({
               var code = res.data.code;
               if (code == '1') {//已绑定
                 app.globalData.user_type = res.data.user_type;
-                that.setData({ user_type: res.data.user_type, display: true });
+                that.setData({
+                  user_type: res.data.user_type,
+                  display: true,
+                  reload_this_page: false
+                });
               } else if (code == '0') {//未绑定
+                that.setData({ reload_this_page: true });
                 wx.navigateTo({
                   url: '/pages/bind/bind',
                 })
@@ -63,15 +69,9 @@ Page({
         common.showMsg('登录失败')
       }
     })
-    // wx.request({
-    //   url: url + '/get_user_type',
-    //   header: {
-    //     'cookie': wx.getStorageSync("sessionid")
-    //   },
-    //   success: function (res) {
-
-    //   }
-    // })
+  },
+  onLoad: function (option) {
+    this.index_init();
   },
   onReady: function () {
     var that = this;
@@ -86,5 +86,9 @@ Page({
     //     wx.hideNavigationBarLoading();
     //   }
     // })
+  },
+  onShow: function () {
+    if (this.data.reload_this_page)
+      this.index_init();
   }
 })
