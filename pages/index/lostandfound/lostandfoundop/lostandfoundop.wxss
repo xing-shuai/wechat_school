@@ -27,20 +27,28 @@ form button {
   margin: 2px 0;
 }
 
-.title {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #edece8;
+.lost_image {
+  display: flex;
+  background-color: white;
 }
 
-.time {
-  font-size: 14px;
-  color: gray;
-  text-align: right;
-  padding: 10px 20px 0 0;
+.upload_image {
+  width: 80px;
+  height: 80px;
+  border-right: 1px solid #edece8;
 }
 
-.cotent {
+.lost_image view {
+  width: 80px;
+  height: 80px;
+  border-right: 1px solid #edece8;
+}
+
+.add_iamge {
+  width: 35px;
+  height: 35px;
+  border: none;
+  margin: 0 auto;
   display: block;
-  padding: 10px;
+  margin-top: 22px;
 }

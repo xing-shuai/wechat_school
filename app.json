@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/lostandfound/lostandfound",
+    "pages/index/lostandfound/lostandfoundop/lostandfoundop",
     "pages/index/map/map",
     "pages/index/course_t/course",
     "pages/index/course_t/notification/notification",
@@ -17,7 +19,7 @@
     "pages/index/class_table/class_table",
     "pages/index/library/library",
     "pages/index/library/book/book",
-    "pages/index/lostandfound/lostandfound"
+    "pages/index/lostandfound/mylost/mylost"
   ],
   "window": {
     "backgroundTextStyle": "light",

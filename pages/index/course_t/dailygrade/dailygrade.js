@@ -35,6 +35,9 @@ Page({
     //加载设置
     common.get_request({
       url: '/teacher/get_dailygrade_setting?e_course_id=' + that.data.e_course_id,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         wx.hideLoading();
         that.setData({
@@ -53,6 +56,9 @@ Page({
     var that = this;
     common.get_request({
       url: '/teacher/get_students?e_course_id=' + that.data.e_course_id,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res_) {
         that.setData({
           stu: res_.data
@@ -95,6 +101,9 @@ Page({
     })
     common.get_request({
       url: '/teacher/modify_dailygrade_setting?e_course_id=' + that.data.e_course_id + "&switch_checked=" + that.data.switch_checked + "&queqin_value=" + that.data.queqin_value + "&zuoye_value=" + that.data.zuoye_value,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         common.showMsg("以保存修改", "success");
         that.setData({
@@ -189,12 +198,13 @@ Page({
     }
     common.post_request({
       url: '/teacher/set_performance_score',
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       data: {
         "e_course_id": that.data.e_course_id,
         "stu": stu,
         "dailygrade": that.data.multi_grade
-      },
-      header: {
       },
       success: function (res) {
         wx.hideLoading();

@@ -1,0 +1,63 @@
+.list {
+  padding: 9px;
+  display: flex;
+}
+
+.list image {
+  height: 80px;
+  width: 80px;
+  background-color: white;
+}
+
+.list .info {
+  width: 70%;
+  padding: 0px 0 0 10px;
+}
+
+.info view {
+  margin-bottom: 5px;
+}
+
+.desc {
+  font-size: 16px;
+  padding: 0 10px;
+  margin-bottom: 7px;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.time {
+  font-size: 15px;
+  color: gray;
+  line-height: 23px;
+}
+
+.float_button {
+  width: 60px;
+  background-color: #1eadbf;
+  border-radius: 32px;
+  height: 60px;
+  text-align: center;
+  line-height: 57px;
+  color: white;
+  position: fixed;
+  right: 26px;
+  box-shadow: 5px 6px 20px 0px #dcdada;
+  font-size: 23px;
+}
+
+.float_button_ {
+  width: 60px;
+  background-color: #1eadbf;
+  border-radius: 32px;
+  height: 60px;
+  text-align: center;
+  line-height: 76px;
+  position: fixed;
+  right: 26px;
+  box-shadow: 5px 6px 20px 0px #dcdada;
+}

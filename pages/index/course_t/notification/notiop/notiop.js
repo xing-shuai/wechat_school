@@ -24,6 +24,9 @@ Page({
     if (that.data.mode == '0')
       common.get_request({
         url: '/teacher/load_noti_content?id=' + that.data.noti_id,
+        header: {
+          'cookie': wx.getStorageSync("sessionid")
+        },
         success: function (res) {
           if (res.data.code == 1) {
             that.setData({
@@ -41,6 +44,9 @@ Page({
       return
     common.post_request({
       url: '/teacher/add_noti',
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       data: {
         form: e.detail.value,
         e_course_id: that.data.e_course_id

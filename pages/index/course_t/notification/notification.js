@@ -12,6 +12,9 @@ Page({
     var that = this;
     common.get_request({
       url: "/teacher/load_e_course_nitification?e_course_id=" + that.data.e_course_id,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         that.setData({ notifications: res.data });
       }
@@ -41,6 +44,9 @@ Page({
               if (res.confirm) {
                 common.get_request({
                   url: '/teacher/delete_noti?id=' + e.currentTarget.dataset.id,
+                  header: {
+                    'cookie': wx.getStorageSync("sessionid")
+                  },
                   success: function (res_) {
                     if (res_.data.code == 1) {
                       common.showMsg("删除成功", 'success');

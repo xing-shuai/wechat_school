@@ -25,9 +25,9 @@ Page({
     var that = this;
     wx.request({
       url: url + '/teacher/get_attence_record?e_course_id=' + that.data.e_course_id + "&page=" + (that.data.cur_page + 1).toString(),
-      // header: {
-      //   'cookie': wx.getStorageSync("sessionid")
-      // },
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         wx.hideNavigationBarLoading();
         if (res.data.has_next_page) {

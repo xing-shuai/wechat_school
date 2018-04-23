@@ -44,6 +44,9 @@ Page({
     })
     wx.request({
       url: url + '/teacher/get_student_count?e_course_id=' + that.data.e_course_id,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         wx.hideLoading();
         that.setData({ attendance_total: res.data.count });
@@ -87,6 +90,9 @@ Page({
     })
     wx.request({
       url: url + '/teacher/get_attendance_members?e_course_id=' + that.data.e_course_id + "&type=" + that.data.attendance_type_index + "&attendance_count=" + that.data.attendance_count,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         wx.setNavigationBarTitle({
           title: '点名中...',
@@ -170,7 +176,9 @@ Page({
     });
     wx.request({
       url: url + '/teacher/save_attendance',
-      header: {},
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       method: 'POST',
       data: {
         "established_course_id": that.data.e_course_id,

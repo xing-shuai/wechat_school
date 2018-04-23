@@ -16,22 +16,62 @@ Page({
     weather_info: '',
     weather_img: '',
     weather_margin: 0,
-    user_type: 't'
+    user_type: 's'
   },
   onLoad: function (option) {
     var that = this;
+    var app = getApp();
     wx.setNavigationBarTitle({
       title: '校园',
     });
-    wx.request({
-      url: url + '/get_user_type',
-      header: {
-        'cookie': wx.getStorageSync("sessionid")
+    wx.showLoading({
+      title: '登陆中...',
+    })
+    wx.login({
+      success: function (code) {
+        if (code.code) {
+          wx.request({
+            url: app.globalData.server_url + '/check_user',
+            method: 'POST',
+            data: {
+              code: code.code
+            },
+            success: function (res) {
+              wx.hideLoading();
+              wx.setStorageSync("sessionid", res.header["Set-Cookie"])
+              var code = res.data.code;
+              if (code == '1') {//已绑定
+                app.globalData.user_type = res.data.user_type;
+                that.setData({ user_type: res.data.user_type, display: true });
+              } else if (code == '0') {//未绑定
+                wx.navigateTo({
+                  url: '/pages/bind/bind',
+                })
+              } else {//验证失败
+                common.showMsg(res.data.msg)
+              }
+            },
+            fail: function () {
+              wx.hideLoading();
+              common.showMsg('连接服务器失败')
+            }
+          })
+        }
       },
-      success: function (res) {
-        that.setData({ user_type: res.data.user_type, display: true });
+      fail: function () {
+        wx.hideLoading();
+        common.showMsg('登录失败')
       }
     })
+    // wx.request({
+    //   url: url + '/get_user_type',
+    //   header: {
+    //     'cookie': wx.getStorageSync("sessionid")
+    //   },
+    //   success: function (res) {
+
+    //   }
+    // })
   },
   onReady: function () {
     var that = this;

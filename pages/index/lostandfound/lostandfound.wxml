@@ -1,0 +1,24 @@
+<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='scrolltolower'>
+  <block wx:for="{{losts}}">
+    <view style='border-bottom: 1px solid #edece8;'>
+      <view class='list'>
+        <image bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFit' src='{{host + item.img_url}}'> </image>
+        <view class='info'>
+          <view class='title'>{{item.title}}</view>
+          <view class='time'>发布人：{{item.publisher_name}}</view>
+          <view class='time'>发布日期：{{item.add_time}}</view>
+        </view>
+      </view>
+      <view class='desc'>{{item.description}}</view>
+    </view>
+  </block>
+</scroll-view>
+
+<view animation="{{ani_mylost}}" class='float_button_' style='bottom: 45px;' bindtap='mylost'>
+  <image style='width:30px;height:30px;' src='../../../resources/icons/mylost.png'></image>
+</view>
+<view animation="{{ani_addlost}}" class='float_button' style='bottom: 45px;' bindtap='add_lost'>＋
+</view>
+<view class='float_button_' style='bottom: 45px;' bindtap='op'>
+  <image style='width:30px;height:30px;' src='../../../resources/icons/op.png'></image>
+</view>

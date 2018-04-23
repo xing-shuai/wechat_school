@@ -46,7 +46,7 @@
         <text>设备保修</text>
       </view>
     </navigator>
-    <navigator class="flex-item">
+    <navigator url='lostandfound/lostandfound' class="flex-item">
       <view class='menu_icon'>
         <image src='../../resources/icons/lost.png'></image>
       </view>
@@ -132,6 +132,8 @@
         <text>我的成绩</text>
       </view>
     </navigator>
+    <view class="flex-item">
+    </view>
     <view class="flex-item">
     </view>
     <view class="flex-item">

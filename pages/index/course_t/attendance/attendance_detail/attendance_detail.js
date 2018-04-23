@@ -15,9 +15,9 @@ Page({
     })
     wx.request({
       url: url + '/teacher/get_absence_stu?attendance_id=' + that.data.attendance_id,
-      // header: {
-      //   'cookie': wx.getStorageSync("sessionid")
-      // },
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         wx.hideLoading();
         that.setData({ absences: res.data.data });
@@ -41,9 +41,9 @@ Page({
     var modify_absence = function (modify_type) {
       wx.request({
         url: url + '/teacher/modify_absence?absence_id=' + absenceId + "&type=" + modify_type,
-        // header: {
-        //   'cookie': wx.getStorageSync("sessionid")
-        // },
+        header: {
+          'cookie': wx.getStorageSync("sessionid")
+        },
         success: function (res) {
           if (res.data.code == 1) {
             common.showMsg('修改成功', "success");

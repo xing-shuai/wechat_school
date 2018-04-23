@@ -1,0 +1,37 @@
+.list {
+  padding: 9px;
+  display: flex;
+}
+
+.list image {
+  height: 80px;
+  width: 80px;
+  background-color: white;
+}
+
+.list .info {
+  width: 70%;
+  padding: 0px 0 0 10px;
+}
+
+.info view {
+  margin-bottom: 5px;
+}
+
+.desc {
+  font-size: 16px;
+  padding: 0 10px;
+  margin-bottom: 7px;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.time {
+  font-size: 15px;
+  color: gray;
+  line-height: 23px;
+}

@@ -1,0 +1,16 @@
+<block wx:for="{{losts}}">
+  <view style='border-bottom: 1px solid #edece8;'>
+    <view class='list'>
+      <image bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFit' src='{{host + item.img_url}}'> </image>
+      <view bindlongpress='modify_lost' data-id='{{item.id}}' class='info'>
+        <view class='title'>{{item.title}}</view>
+        <view class='time' style='display:flex;'>
+          <view>发布人：{{item.publisher_name}} </view>
+          <view style='margin-left:5px;color:{{item.status=="0"?"red":"gray"}};'>{{item.status=='0'?' (未认领)':' (已认领)'}}</view>
+        </view>
+        <view class='time'>发布日期：{{item.add_time}}</view>
+      </view>
+    </view>
+    <view class='desc'>{{item.description}}</view>
+  </view>
+</block>
