@@ -1,0 +1,25 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.me_menu {
+  height: 50px;
+  margin: 0px auto;
+  border-bottom: 1px solid #edece8;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 11px;
+}
+
+.menu_name {
+  padding-top: 12px;
+  color: gray;
+  padding-left: 15px;
+  display: flex;
+}
+
+.color_option {
+  width: 20%;
+  height: 50px;
+  border: 1px solid gray;
+}

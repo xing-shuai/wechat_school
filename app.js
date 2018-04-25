@@ -1,6 +1,5 @@
 //app.js
 var common = require('/utils/util.js')
-
 App({
   globalData: {
     openid: null,

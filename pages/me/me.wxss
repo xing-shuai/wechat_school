@@ -5,10 +5,11 @@ page {
 .me_menu {
   height: 50px;
   display: flex;
-  width: 93%;
   margin: 0px auto;
   border-bottom: 1px solid #edece8;
   padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 11px;
 }
 
 .me_menu .menu_icon {

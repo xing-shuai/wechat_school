@@ -1,4 +1,4 @@
-<view class='user'>
+<navigator url='myinfo/myinfo' class='user'>
   <image class='user_head' src="../../resources/icons/default_user_boy.png"></image>
   <view class='user_info'>
     <view style='width:90%;'>
@@ -7,35 +7,35 @@
     </view>
     <image class='edit_info' src='../../resources/icons/open.png'></image>
   </view>
-</view>
+</navigator>
 
 <view style='background-color:white;margin-bottom:10px;'>
-  <view class='me_menu'>
+  <navigator url='myclass/myclass' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/classes.png'></image>
     <view class='menu_name'>我的班级</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
-  </view>
-  <view class='me_menu'>
+  </navigator>
+  <navigator url='dynamic/dynamic' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/dynamic.png'></image>
     <view class='menu_name'>我的动态</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
-  </view>
-  <view class='me_menu'>
+  </navigator>
+  <navigator url='notification/notification' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/notification.png'></image>
     <view class='menu_name'>我的消息</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
-  </view>
+  </navigator>
 </view>
 
 <view style='background-color:white;'>
-  <view class='me_menu'>
+  <navigator url='setting/setting' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/setting.png'></image>
     <view class='menu_name'>设置</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
-  </view>
-  <view class='me_menu'>
+  </navigator>
+  <navigator url='about/about' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/about.png'></image>
     <view class='menu_name'>关于</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
-  </view>
+  </navigator>
 </view>

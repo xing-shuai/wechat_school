@@ -1,0 +1,13 @@
+<view class='header'>
+  <image src='/resources/images/school_logo.jpg' style='height:65px;width:65px;display:block;margin:0 auto;'></image>
+  <view style='text-align:center;padding-top:12px;'>安徽工业大学校园助手</view>
+  <view style='text-align:center;padding-top:5px;font-size:13px;color:gray;'>( 开发版 0.1.0 )</view>
+</view>
+
+
+
+<view class='info'>
+  <view>开发者: 邢帅</view>
+  <view>个人微信: x1204394123</view>
+  <view>个人QQ: 1204394123</view>
+</view>

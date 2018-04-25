@@ -1,0 +1,18 @@
+.header {
+  width: 73%;
+  margin: 0 auto;
+  margin-top: 103px;
+}
+
+.info {
+  font-size: 13px;
+  color: gray;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 50px;
+}
+
+.info view {
+  padding: 2px;
+}

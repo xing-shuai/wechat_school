@@ -1,0 +1,41 @@
+<view style='background-color:white;margin-bottom:10px;font-size:15px;'>
+  <view style='border-bottom:1px solid #edece8;padding-bottom:10px;'>
+    <view class='menu_name'>
+      <view style='width:78%;padding-left:10px;'>导航栏皮肤</view>
+      <view>绿色</view>
+    </view>
+    <view style="margin-top: 15px;">
+      <view style="display: flex;padding-left:15%;">
+        <view class='color_option'></view>
+        <view class='color_option'></view>
+        <view class='color_option'></view>
+        <view class='color_option'></view>
+      </view>
+      <view style="display: flex;padding-left:15%;">
+        <view class='color_option'></view>
+        <view class='color_option'></view>
+        <view class='color_option'></view>
+        <view class='color_option'></view>
+      </view>
+    </view>
+  </view>
+  <view class='me_menu'>
+    <view class='menu_name'>我的动态</view>
+  </view>
+  <view class='me_menu'>
+    <view class='menu_name'>我的消息</view>
+  </view>
+</view>
+
+
+<view style='background-color:white;margin-bottom:10px;font-size:15px;'>
+  <view class='me_menu'>
+    <view class='menu_name'>我的班级</view>
+  </view>
+  <view class='me_menu'>
+    <view class='menu_name'>我的动态</view>
+  </view>
+  <view class='me_menu'>
+    <view class='menu_name'>我的消息</view>
+  </view>
+</view>

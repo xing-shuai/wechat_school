@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/me/setting/setting",
+    "pages/me/me",
+    "pages/me/about/about",
     "pages/index/index",
     "pages/index/lostandfound/lostandfound",
     "pages/index/lostandfound/lostandfoundop/lostandfoundop",
@@ -11,7 +14,6 @@
     "pages/index/course_t/attendance/attendancing/attendancing",
     "pages/index/course_t/attendance/attendance",
     "pages/index/course_t/attendance/attendance_detail/attendance_detail",
-    "pages/me/me",
     "pages/campus/campus",
     "pages/campus/newsContent/newsContent",
     "pages/bind/bind",
