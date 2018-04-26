@@ -38,12 +38,12 @@
         <text>地图导航</text>
       </view>
     </navigator>
-    <navigator class="flex-item" hover-class='flex-item_hover'>
+    <navigator url='school_calendar/school_calendar' class="flex-item" hover-class='flex-item_hover'>
       <view class='menu_icon'>
-        <image src='../../resources/icons/repair.png'></image>
+        <image src='../../resources/icons/calendar.png'></image>
       </view>
       <view class='menu_name'>
-        <text>设备保修</text>
+        <text>校历查看</text>
       </view>
     </navigator>
     <navigator url='lostandfound/lostandfound' class="flex-item">

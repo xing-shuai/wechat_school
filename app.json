@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/campus/campus",
+    "pages/index/school_calendar/school_calendar",
     "pages/me/me",
     "pages/me/myinfo/myinfo",
     "pages/index/index",
@@ -15,7 +17,6 @@
     "pages/index/course_t/attendance/attendancing/attendancing",
     "pages/index/course_t/attendance/attendance",
     "pages/index/course_t/attendance/attendance_detail/attendance_detail",
-    "pages/campus/campus",
     "pages/campus/newsContent/newsContent",
     "pages/bind/bind",
     "pages/index/school_scenery/school_scenery",

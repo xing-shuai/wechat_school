@@ -1,0 +1,6 @@
+<block wx:for="{{calendars}}">
+  <view bindtap='preview' data-index='{{index}}' class='list'>
+    <view>{{item.name}}</view>
+    <view class='info'>{{item.images.length}}张图片(点击查看)</view>
+  </view>
+</block>

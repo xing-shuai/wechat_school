@@ -1,0 +1,11 @@
+.list {
+  padding: 10px;
+  border-bottom: 1px solid #edece8;
+}
+
+.info {
+  font-size: 15px;
+  text-align: right;
+  color: gray;
+  padding-top: 7px;
+}

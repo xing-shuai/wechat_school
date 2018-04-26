@@ -37,11 +37,6 @@
       <view>问卷调查</view>
       <image src='../../resources/icons/open.png'></image>
     </view>
-    <view class='content_list'>
-      <image src='../../resources/icons/calendar.png'></image>
-      <view>校历查看</view>
-      <image src='../../resources/icons/open.png'></image>
-    </view>
   </view>
 </view>
 
