@@ -10,6 +10,7 @@ Page({
     op_button: false
   },
   onLoad: function (options) {
+    common.set_navi_color();
     var that = this;
     wx.getSystemInfo({
       success: function (res) {

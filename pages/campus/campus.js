@@ -11,7 +11,7 @@ var getList = function (nextPageUrl, callBack) {
     }
   })
 }
-
+var common = require("../../utils/util.js");
 Page({
   data: {
     winHeight: 0,
@@ -27,6 +27,7 @@ Page({
     examinationListData: []
   },
   onLoad: function () {
+    common.set_navi_color();
     wx.setNavigationBarTitle({
       title: '动态',
     });

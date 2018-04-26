@@ -29,6 +29,7 @@ Page({
     default_check: true
   },
   onLoad: function (options) {
+    common.set_navi_color();
     var that = this;
     this.setData({ e_course_id: options.e_course_id });
     wx.getSystemInfo({

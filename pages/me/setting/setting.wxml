@@ -2,40 +2,22 @@
   <view style='border-bottom:1px solid #edece8;padding-bottom:10px;'>
     <view class='menu_name'>
       <view style='width:78%;padding-left:10px;'>导航栏皮肤</view>
-      <view>绿色</view>
     </view>
     <view style="margin-top: 15px;">
-      <view style="display: flex;padding-left:15%;">
-        <view class='color_option'></view>
-        <view class='color_option'></view>
-        <view class='color_option'></view>
-        <view class='color_option'></view>
-      </view>
-      <view style="display: flex;padding-left:15%;">
-        <view class='color_option'></view>
-        <view class='color_option'></view>
-        <view class='color_option'></view>
-        <view class='color_option'></view>
+      <view wx:for="{{color_list}}" wx:for-item="color" style="display: flex;padding-left:8%;">
+        <view wx:for="{{color}}" class='color_option'>
+          <view bindtap='change_color' data-color='{{item}}' style='background-color: {{item}};'></view>
+        </view>
       </view>
     </view>
   </view>
-  <view class='me_menu'>
-    <view class='menu_name'>我的动态</view>
+  <view bindtap='clear_cache' hover-class='hover_menu' class='me_menu'>
+    <view class='menu_name'>清除缓存</view>
   </view>
-  <view class='me_menu'>
-    <view class='menu_name'>我的消息</view>
+  <view bindtap='unbind' hover-class='hover_menu' class='me_menu'>
+    <view class='menu_name'>取消绑定</view>
   </view>
-</view>
-
-
-<view style='background-color:white;margin-bottom:10px;font-size:15px;'>
-  <view class='me_menu'>
-    <view class='menu_name'>我的班级</view>
-  </view>
-  <view class='me_menu'>
-    <view class='menu_name'>我的动态</view>
-  </view>
-  <view class='me_menu'>
-    <view class='menu_name'>我的消息</view>
+  <view bindtap='about' hover-class='hover_menu' class='me_menu'>
+    <view class='menu_name'>关于小程序</view>
   </view>
 </view>

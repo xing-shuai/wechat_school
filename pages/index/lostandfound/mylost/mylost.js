@@ -19,6 +19,7 @@ Page({
     });
   },
   onLoad: function (options) {
+    common.set_navi_color();
     this.load_list();
   },
   preview_image: function (e) {

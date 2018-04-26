@@ -6,6 +6,7 @@ Page({
     notifications: []
   },
   onLoad: function (options) {
+    common.set_navi_color();
     this.setData({ e_course_id: options.e_course_id });
   },
   load_list: function () {

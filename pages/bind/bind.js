@@ -6,7 +6,7 @@ Page({
 
   },
   onLoad: function (options) {
-
+    common.set_navi_color();
   },
   formSubmit: function (e) {
     var form_value = e.detail.value;

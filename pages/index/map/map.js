@@ -1,4 +1,4 @@
-
+var common = require("../../../utils/util.js");
 Page({
   data: {
     latitude: 0,
@@ -7,6 +7,7 @@ Page({
     controls: []
   },
   onLoad: function (options) {
+    common.set_navi_color();
     var that = this;
     wx.getSystemInfo({
       success: function (res) {

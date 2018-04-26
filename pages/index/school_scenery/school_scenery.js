@@ -9,6 +9,7 @@ Page({
     cur_page: 0
   },
   onLoad: function (options) {
+    common.set_navi_color();
     var that = this;
     wx.setNavigationBarTitle({
       title: '校园风光',

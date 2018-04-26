@@ -19,7 +19,19 @@ page {
 }
 
 .color_option {
-  width: 20%;
+  width: 23%;
   height: 50px;
-  border: 1px solid gray;
+  margin-bottom: 10px;
+}
+
+.color_option view {
+  height: 50px;
+  width: 50px;
+  border-radius: 28px;
+  margin: 0px auto;
+  border: 1px solid #c3c3c3;
+}
+
+.hover_menu {
+  background-color: #edece8;
 }

@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/me/setting/setting",
     "pages/me/me",
-    "pages/me/about/about",
+    "pages/me/myinfo/myinfo",
     "pages/index/index",
+    "pages/me/setting/setting",
+    "pages/me/setting/about/about",
     "pages/index/lostandfound/lostandfound",
     "pages/index/lostandfound/lostandfoundop/lostandfoundop",
     "pages/index/map/map",
@@ -25,9 +26,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1ABC9C",
+    "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "校园助手",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [

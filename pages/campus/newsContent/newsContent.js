@@ -1,4 +1,5 @@
 var url = getApp().globalData.server_url;
+var common = require("../../../utils/util.js");
 Page({
   data: {
     title: '',
@@ -6,6 +7,7 @@ Page({
     time: ''
   },
   onLoad: function (options) {
+    common.set_navi_color();
     wx.setNavigationBarTitle({
       title: "详情"
     });

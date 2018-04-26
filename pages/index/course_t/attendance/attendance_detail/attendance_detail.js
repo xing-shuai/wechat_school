@@ -29,6 +29,7 @@ Page({
     })
   },
   onLoad: function (options) {
+    common.set_navi_color();
     wx.setNavigationBarTitle({
       title: '考勤同学',
     });

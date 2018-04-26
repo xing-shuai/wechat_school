@@ -42,6 +42,7 @@ page {
 .user_head {
   height: 65px;
   width: 65px;
+  border-radius: 35px;
 }
 
 .user_info {

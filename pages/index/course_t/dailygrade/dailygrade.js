@@ -20,6 +20,7 @@ Page({
     single_pingding_stu_index: 0
   },
   onLoad: function (options) {
+    common.set_navi_color();
     var that = this;
     that.setData({
       e_course_id: options.e_course_id

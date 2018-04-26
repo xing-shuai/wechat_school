@@ -6,6 +6,7 @@ Page({
     book_img: ''
   },
   onLoad: function (options) {
+    common.set_navi_color();
     var that = this;
     wx.setNavigationBarTitle({
       title: '图书详情',

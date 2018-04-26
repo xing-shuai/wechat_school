@@ -6,6 +6,7 @@ Page({
     week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
   },
   onLoad: function (options) {
+    common.set_navi_color();
     wx.setNavigationBarTitle({
       title: '课表'
     })

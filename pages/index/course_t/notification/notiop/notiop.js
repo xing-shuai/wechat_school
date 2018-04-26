@@ -9,6 +9,7 @@ Page({
     e_course_id: ''
   },
   onLoad: function (options) {
+    common.set_navi_color();
     this.setData({
       mode: options.mode,
       noti_id: options.mode == '0' ? options.noti_id : '',

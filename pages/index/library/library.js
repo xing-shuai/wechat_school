@@ -26,6 +26,7 @@ Page({
     books: []
   },
   onLoad: function (options) {
+    common.set_navi_color();
     wx.setNavigationBarTitle({
       title: '振华图书馆',
     });

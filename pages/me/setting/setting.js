@@ -1,66 +1,66 @@
-// pages/me/setting/setting.js
+var common = require("../../../utils/util.js");
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    color_list: [['#1ABC9C', '#FF0000', '#FFFFFF', '#0FAEFF'], ['#008000', '#E08031', '#77C34F', '#FF6E97']]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    common.set_navi_color();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  change_color: function (e) {
+    wx.setNavigationBarColor({
+      frontColor: e.currentTarget.dataset.color == "#FFFFFF" ? '#000000' : '#ffffff',
+      backgroundColor: e.currentTarget.dataset.color,
+    });
+    wx.setStorage({
+      key: 'navi_color',
+      data: e.currentTarget.dataset.color,
+      success: function (res) {
+        common.showMsg("保存成功,重启小程序生效。");
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  clear_cache: function () {
+    var color = "";
+    wx.getStorage({
+      key: 'navi_color',
+      success: function (res) {
+        color = res.data;
+        wx.clearStorageSync();
+        wx.setStorage({
+          key: 'navi_color',
+          data: color
+        })
+      },
+      complete: function () {
+        common.showMsg("清理成功");
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  about: function () {
+    wx.navigateTo({
+      url: 'about/about',
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  unbind: function () {
+    wx.showModal({
+      title: '提示',
+      content: '取消绑定将无法使用小程序喽',
+      confirmColor: 'red',
+      success: function (res) {
+        if (res.confirm)
+          common.get_request({
+            url: '/unbind_user',
+            header: {
+              'cookie': wx.getStorageSync("sessionid")
+            },
+            success: function (res) {
+              wx.reLaunch({
+                url: '../../index/index'
+              });
+            }
+          })
+      }
+    })
   }
 })

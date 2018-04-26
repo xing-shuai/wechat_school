@@ -71,6 +71,7 @@ Page({
     })
   },
   onLoad: function (option) {
+    common.set_navi_color();
     this.index_init();
   },
   onReady: function () {

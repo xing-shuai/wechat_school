@@ -1,0 +1,35 @@
+<form bindsubmit='save'>
+  <view>
+    <image bindtap='upload_img' class='user_head' src="{{myinfo.img_url?host+myinfo.img_url:'../../../resources/icons/default_user_boy.png'}}"></image>
+  </view>
+  <view class='row_input'>
+    <label>id:</label>
+    <input name='number' disabled value='{{myinfo.number}}'></input>
+  </view>
+  <view class='row_input'>
+    <label>姓名:</label>
+    <input name='name' disabled value='{{myinfo.name}}'></input>
+  </view>
+  <view class='row_input'>
+    <label>性别:</label>
+    <input name='sex' disabled value="{{myinfo.sex=='1'?'男':'女'}}"></input>
+  </view>
+  <view class='row_input'>
+    <label>年龄:</label>
+    <input name='age' disabled value='{{myinfo.age}}'></input>
+  </view>
+  <view class='row_input'>
+    <label>出生日期:</label>
+    <picker name='birth_day' disabled="{{birth_picker}}" mode="date" value="{{myinfo.birth_day}}" start="1900-01-01" bindchange="bindDateChange">
+      <view>
+        {{myinfo.birth_day}}
+      </view>
+    </picker>
+  </view>
+  <view class='row_input'>
+    <label>签名:</label>
+    <textarea bindblur='signature_blur' name='signature' disabled="{{signature_textarea}}" style='width:70%;height:80px;' value='{{myinfo.signature}}' />
+  </view>
+  <button form-type='submit' animation="{{ani_save}}" class='float_button' type='primary'>保存</button>
+  <button class='float_button' bindtap='edit' type='default'>编辑</button>
+</form>

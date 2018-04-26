@@ -80,8 +80,21 @@ const post_request = function (config) {
   })
 }
 
+const set_navi_color = function () {
+  wx.getStorage({
+    key: 'navi_color',
+    success: function (res) {
+      wx.setNavigationBarColor({
+        frontColor: res.data == "#FFFFFF" ? '#000000' : '#ffffff',
+        backgroundColor: res.data,
+      });
+    }
+  })
+}
+
 module.exports = {
   showMsg: showMsg,
   get_request: get_request,
-  post_request: post_request
+  post_request: post_request,
+  set_navi_color: set_navi_color
 }

@@ -9,6 +9,7 @@ Page({
     // button_show: false,
   },
   onLoad: function (options) {
+    common.set_navi_color();
     var that = this;
     wx.showLoading({
       title: '加载课程'

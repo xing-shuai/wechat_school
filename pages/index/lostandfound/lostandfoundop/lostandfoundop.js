@@ -7,7 +7,7 @@ Page({
     upload_image_name: 'default.jpg'
   },
   onLoad: function (options) {
-
+    common.set_navi_color();
   },
   upload_image: function () {
     var that = this;
