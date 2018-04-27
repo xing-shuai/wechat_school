@@ -1,4 +1,3 @@
-var url = getApp().globalData.server_url;
 var common = require("../../../utils/util.js");
 Page({
   data: {
@@ -16,8 +15,8 @@ Page({
       title: '加载内容...'
     });
     var that = this;
-    wx.request({
-      url: url + '/web/get_news_content',
+    common.post_request({
+      url: '/dynamic/get_news_content',
       data: {
         'contentUrl': options.contentUrl
       },
@@ -25,14 +24,6 @@ Page({
       success: function (res) {
         that.setData({ content: res.data.content });
         wx.hideLoading();
-      },
-      fail: function () {
-        wx.hideLoading();
-        wx.showToast({
-          title: '加载失败',
-          icon: "none",
-          duration: 1500
-        });
       }
     })
   }

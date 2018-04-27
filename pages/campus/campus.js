@@ -1,7 +1,7 @@
-var url = getApp().globalData.server_url;
+var common = require("../../utils/util.js");
 var getList = function (nextPageUrl, callBack) {
-  wx.request({
-    url: url + '/web/get_news_list',
+  common.post_request({
+    url: '/dynamic/get_news_list',
     data: {
       'nextPageUrl': nextPageUrl
     },
@@ -11,7 +11,6 @@ var getList = function (nextPageUrl, callBack) {
     }
   })
 }
-var common = require("../../utils/util.js");
 Page({
   data: {
     winHeight: 0,
@@ -28,25 +27,17 @@ Page({
   },
   onLoad: function () {
     common.set_navi_color();
-    wx.setNavigationBarTitle({
-      title: '动态',
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          winHeight: res.windowHeight
+        });
+        getList('?urltype=tree.TreeTempUrl&wbtreeid=1082', function (data) {
+          that.setData({ notificationListData: data.news, notificationNextPageUrl: data.nextPageUrl, notificationLoaded: 1 });
+        })
+      }
     });
-    // var that = this;
-    // wx.getSystemInfo({
-    //   success: function (res) {
-    //     wx.showLoading({
-    //       title: '加载数据...',
-    //     });
-    //     that.setData({
-    //       winWidth: res.windowWidth,
-    //       winHeight: res.windowHeight
-    //     });
-    //     getList('?urltype=tree.TreeTempUrl&wbtreeid=1082', function (data) {
-    //       that.setData({ notificationListData: data.news, notificationNextPageUrl: data.nextPageUrl, notificationLoaded: 1 });
-    //       wx.hideLoading();
-    //     })
-    //   }
-    // });
   },
   //tab切换时加载列表数据
   loadList: function (currentTab) {
@@ -111,11 +102,7 @@ Page({
     switch (this.data.currentTab) {
       case 0: {
         if (that.data.notificationNextPageUrl == '-1') {
-          wx.showToast({
-            title: '没有啦...',
-            duration: 1500,
-            icon: "none"
-          });
+          common.showMsg('没有啦...');
           return;
         }
         getList(that.data['notificationNextPageUrl'], function (data) {
@@ -126,11 +113,7 @@ Page({
       }
       case 1: {
         if (that.data.newsNextPageUrl == '-1') {
-          wx.showToast({
-            title: '没有啦...',
-            duration: 1500,
-            icon: "none"
-          });
+          common.showMsg('没有啦...');
           return;
         }
         getList(that.data['newsNextPageUrl'], function (data) {
@@ -141,11 +124,7 @@ Page({
       }
       case 2: {
         if (that.data.examinationNextPageUrl == '-1') {
-          wx.showToast({
-            title: '没有啦...',
-            duration: 1500,
-            icon: "none"
-          });
+          common.showMsg('没有啦...');
           return;
         }
         getList(that.data['examinationNextPageUrl'], function (data) {

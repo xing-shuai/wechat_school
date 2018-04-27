@@ -1,47 +1,3 @@
-<view style='margin-bottom:10px;'>
-  <view class='title'>
-    校务新闻
-  </view>
-  <view class='content'>
-    <view class='content_list'>
-      <image src='../../resources/icons/news.png'></image>
-      <view>学校要闻</view>
-      <image src='../../resources/icons/open.png'></image>
-    </view>
-    <view class='content_list'>
-      <image src='../../resources/icons/jiaowu.png'></image>
-      <view>教务新闻</view>
-      <image src='../../resources/icons/open.png'></image>
-    </view>
-    <view class='content_list'>
-      <image src='../../resources/icons/examination.png'></image>
-      <view>考试安排</view>
-      <image src='../../resources/icons/open.png'></image>
-    </view>
-  </view>
-
-</view>
-
-<view>
-  <view class='title'>
-    校园热点
-  </view>
-  <view class='content'>
-    <view class='content_list'>
-      <image src='../../resources/icons/school_sence.png'></image>
-      <view>校园动态</view>
-      <image src='../../resources/icons/open.png'></image>
-    </view>
-    <view class='content_list'>
-      <image src='../../resources/icons/investigation.png'></image>
-      <view>问卷调查</view>
-      <image src='../../resources/icons/open.png'></image>
-    </view>
-  </view>
-</view>
-
-
-
 <template name='list_template'>
   <navigator url="/pages/campus/newsContent/newsContent?contentUrl={{href}}&title={{title}}&time={{time}}">
     <view class='list_view'>
@@ -52,11 +8,12 @@
 </template>
 
 
-<view style='display:none;'>
 <view class="swiper-tab">
   <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">学校要闻</view>
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">教务新闻</view>
   <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">考试安排</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">校园动态</view>
+  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">问卷调查</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper-box" style="height:{{winHeight - 50}}px" bindchange="bindChange">
@@ -86,6 +43,20 @@
       </block>
     </scroll-view>
   </swiper-item>
-</swiper>
 
-</view>
+  <swiper-item>
+    <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
+      <block wx:for="{{examinationListData}}">
+        <template is="list_template" data="{{...item}}" />
+      </block>
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
+      <block wx:for="{{examinationListData}}">
+        <template is="list_template" data="{{...item}}" />
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>
