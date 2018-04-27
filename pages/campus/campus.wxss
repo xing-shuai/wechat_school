@@ -1,6 +1,5 @@
 .swiper-tab {
   width: 100%;
-  border-bottom: 2rpx solid #777;
   text-align: center;
   line-height: 80rpx;
 }
@@ -71,4 +70,86 @@
   width: 83%;
   border-bottom: 1px solid #f0f0f0;
   margin: 0 auto;
+}
+
+.school_dynamic_list {
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.top {
+  display: flex;
+}
+
+.user_head {
+  width: 25%;
+}
+
+.user_head image {
+  width: 55px;
+  height: 55px;
+  display: block;
+  margin: 10px auto;
+}
+
+.info {
+  padding: 13px 0 10px 10px;
+  width: 60%;
+}
+
+.op {
+  width: 15%;
+}
+
+.op image {
+  height: 15px;
+  width: 15px;
+  display: block;
+  margin: 30px auto;
+}
+
+.dynamic_content {
+  padding: 0 15px;
+  font-size: 15px;
+}
+
+.bar {
+  display: flex;
+  font-size: 14px;
+  color: gray;
+  height: 40px;
+}
+
+.love {
+  display: flex;
+  padding: 10px;
+  margin-left: 60%;
+}
+
+.love image {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.comment {
+  display: flex;
+  padding: 10px;
+}
+
+.comment image {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.images_block {
+  display: flex;
+  width: 95%;
+  margin: 7px auto;
+}
+
+.images_block image {
+  width: 32%;
+  margin: 0 2px;
 }

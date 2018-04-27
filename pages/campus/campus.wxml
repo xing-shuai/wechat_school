@@ -7,7 +7,6 @@
   </navigator>
 </template>
 
-
 <view class="swiper-tab">
   <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">学校要闻</view>
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">教务通知</view>
@@ -45,18 +44,62 @@
   </swiper-item>
 
   <swiper-item>
-    <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
-      <block wx:for="{{examinationListData}}">
-        <template is="list_template" data="{{...item}}" />
+    <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;background-color:#EDECE8;">
+      <block wx:for="{{school_dynamic_data}}" wx:for-index="list_index">
+        <view class='school_dynamic_list'>
+          <view class='top'>
+            <view class='user_head'>
+              <image src='{{item.head_url?user_head_host+item.head_url:"../../resources/icons/default_user_boy.png"}}'></image>
+            </view>
+            <view class='info'>
+              <view style='padding-bottom:5px;font-weight:bold;'>{{item.publisher_name}}</view>
+              <view style='font-size:14px;color:gray;'>{{item.time}}</view>
+            </view>
+            <view class='op'>
+              <image src="../../resources/icons/arrow_down.png"></image>
+            </view>
+          </view>
+
+          <view class='dynamic_content'>{{item.content}}</view>
+
+          <view wx:if="{{item.have_img>0}}">
+            <block wx:if="{{item.images[0].length==1}}">
+              <image mode='aspectFill' bindtap='preview_images' data-mode="0" data-index='{{list_index}}' class='images_block' src='{{item.images[0][0]}}'></image>
+            </block>
+            <block wx:else>
+              <block wx:for="{{item.images}}" wx:for-item="img" wx:for-index="src_indexX">
+                <view class='images_block'>
+                  <block wx:for="{{img}}" wx:for-item="src" wx:for-index="src_indexY">
+                    <image mode='aspectFill' bindtap='preview_images' data-mode="1" data-current-index-x="{{src_indexX}}" data-current-index-y="{{src_indexY}}" data-index='{{list_index}}' style='height:{{images_height}}px' src='{{src}}'></image>
+                  </block>
+                </view>
+              </block>
+            </block>
+          </view>
+
+          <view class='bar'>
+            <view class='love'>
+              <image src='../../resources/icons/heart.png'></image>
+              <image src='../../resources/icons/red_heart.png' wx:if="{{false}}"></image>
+              <view>{{item.heart_count}}</view>
+            </view>
+            <view class='comment'>
+              <image src='../../resources/icons/comment.png'></image>
+              <view>12</view>
+            </view>
+          </view>
+        </view>
       </block>
+
+
     </scroll-view>
   </swiper-item>
 
   <swiper-item>
     <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
-      <block wx:for="{{examinationListData}}">
+      <!-- <block wx:for="{{examinationListData}}">
         <template is="list_template" data="{{...item}}" />
-      </block>
+      </block> -->
     </scroll-view>
   </swiper-item>
 </swiper>
