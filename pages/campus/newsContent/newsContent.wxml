@@ -1,19 +1,12 @@
-<!--pages/newsContent/newsContent.wxml-->
-
 <view class='title'>
   {{title}}
 </view>
 <view class='time'>
   {{time}}
 </view>
-<text class='content'>
-  {{content}}
-</text>
-
-<!-- <block wx:if="{{dataType==0}}">
-  <text>text</text>
-</block>
-
-<block wx:else>
-  <image src='../../resources/images/me_head_boy.jpg'> </image>
-</block> -->
+<view>
+  <block wx:for="{{content}}">
+    <text class='content' wx:if="{{item.type==0}}">{{item.text}}</text>
+    <image class='content_image' bindtap='preview' wx:if="{{item.type==1}}" data-url='{{item.url}}' src='{{item.url}}'></image>
+  </block>
+</view>

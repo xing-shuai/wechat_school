@@ -1,9 +1,10 @@
 var common = require("../../utils/util.js");
-var getList = function (nextPageUrl, callBack) {
+var getList = function (nextPageUrl, mode, callBack) {
   common.post_request({
     url: '/dynamic/get_news_list',
     data: {
-      'nextPageUrl': nextPageUrl
+      'nextPageUrl': nextPageUrl,
+      "mode": mode
     },
     method: 'POST',
     success: function (res) {
@@ -15,12 +16,12 @@ Page({
   data: {
     winHeight: 0,
     currentTab: 0,
-    notificationLoaded: 0,
-    notificationNextPageUrl: '',
-    notificationListData: [],
-    nnewsLoaded: 0,
-    newsNextPageUrl: '',
-    newsListData: [],
+    schoolnewsLoaded: 0,
+    schoolnewsNextPageUrl: '',
+    schoolnewsListData: [],
+    jiaowuLoaded: 0,
+    jiaowuNextPageUrl: '',
+    jiaowuListData: [],
     examinationLoaded: 0,
     examinationNextPageUrl: '',
     examinationListData: []
@@ -33,8 +34,8 @@ Page({
         that.setData({
           winHeight: res.windowHeight
         });
-        getList('?urltype=tree.TreeTempUrl&wbtreeid=1082', function (data) {
-          that.setData({ notificationListData: data.news, notificationNextPageUrl: data.nextPageUrl, notificationLoaded: 1 });
+        getList('?urltype=tree.TreeTempUrl&wbtreeid=1002', '0', function (data) {
+          that.setData({ schoolnewsListData: data.news, schoolnewsNextPageUrl: data.nextPageUrl, schoolnewsLoaded: 1 });
         })
       }
     });
@@ -42,25 +43,25 @@ Page({
   //tab切换时加载列表数据
   loadList: function (currentTab) {
     var that = this;
-    if (currentTab == 0) {//教务通知
-      if (this.data.notificationLoaded == 0) {
+    if (currentTab == 0) {//学校要闻
+      if (this.data.schoolnewsLoaded == 0) {
         wx.showLoading({
           title: '加载数据...',
         });
-        getList('?urltype=tree.TreeTempUrl&wbtreeid=1082', function (data) {
-          that.setData({ notificationListData: data.news, notificationNextPageUrl: data.nextPageUrl, notificationLoaded: 1 });
+        getList('?urltype=tree.TreeTempUrl&wbtreeid=1002', "0", function (data) {
+          that.setData({ schoolnewsListData: data.news, schoolnewsNextPageUrl: data.nextPageUrl, schoolnewsLoaded: 1 });
           wx.hideLoading();
         });
       }
       return;
     }
-    if (currentTab == 1) {//教务新闻
-      if (this.data.nnewsLoaded == 0) {
+    if (currentTab == 1) {//教务通知
+      if (this.data.jiaowuLoaded == 0) {
         wx.showLoading({
           title: '加载数据...',
         });
-        getList('?urltype=tree.TreeTempUrl&wbtreeid=1083', function (data) {
-          that.setData({ newsListData: data.news, newsNextPageUrl: data.nextPageUrl, nnewsLoaded: 1 });
+        getList('?urltype=tree.TreeTempUrl&wbtreeid=1082', "1", function (data) {
+          that.setData({ jiaowuListData: data.news, jiaowuNextPageUrl: data.nextPageUrl, jiaowuLoaded: 1 });
           wx.hideLoading();
         });
       }
@@ -71,7 +72,7 @@ Page({
         title: '加载数据...',
       });
       //考试安排
-      getList('?urltype=tree.TreeTempUrl&wbtreeid=1095', function (data) {
+      getList('?urltype=tree.TreeTempUrl&wbtreeid=1095', "1", function (data) {
         that.setData({ examinationListData: data.news, examinationNextPageUrl: data.nextPageUrl, examinationLoaded: 1 });
         wx.hideLoading();
       });
@@ -101,23 +102,23 @@ Page({
     });
     switch (this.data.currentTab) {
       case 0: {
-        if (that.data.notificationNextPageUrl == '-1') {
+        if (that.data.schoolnewsNextPageUrl == '-1') {
           common.showMsg('没有啦...');
           return;
         }
-        getList(that.data['notificationNextPageUrl'], function (data) {
-          that.setData({ notificationListData: that.data.notificationListData.concat(data.news), notificationNextPageUrl: data.nextPageUrl, notificationLoaded: 1 });
+        getList(that.data['schoolnewsNextPageUrl'], "0", function (data) {
+          that.setData({ schoolnewsListData: that.data.schoolnewsListData.concat(data.news), schoolnewsNextPageUrl: data.nextPageUrl, schoolnewsLoaded: 1 });
           wx.hideLoading();
         })
         break;
       }
       case 1: {
-        if (that.data.newsNextPageUrl == '-1') {
+        if (that.data.jiaowuNextPageUrl == '-1') {
           common.showMsg('没有啦...');
           return;
         }
-        getList(that.data['newsNextPageUrl'], function (data) {
-          that.setData({ newsListData: that.data.newsListData.concat(data.news), newsNextPageUrl: data.nextPageUrl, newsLoaded: 1 });
+        getList(that.data['jiaowuNextPageUrl'], "1", function (data) {
+          that.setData({ jiaowuListData: that.data.jiaowuListData.concat(data.news), jiaowuNextPageUrl: data.nextPageUrl, jiaowuLoaded: 1 });
           wx.hideLoading();
         })
         break;
@@ -127,7 +128,7 @@ Page({
           common.showMsg('没有啦...');
           return;
         }
-        getList(that.data['examinationNextPageUrl'], function (data) {
+        getList(that.data['examinationNextPageUrl'], "1", function (data) {
           that.setData({ examinationListData: that.data.examinationListData.concat(data.news), examinationNextPageUrl: data.nextPageUrl, examinationLoaded: 1 });
           wx.hideLoading();
         })
