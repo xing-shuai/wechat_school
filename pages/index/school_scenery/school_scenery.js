@@ -28,7 +28,7 @@ Page({
           that.setData({ images: res.data.data, has_next_page: true, cur_page: that.data.cur_page + 1 });
           return;
         }
-        that.setData({ images: res.data.data, has_next_page: false, cur_page: that.data.cur_page + 1 });
+        that.setData({ images: res.data.data, has_next_page: false });
       }
     })
   },

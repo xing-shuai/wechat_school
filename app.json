@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/campus/campus",
+    "pages/campus/school_dynamic/school_dynamic",
     "pages/index/school_calendar/school_calendar",
     "pages/me/me",
     "pages/me/myinfo/myinfo",

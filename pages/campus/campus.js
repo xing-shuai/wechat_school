@@ -29,9 +29,11 @@ Page({
     examinationListData: [],
     images_host: url + "/dynamic/images/",
     user_head_host: url + "/user_head/",
+    school_dynamic_loaded: 0,
     school_dynamic_has_next_page: true,
     school_dynamic_cur_page: 0,
     school_dynamic_data: [],
+    wenjuan_loaded: 0,
     wenjuan_has_next_page: true,
     wenjuan_cur_page: 0,
     wenjuan_data: []
@@ -62,6 +64,7 @@ Page({
         getList('?urltype=tree.TreeTempUrl&wbtreeid=1002', "0", function (data) {
           that.setData({ schoolnewsListData: data.news, schoolnewsNextPageUrl: data.nextPageUrl, schoolnewsLoaded: 1 });
           wx.hideLoading();
+          wx.stopPullDownRefresh();
         });
       }
       return;
@@ -74,6 +77,7 @@ Page({
         getList('?urltype=tree.TreeTempUrl&wbtreeid=1082', "1", function (data) {
           that.setData({ jiaowuListData: data.news, jiaowuNextPageUrl: data.nextPageUrl, jiaowuLoaded: 1 });
           wx.hideLoading();
+          wx.stopPullDownRefresh();
         });
       }
       return;
@@ -86,30 +90,36 @@ Page({
         getList('?urltype=tree.TreeTempUrl&wbtreeid=1095', "1", function (data) {
           that.setData({ examinationListData: data.news, examinationNextPageUrl: data.nextPageUrl, examinationLoaded: 1 });
           wx.hideLoading();
+          wx.stopPullDownRefresh();
         });
       }
       return;
     }
     if (currentTab == 3) {//校园动态
-      if (this.data.examinationLoaded == 0) {
+      if (this.data.school_dynamic_loaded == 0) {
         wx.showLoading({
           title: '加载动态...',
         });
         common.get_request({
           url: '/dynamic/get_school_dynamic?page=' + (that.data.school_dynamic_cur_page + 1).toString(),
+          header: {
+            'cookie': wx.getStorageSync("sessionid")
+          },
           success: function (res) {
             wx.hideLoading();
-            that.setData({ school_dynamic_data: res.data.data, school_dynamic_has_next_page: res.data.has_next_page, school_dynamic_cur_page: res.data.has_next_page ? that.data.school_dynamic_cur_page + 1 : 0 });
+            wx.stopPullDownRefresh();
+            that.setData({ school_dynamic_data: res.data.data, school_dynamic_has_next_page: res.data.has_next_page, school_dynamic_cur_page: res.data.has_next_page ? that.data.school_dynamic_cur_page + 1 : 0, school_dynamic_loaded: 1 });
           }
         })
       }
       return;
     }
     //问卷调查
-    if (this.data.examinationLoaded == 0) {
+    if (this.data.jiaowu_loaded == 0) {
       wx.showLoading({
         title: '加载问卷...',
       });
+      wx.stopPullDownRefresh();
     }
   },
   //tab切换
@@ -167,6 +177,9 @@ Page({
           wx.showNavigationBarLoading();
           common.get_request({
             url: '/dynamic/get_school_dynamic?page=' + (that.data.school_dynamic_cur_page + 1).toString(),
+            header: {
+              'cookie': wx.getStorageSync("sessionid")
+            },
             success: function (res) {
               wx.hideNavigationBarLoading();
               that.setData({ school_dynamic_data: that.data.school_dynamic_data.concat(res.data.data), school_dynamic_has_next_page: res.data.has_next_page, school_dynamic_cur_page: that.data.school_dynamic_cur_page + 1 });
@@ -211,5 +224,96 @@ Page({
       urls: urls,
       current: current
     })
+  },
+  //取消收藏校园动态
+  uncollect: function (e) {
+    var that = this;
+    var data = that.data.school_dynamic_data;
+    var index = e.currentTarget.dataset.index;
+    common.get_request({
+      url: '/dynamic/uncollect_school_dynamic?collection_id=' + data[index].collection_id,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
+      success: function (res) {
+        if (res.data.code == 1) {
+          data[index].collection_id = "";
+          data[index].heart_count -= 1;
+          that.setData({ school_dynamic_data: data });
+        }
+      }
+    })
+  },
+  //收藏校园动态
+  collect: function (e) {
+    var that = this;
+    var data = that.data.school_dynamic_data;
+    var index = e.currentTarget.dataset.index;
+    common.get_request({
+      url: '/dynamic/collect_school_dynamic?collection_id=' + data[index].id,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
+      success: function (res) {
+        if (res.data.code == 1) {
+          data[index].collection_id = res.data.id;
+          data[index].heart_count += 1;
+          that.setData({ school_dynamic_data: data });
+        }
+      }
+    })
+  },
+  //浏览校园动态
+  view_dynamic: function (e) {
+    wx.navigateTo({
+      url: 'school_dynamic/school_dynamic?id=' + this.data.school_dynamic_data[e.currentTarget.dataset.index].id,
+    });
+  },
+  onPullDownRefresh: function () {
+    switch (this.data.currentTab) {
+      case 0: {
+        this.setData({
+          schoolnewsLoaded: 0,
+          schoolnewsNextPageUrl: '',
+          schoolnewsListData: [],
+        })
+        break;
+      }
+      case 1: {
+        this.setData({
+          jiaowuLoaded: 0,
+          jiaowuNextPageUrl: '',
+          jiaowuListData: [],
+        })
+        break;
+      }
+      case 2: {
+        this.setData({
+          examinationLoaded: 0,
+          examinationNextPageUrl: '',
+          examinationListData: [],
+        })
+        break;
+      }
+      case 3: {
+        this.setData({
+          school_dynamic_loaded: 0,
+          school_dynamic_has_next_page: true,
+          school_dynamic_cur_page: 0,
+          school_dynamic_data: [],
+        })
+        break;
+      }
+      case 4: {
+        this.setData({
+          wenjuan_loaded: 0,
+          wenjuan_has_next_page: true,
+          wenjuan_cur_page: 0,
+          wenjuan_data: []
+        })
+        break;
+      }
+    }
+    this.loadList(this.data.currentTab);
   }
 })

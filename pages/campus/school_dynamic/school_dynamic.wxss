@@ -1,0 +1,132 @@
+.school_dynamic_list {
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.top {
+  display: flex;
+}
+
+.user_head {
+  width: 25%;
+}
+
+.user_head image {
+  width: 55px;
+  height: 55px;
+  display: block;
+  margin: 10px auto;
+}
+
+.info {
+  padding: 13px 0 10px 10px;
+  width: 60%;
+}
+
+.op {
+  width: 15%;
+}
+
+.op image {
+  height: 15px;
+  width: 15px;
+  display: block;
+  margin: 30px auto;
+}
+
+.dynamic_content {
+  padding: 0 15px;
+  font-size: 15px;
+}
+
+.bar {
+  display: flex;
+  font-size: 14px;
+  color: gray;
+  height: 40px;
+}
+
+.love {
+  display: flex;
+  padding: 10px;
+  margin-left: 60%;
+}
+
+.love image {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.comment {
+  display: flex;
+  padding: 10px;
+}
+
+.comment image {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.images_block {
+  display: flex;
+  width: 95%;
+  margin: 7px auto;
+}
+
+.images_block image {
+  width: 32%;
+  margin: 0 2px;
+}
+
+.comment_bar {
+  display: flex;
+  padding: 10px 10px 0 10px;
+  position: fixed;
+  width: 96%;
+  bottom: 0px;
+  border-top: 1px solid #e8e9e9;
+  z-index: 100000;
+  background-color: white;
+  height: 40px;
+}
+
+.comment_bar input {
+  width: 90%;
+}
+
+.comment_bar image {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+}
+
+.split_bar {
+  padding: 10px 0 10px 20px;
+  border-bottom: 1px solid #e8e9e9;
+  border-top: 1px solid #e8e9e9;
+  color: gray;
+}
+
+.c_user_head {
+  width: 25%;
+}
+
+.c_user_head image {
+  width: 35px;
+  height: 35px;
+  display: block;
+  margin: 10px auto;
+}
+
+.c_info {
+  padding: 9px 0 5px 5px;
+  width: 60%;
+}
+
+.c_dynamic_content {
+  font-size: 14px;
+  margin-left: 25%;
+  margin-bottom: 5px;
+}
