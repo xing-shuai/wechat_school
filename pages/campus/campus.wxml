@@ -11,8 +11,7 @@
   <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">学校要闻</view>
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">教务通知</view>
   <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">考试安排</view>
-  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">校园动态</view>
-  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">问卷调查</view>
+  <view class="swiper-tab-list {{currentTab==3? 'on' : ''}}" data-current="3" bindtap="swichNav">问卷调查</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper-box" style="height:{{winHeight - 50}}px" bindchange="bindChange">
@@ -39,60 +38,6 @@
     <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
       <block wx:for="{{examinationListData}}">
         <template is="list_template" data="{{...item}}" />
-      </block>
-    </scroll-view>
-  </swiper-item>
-
-  <swiper-item>
-    <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;background-color:#EDECE8;">
-      <block wx:for="{{school_dynamic_data}}" wx:for-index="list_index">
-        <view class='school_dynamic_list'>
-          <!-- 作者信息 -->
-          <view class='top'>
-            <view class='user_head'>
-              <image src='{{item.head_url?user_head_host+item.head_url:"../../resources/icons/default_user_boy.png"}}'></image>
-            </view>
-            <view class='info'>
-              <view style='padding-bottom:5px;font-weight:bold;'>{{item.publisher_name}}</view>
-              <view style='font-size:14px;color:gray;'>{{item.time}}</view>
-            </view>
-            <view class='op'>
-              <image data-index='{{list_index}}' src="../../resources/icons/arrow_down.png"></image>
-            </view>
-          </view>
-
-          <!-- 文字区 -->
-          <view data-index='{{list_index}}' bindtap='view_dynamic' class='dynamic_content'>{{item.content}}</view>
-
-          <!-- 图片区 -->
-          <view wx:if="{{item.have_img>0}}">
-            <block wx:if="{{item.images[0].length==1}}">
-              <image mode='aspectFill' bindtap='preview_images' data-mode="0" data-index='{{list_index}}' class='images_block' src='{{item.images[0][0]}}'></image>
-            </block>
-            <block wx:else>
-              <block wx:for="{{item.images}}" wx:for-item="img" wx:for-index="src_indexX">
-                <view class='images_block'>
-                  <block wx:for="{{img}}" wx:for-item="src" wx:for-index="src_indexY">
-                    <image mode='aspectFill' bindtap='preview_images' data-mode="1" data-current-index-x="{{src_indexX}}" data-current-index-y="{{src_indexY}}" data-index='{{list_index}}' style='height:{{images_height}}px' src='{{src}}'></image>
-                  </block>
-                </view>
-              </block>
-            </block>
-          </view>
-
-          <!-- 底部操作条 -->
-          <view class='bar'>
-            <view class='love'>
-              <image bindtap='collect' data-index='{{list_index}}' src='../../resources/icons/heart.png' wx:if="{{item.collection_id==''}}"></image>
-              <image bindtap='uncollect' data-index='{{list_index}}' data-collection-id='{{item.collection_id}}' src='../../resources/icons/red_heart.png' wx:if="{{item.collection_id!=''}}"></image>
-              <view>{{item.heart_count}}</view>
-            </view>
-            <view class='comment'>
-              <image data-index='{{list_index}}' bindtap='view_dynamic' src='../../resources/icons/comment.png'></image>
-              <view>{{item.comment_count}}</view>
-            </view>
-          </view>
-        </view>
       </block>
     </scroll-view>
   </swiper-item>

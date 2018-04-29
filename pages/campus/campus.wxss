@@ -7,7 +7,7 @@
 .swiper-tab-list {
   font-size: 30rpx;
   display: inline-block;
-  width: 20%;
+  width: 25%;
   color: #777;
 }
 
@@ -41,115 +41,4 @@
   color: #888;
   font-size: 15px;
   padding: 10px 10px 10px 12px;
-}
-
-.content_list image {
-  width: 20px;
-  height: 20px;
-  margin-right: 9px;
-  margin-top: 3px;
-}
-
-.content_list view {
-  width: 80%;
-}
-
-.title {
-  background-color: #f3f3f3;
-  padding: 10px 25px;
-  font-size: 15px;
-}
-
-.content {
-  background-color: white;
-}
-
-.content_list {
-  display: flex;
-  padding: 15px 0px 15px 15px;
-  width: 83%;
-  border-bottom: 1px solid #f0f0f0;
-  margin: 0 auto;
-}
-
-.school_dynamic_list {
-  background-color: white;
-  margin-bottom: 5px;
-}
-
-.top {
-  display: flex;
-}
-
-.user_head {
-  width: 25%;
-}
-
-.user_head image {
-  width: 55px;
-  height: 55px;
-  display: block;
-  margin: 10px auto;
-}
-
-.info {
-  padding: 13px 0 10px 10px;
-  width: 60%;
-}
-
-.op {
-  width: 15%;
-}
-
-.op image {
-  height: 15px;
-  width: 15px;
-  display: block;
-  margin: 30px auto;
-}
-
-.dynamic_content {
-  padding: 0 15px;
-  font-size: 15px;
-}
-
-.bar {
-  display: flex;
-  font-size: 14px;
-  color: gray;
-  height: 40px;
-}
-
-.love {
-  display: flex;
-  padding: 10px;
-  margin-left: 60%;
-}
-
-.love image {
-  height: 20px;
-  width: 20px;
-  margin-right: 5px;
-}
-
-.comment {
-  display: flex;
-  padding: 10px;
-}
-
-.comment image {
-  height: 20px;
-  width: 20px;
-  margin-right: 5px;
-}
-
-.images_block {
-  display: flex;
-  width: 95%;
-  margin: 7px auto;
-}
-
-.images_block image {
-  width: 32%;
-  margin: 0 2px;
 }

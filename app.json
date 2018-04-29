@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/campus/campus",
-    "pages/campus/school_dynamic/school_dynamic",
-    "pages/index/school_calendar/school_calendar",
     "pages/me/me",
+    "pages/campus/campus",
+    "pages/index/school_calendar/school_calendar",
     "pages/me/myinfo/myinfo",
     "pages/index/index",
     "pages/me/setting/setting",
@@ -24,7 +23,9 @@
     "pages/index/class_table/class_table",
     "pages/index/library/library",
     "pages/index/library/book/book",
-    "pages/index/lostandfound/mylost/mylost"
+    "pages/index/lostandfound/mylost/mylost",
+    "pages/me/dynamic/dynamic",
+    "pages/me/dynamic/school_dynamic/school_dynamic"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,7 +43,7 @@
       },
       {
         "pagePath": "pages/campus/campus",
-        "text": "动态",
+        "text": "通知",
         "iconPath": "resources/icons/school.png",
         "selectedIconPath": "resources/icons/school_selected.png"
       },

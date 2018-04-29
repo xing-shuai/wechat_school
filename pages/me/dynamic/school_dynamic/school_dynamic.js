@@ -1,4 +1,4 @@
-var common = require("../../../utils/util.js");
+var common = require("../../../../utils/util.js");
 var url = getApp().globalData.server_url;
 Page({
   data: {

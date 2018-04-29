@@ -17,7 +17,7 @@
   </navigator>
   <navigator url='dynamic/dynamic' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/dynamic.png'></image>
-    <view class='menu_name'>我的动态</view>
+    <view class='menu_name'>动态查看</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
   </navigator>
   <navigator url='notification/notification' class='me_menu'>
