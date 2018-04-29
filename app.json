@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/me/dynamic/dynamic",
+    "pages/me/dynamic/add_dynamic/add_dynamic",
     "pages/me/me",
     "pages/campus/campus",
     "pages/index/school_calendar/school_calendar",
@@ -24,7 +26,6 @@
     "pages/index/library/library",
     "pages/index/library/book/book",
     "pages/index/lostandfound/mylost/mylost",
-    "pages/me/dynamic/dynamic",
     "pages/me/dynamic/school_dynamic/school_dynamic"
   ],
   "window": {

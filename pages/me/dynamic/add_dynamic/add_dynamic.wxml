@@ -1,0 +1,26 @@
+<form style='height:{{winHeight}}px' bindsubmit='publish_dynamic'>
+  <radio-group class='radio_group' bindchange="radioChange">
+    <label class='radio_label'>
+      <radio value="0" checked />班级动态
+    </label>
+    <label class='radio_label'>
+      <radio value="1" />校园动态
+    </label>
+  </radio-group>
+  <textarea name='content' maxlength='-1' style='width:{{winWidth}}px' placeholder='说点什么吧....'></textarea>
+
+  <view style='padding:10px;'>
+    <block wx:for="{{images}}" wx:for-item="img" wx:for-index="src_indexX">
+      <view class='images_block'>
+        <block wx:for="{{img}}" wx:for-item="src" wx:for-index="src_indexY">
+          <image bindtap='delete_image' mode='aspectFill' data-current-index-x="{{src_indexX}}" data-current-index-y="{{src_indexY}}" style='height:{{winWidth/3}}px' src='{{src}}'></image>
+        </block>
+      </view>
+    </block>
+  </view>
+
+  <view class='buttons'>
+    <button disabled='{{upload_button_enable}}' bindtap='upload_image'>上传照片({{upload_images_count}}/9)</button>
+    <button form-type='submit' type='primary'>发送</button>
+  </view>
+</form>

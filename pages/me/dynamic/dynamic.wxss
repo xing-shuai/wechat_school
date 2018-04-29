@@ -104,3 +104,17 @@
   width: 32%;
   margin: 0 2px;
 }
+
+.float_button {
+  width: 60px;
+  background-color: red;
+  border-radius: 32px;
+  height: 60px;
+  text-align: center;
+  line-height: 57px;
+  color: white;
+  position: fixed;
+  right: 26px;
+  box-shadow: 5px 6px 20px 0px #dcdada;
+  font-size: 23px;
+}

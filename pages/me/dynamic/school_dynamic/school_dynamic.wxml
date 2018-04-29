@@ -19,13 +19,13 @@
   <!-- 图片区 -->
   <view wx:if="{{dynamic_data.have_img>0}}">
     <block wx:if="{{dynamic_data.images[0].length==1}}">
-      <image mode='aspectFill' bindtap='preview_images' data-mode="0" class='images_block' src='{{dynamic_data.images[0][0]}}'></image>
+      <image mode='aspectFill' bindtap='preview_images' data-mode="0" class='images_block' src='{{images_host+dynamic_data.images[0][0]}}'></image>
     </block>
     <block wx:else>
       <block wx:for="{{dynamic_data.images}}" wx:for-item="img" wx:for-index="src_indexX">
         <view class='images_block'>
           <block wx:for="{{img}}" wx:for-item="src" wx:for-index="src_indexY">
-            <image mode='aspectFill' bindtap='preview_images' data-mode="1" data-current-index-x="{{src_indexX}}" data-current-index-y="{{src_indexY}}" style='height:{{images_height}}px' src='{{src}}'></image>
+            <image mode='aspectFill' bindtap='preview_images' data-mode="1" data-current-index-x="{{src_indexX}}" data-current-index-y="{{src_indexY}}" style='height:{{images_height}}px' src='{{ images_host+src}}'></image>
           </block>
         </view>
       </block>

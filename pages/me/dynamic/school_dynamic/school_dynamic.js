@@ -60,9 +60,12 @@ Page({
         urls = urls.concat(t[i]);
       }
     }
+    for (var i = 0; i < urls.length; i++) {
+      urls[i] = this.data.images_host + urls[i];
+    }
     wx.previewImage({
       urls: urls,
-      current: current
+      current: this.data.images_host + current
     })
   },
   //取消收藏校园动态
