@@ -44,9 +44,9 @@ Page({
     var that = this;
     common.get_request({
       url: '/teacher/get_courses',
-      // header: {
-      //   'cookie': wx.getStorageSync("sessionid")
-      // },
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
       success: function (res) {
         that.setData({ courses: res.data });
         wx.stopPullDownRefresh();

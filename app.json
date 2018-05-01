@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/me/me",
+    "pages/index/course_s/course_s",
+    "pages/index/course_s/attendance/attendance",
     "pages/me/dynamic/dynamic",
     "pages/me/dynamic/add_dynamic/add_dynamic",
-    "pages/me/me",
     "pages/campus/campus",
     "pages/index/school_calendar/school_calendar",
     "pages/me/myinfo/myinfo",

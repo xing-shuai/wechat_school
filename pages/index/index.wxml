@@ -104,27 +104,27 @@
         <text>课程表</text>
       </view>
     </navigator>
-    <navigator class="flex-item" hover-class='flex-item_hover'>
+    <navigator url='course_s/course_s' class="flex-item" hover-class='flex-item_hover'>
       <view class='menu_icon'>
-        <image src='../../resources/icons/pingshifen.png'></image>
+        <image src='../../resources/icons/homework.png'></image>
       </view>
       <view class='menu_name'>
-        <text>平时分</text>
+        <text>我的课程</text>
       </view>
     </navigator>
-    <navigator class="flex-item" hover-class='flex-item_hover'>
+    <navigator url='course_s/attendance/attendance?mode=1' class="flex-item" hover-class='flex-item_hover'>
       <view class='menu_icon'>
         <image src='../../resources/icons/queqin.png'></image>
       </view>
       <view class='menu_name'>
-        <text>课堂考勤</text>
+        <text>缺勤记录</text>
       </view>
     </navigator>
   </view>
 
   <!-- 学生菜单 -->
-  <view wx:if="{{user_type=='s' && display}}" class="flex-wrp" style="flex-direction:row;margin:0px 4px 0px 4px;">
-    <navigator class="flex-item" hover-class='flex-item_hover'>
+  <!-- <view wx:if="{{user_type=='s' && display}}" class="flex-wrp" style="flex-direction:row;margin:0px 4px 0px 4px;">
+    <navigator url='course_s/grade/grade' class="flex-item" hover-class='flex-item_hover'>
       <view class='menu_icon'>
         <image src='../../resources/icons/chengji.png'></image>
       </view>
@@ -138,5 +138,5 @@
     </view>
     <view class="flex-item">
     </view>
-  </view>
+  </view> -->
 </view>

@@ -14,3 +14,11 @@
     <view class='desc'>{{item.description}}</view>
   </view>
 </block>
+
+
+<view wx:if="{{losts.length==0}}" style='position:fixed;width:100%;top:200px'>
+  <view>
+    <image style='height:50px;width:75px;display:block;margin:0 auto;' src='../../../../resources/icons/nothing.png'></image>
+  </view>
+  <view style='color:gray;text-align:center;font-size:14px;margin-top:5px;'>什么都没有...</view>
+</view>

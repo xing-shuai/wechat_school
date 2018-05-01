@@ -1,0 +1,20 @@
+<block wx:for="{{records}}" wx:for-item="course">
+  <view wx:if="{{course.records.length>0}}">
+    <view class='course'>{{course.course}}</view>
+    <block wx:for="{{course.records}}">
+      <view class='records'>
+        <view>考勤时间：{{item.time}}</view>
+        <view>考勤方式：{{attendance_type[item.type]}}</view>
+        <view>考勤人数：{{item.count}}</view>
+        <view>缺勤类型：{{absence_type[item.absence_type]}}</view>
+      </view>
+    </block>
+  </view>
+</block>
+
+<view wx:if="{{records.length==0||records[0].records.length==0}}" style='position:fixed;width:100%;top:200px'>
+ <view>
+    <image style='height:50px;width:75px;display:block;margin:0 auto;' src='../../../../resources/icons/nothing.png'></image>
+  </view>
+  <view style='color:gray;text-align:center;font-size:14px;margin-top:5px;'>什么都没有...</view>
+</view>
