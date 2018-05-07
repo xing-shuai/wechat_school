@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/me/me",
     "pages/index/course_s/course_s",
     "pages/index/course_s/attendance/attendance",
@@ -8,7 +9,6 @@
     "pages/campus/campus",
     "pages/index/school_calendar/school_calendar",
     "pages/me/myinfo/myinfo",
-    "pages/index/index",
     "pages/me/setting/setting",
     "pages/me/setting/about/about",
     "pages/index/lostandfound/lostandfound",

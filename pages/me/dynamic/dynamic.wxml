@@ -1,20 +1,19 @@
+<template name="nothing">
+  <view style='position:fixed;width:100%;top:200px'>
+    <view>
+      <image style='height:50px;width:75px;display:block;margin:0 auto;' src='../../../resources/icons/nothing.png'></image>
+    </view>
+    <view style='color:gray;text-align:center;font-size:14px;margin-top:5px;'>什么都没有...</view>
+  </view>
+</template>
+
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">班级动态</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">校园动态</view>
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">我的动态</view>
+  <view style="{{user_type=='s'?'width: 33%;':'width: 50%;'}}" class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">校园动态</view>
+  <view style="{{user_type=='s'?'width: 33%;':'width: 50%;'}}" class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">我的动态</view>
+  <view wx:if="{{user_type=='s'}}" style="{{user_type=='s'?'width: 33%;':'width: 50%;'}}" class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">班级动态</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper-box" style="height:{{winHeight - 50}}px" bindchange="bindChange">
-
-  <swiper-item>
-    <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
-      <!-- <block wx:for="{{examinationListData}}">
-        <template is="list_template" data="{{...item}}" />
-      </block> -->
-      班级
-    </scroll-view>
-  </swiper-item>
-
 
   <swiper-item>
     <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;background-color:#EDECE8;">
@@ -67,19 +66,121 @@
           </view>
         </view>
       </block>
+      <template wx:if="{{school_dynamic_data.length==0}}" is="nothing" />
     </scroll-view>
   </swiper-item>
 
   <swiper-item>
     <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
-      <!-- <block wx:for="{{examinationListData}}">
-        <template is="list_template" data="{{...item}}" />
-      </block> -->
-      我的
+      <block wx:for="{{my_dynamic_data}}" wx:for-index="list_index">
+        <view class='school_dynamic_list'>
+          <!-- 作者信息 -->
+          <view class='top'>
+            <view class='user_head'>
+              <image src='{{item.head_url?user_head_host+item.head_url:"../../../resources/icons/default_user_boy.png"}}'></image>
+            </view>
+            <view class='info'>
+              <view style='padding-bottom:5px;font-weight:bold;'>{{item.publisher_name}}</view>
+              <view style='font-size:14px;color:gray;'>{{item.time}}</view>
+            </view>
+            <view class='op' data-id='{{item.id}}' bindtap='my_dynamic_op'>
+              <image data-index='{{list_index}}' src="../../../resources/icons/arrow_down.png"></image>
+            </view>
+          </view>
+
+          <!-- 文字区 -->
+          <view data-index='{{list_index}}' bindtap='view_dynamic' class='dynamic_content'>{{item.content}}</view>
+
+          <!-- 图片区 -->
+          <view wx:if="{{item.have_img>0}}">
+            <block wx:if="{{item.images[0].length==1}}">
+              <image mode='aspectFill' bindtap='preview_images' data-mode="0" data-index='{{list_index}}' class='images_block' src='{{images_host+item.images[0][0]}}'></image>
+            </block>
+            <block wx:else>
+              <block wx:for="{{item.images}}" wx:for-item="img" wx:for-index="src_indexX">
+                <view class='images_block'>
+                  <block wx:for="{{img}}" wx:for-item="src" wx:for-index="src_indexY">
+                    <image mode='aspectFill' bindtap='preview_images' data-mode="1" data-current-index-x="{{src_indexX}}" data-current-index-y="{{src_indexY}}" data-index='{{list_index}}' style='height:{{images_height}}px' src='{{images_host+src}}'></image>
+                  </block>
+                </view>
+              </block>
+            </block>
+          </view>
+
+          <!-- 底部操作条 -->
+          <view class='bar'>
+            <view class='love'>
+              <image bindtap='collect' data-index='{{list_index}}' src='../../../resources/icons/heart.png' wx:if="{{item.collection_id==''}}"></image>
+              <image bindtap='uncollect' data-index='{{list_index}}' data-collection-id='{{item.collection_id}}' src='../../../resources/icons/red_heart.png' wx:if="{{item.collection_id!=''}}"></image>
+              <view>{{item.heart_count}}</view>
+            </view>
+            <view class='comment'>
+              <image data-index='{{list_index}}' bindtap='view_dynamic' src='../../../resources/icons/comment.png'></image>
+              <view>{{item.comment_count}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <template wx:if="{{my_dynamic_data.length==0}}" is="nothing" />
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item wx:if="{{user_type=='s'}}">
+    <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
+      <block wx:for="{{class_dynamic_data}}" wx:for-index="list_index">
+        <view class='school_dynamic_list'>
+          <!-- 作者信息 -->
+          <view class='top'>
+            <view class='user_head'>
+              <image src='{{item.head_url?user_head_host+item.head_url:"../../../resources/icons/default_user_boy.png"}}'></image>
+            </view>
+            <view class='info'>
+              <view style='padding-bottom:5px;font-weight:bold;'>{{item.publisher_name}}</view>
+              <view style='font-size:14px;color:gray;'>{{item.time}}</view>
+            </view>
+            <view class='op'>
+              <image data-index='{{list_index}}' src="../../../resources/icons/arrow_down.png"></image>
+            </view>
+          </view>
+
+          <!-- 文字区 -->
+          <view data-index='{{list_index}}' bindtap='view_dynamic' class='dynamic_content'>{{item.content}}</view>
+
+          <!-- 图片区 -->
+          <view wx:if="{{item.have_img>0}}">
+            <block wx:if="{{item.images[0].length==1}}">
+              <image mode='aspectFill' bindtap='preview_images' data-mode="0" data-index='{{list_index}}' class='images_block' src='{{images_host+item.images[0][0]}}'></image>
+            </block>
+            <block wx:else>
+              <block wx:for="{{item.images}}" wx:for-item="img" wx:for-index="src_indexX">
+                <view class='images_block'>
+                  <block wx:for="{{img}}" wx:for-item="src" wx:for-index="src_indexY">
+                    <image mode='aspectFill' bindtap='preview_images' data-mode="1" data-current-index-x="{{src_indexX}}" data-current-index-y="{{src_indexY}}" data-index='{{list_index}}' style='height:{{images_height}}px' src='{{images_host+src}}'></image>
+                  </block>
+                </view>
+              </block>
+            </block>
+          </view>
+
+          <!-- 底部操作条 -->
+          <view class='bar'>
+            <view class='love'>
+              <image bindtap='collect' data-index='{{list_index}}' src='../../../resources/icons/heart.png' wx:if="{{item.collection_id==''}}"></image>
+              <image bindtap='uncollect' data-index='{{list_index}}' data-collection-id='{{item.collection_id}}' src='../../../resources/icons/red_heart.png' wx:if="{{item.collection_id!=''}}"></image>
+              <view>{{item.heart_count}}</view>
+            </view>
+            <view class='comment'>
+              <image data-index='{{list_index}}' bindtap='view_dynamic' src='../../../resources/icons/comment.png'></image>
+              <view>{{item.comment_count}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <template wx:if="{{class_dynamic_data.length==0}}" is="nothing" />
     </scroll-view>
   </swiper-item>
 
 </swiper>
 
-<view class='float_button' style='bottom: 45px;' bindtap='add_dynamic'>＋
+<view animation='{{ani_add_dynamic}}' class='float_button' style='bottom: 45px;' bindtap='add_dynamic'>＋
 </view>

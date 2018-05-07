@@ -3,7 +3,7 @@
   <view class='user_info'>
     <view style='width:90%;'>
       <view>{{myinfo.name}}</view>
-      <view style='font-size:14px;color:gray;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-top:3px;'>{{myinfo.signature}}</view>
+      <view style='font-size:14px;color:gray;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-top:3px;'>{{myinfo.signature?myinfo.signature:'点击编辑个人信息'}}</view>
     </view>
     <image class='edit_info' src='../../resources/icons/open.png'></image>
   </view>

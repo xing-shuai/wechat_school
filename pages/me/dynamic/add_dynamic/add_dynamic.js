@@ -93,7 +93,7 @@ Page({
       complete: function () {
         wx.hideLoading();
         index++;
-        if (index == images.length) {
+        if (index >= images.length) {
           common.showMsg("发布成功", 'success');
           return;
         }

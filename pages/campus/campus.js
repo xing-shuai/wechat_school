@@ -26,10 +26,10 @@ Page({
     examinationLoaded: 0,
     examinationNextPageUrl: '',
     examinationListData: [],
-    wenjuan_loaded: 0,
-    wenjuan_has_next_page: true,
-    wenjuan_cur_page: 0,
-    wenjuan_data: []
+    questionnaire_loaded: 0,
+    questionnaire_has_next_page: true,
+    questionnaire_cur_page: 0,
+    questionnaire_data: []
   },
   onLoad: function () {
     common.set_navi_color();
@@ -92,7 +92,14 @@ Page({
       wx.showLoading({
         title: '加载问卷...',
       });
-      wx.stopPullDownRefresh();
+      // common.get_request({
+      //   url: '/dynamic/get_questionnaire?page=' + (that.data.questionnaire_cur_page + 1).toString(),
+      //   success: function () {
+      //     wx.stopPullDownRefresh();
+      //     wx.hideNavigationBarLoading();
+      //     that.setData({ questionnaire_data: that.data.questionnaire_data.concat(res.data.data), questionnaire_has_next_page: res.data.has_next_page, questionnaire_cur_page: that.data.questionnaire_cur_page + 1 });
+      //   }
+      // })
     }
   },
   //tab切换
@@ -146,13 +153,13 @@ Page({
         break;
       }
       case 3: {
-        if (that.data.wenjuan_has_next_page) {
+        if (that.data.questionnaire_has_next_page) {
           wx.showNavigationBarLoading();
           common.get_request({
-            url: '/dynamic/get_wenjuan?page=' + (that.data.wenjuan_cur_page + 1).toString(),
+            url: '/dynamic/get_questionnaire?page=' + (that.data.questionnaire_cur_page + 1).toString(),
             success: function () {
               wx.hideNavigationBarLoading();
-              that.setData({ wenjuan_data: that.data.wenjuan_data.concat(res.data.data), wenjuan_has_next_page: res.data.has_next_page, wenjuan_cur_page: that.data.wenjuan_cur_page + 1 });
+              that.setData({ questionnaire_data: that.data.questionnaire_data.concat(res.data.data), questionnaire_has_next_page: res.data.has_next_page, questionnaire_cur_page: that.data.questionnaire_cur_page + 1 });
             }
           })
         }
@@ -188,10 +195,10 @@ Page({
       }
       case 3: {
         this.setData({
-          wenjuan_loaded: 0,
-          wenjuan_has_next_page: true,
-          wenjuan_cur_page: 0,
-          wenjuan_data: []
+          questionnaire_loaded: 0,
+          questionnaire_has_next_page: true,
+          questionnaire_cur_page: 0,
+          questionnaire_data: []
         })
         break;
       }
