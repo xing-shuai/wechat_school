@@ -24,6 +24,9 @@ Page({
         });
         common.get_request({
           url: '/dynamic/load_dynamic_detail?id=' + that.data.dynamic_id,
+          header: {
+            'cookie': wx.getStorageSync("sessionid")
+          },
           success: function (res) {
             that.setData({ dynamic_data: res.data.data[0], is_show: true });
             //加载评论

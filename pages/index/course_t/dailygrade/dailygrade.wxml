@@ -8,7 +8,7 @@
       </view>
       <view class='setting_info'>
         <label style='margin-right:15px;'>缺勤：{{queqin_value}}分/次</label>
-        <label>作业未交：{{zuoye_value}}分/次</label>
+        <label>平时分占比：{{zuoye_value}}%</label>
       </view>
     </view>
     <view bindtap='setting' class='setting_button' hover-class='setting_hover'>设置</view>
@@ -20,8 +20,8 @@
       <slider bindchange='queqin_change' disabled='{{queqin}}' show-value='true' max='5' value='{{queqin_value}}'></slider>
     </view>
     <view class='set'>
-      <label>作业未交</label>
-      <slider bindchange='zuoye_change' disabled='{{zuoye}}' show-value='true' max='5' value='{{zuoye_value}}'></slider>
+      <label>平时分占比</label>
+      <slider bindchange='zuoye_change' disabled='{{zuoye}}' show-value='true' min='10' max='40' value='{{zuoye_value}}'></slider>
     </view>
   </view>
 

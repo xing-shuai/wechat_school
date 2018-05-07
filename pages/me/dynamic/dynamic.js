@@ -295,14 +295,25 @@ Page({
       itemList: ['删除'],
       itemColor: 'red',
       success: function (res) {
-        common.get_request({
-          url: '/dynamic/delete_dynamic?id=' + id,
-          header: {
-            'cookie': wx.getStorageSync("sessionid")
-          },
+        wx.showModal({
+          title: '提示',
+          content: '确认删除此动态?',
+          confirmColor: 'red',
+          confirmText: '删除',
           success: function (res) {
-            if (res.data.code == 1) {
-              that.onPullDownRefresh();
+            if (res.confirm) {
+              common.get_request({
+                url: '/dynamic/delete_dynamic?id=' + id,
+                header: {
+                  'cookie': wx.getStorageSync("sessionid")
+                },
+                success: function (res) {
+                  if (res.data.code == 1) {
+                    common.showMsg("删除成功", 'success');
+                    that.onPullDownRefresh();
+                  }
+                }
+              })
             }
           }
         })

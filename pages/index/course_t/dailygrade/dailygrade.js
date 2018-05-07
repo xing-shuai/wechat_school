@@ -106,7 +106,7 @@ Page({
         'cookie': wx.getStorageSync("sessionid")
       },
       success: function (res) {
-        common.showMsg("以保存修改", "success");
+        common.showMsg("已保存修改", "success");
         that.setData({
           ani_settingData: animation.height(90).step().export(),
           auto_switch: true,
