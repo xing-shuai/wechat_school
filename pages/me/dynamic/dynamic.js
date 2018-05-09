@@ -182,8 +182,9 @@ Page({
     var data_source = 'school_dynamic_data';
     if (this.data.currentTab == 1)
       data_source = 'my_dynamic_data';
-    else
+    else if (this.data.currentTab == 2)
       data_source = 'class_dynamic_data';
+    else{}
     if (dataset.mode == "0") {
       url = this.data[data_source][dataset.index].images[0][0]
       urls.push(url);
@@ -208,9 +209,12 @@ Page({
   uncollect: function (e) {
     var that = this;
     var data = that.data.school_dynamic_data;
+    if (that.data.currentTab == 2) {
+      data = that.data.class_dynamic_data;
+    }
     var index = e.currentTarget.dataset.index;
     common.get_request({
-      url: '/dynamic/uncollect_school_dynamic?collection_id=' + data[index].collection_id,
+      url: '/dynamic/uncollect_dynamic?collection_id=' + data[index].collection_id,
       header: {
         'cookie': wx.getStorageSync("sessionid")
       },
@@ -218,7 +222,11 @@ Page({
         if (res.data.code == 1) {
           data[index].collection_id = "";
           data[index].heart_count -= 1;
-          that.setData({ school_dynamic_data: data });
+          if (that.data.currentTab == 0) {
+            that.setData({ school_dynamic_data: data });
+          } else if (that.data.currentTab == 2) {
+            that.setData({ class_dynamic_data: data });
+          } else { }
         }
       }
     })
@@ -226,10 +234,15 @@ Page({
   //收藏校园动态
   collect: function (e) {
     var that = this;
+    var dynamic_type = '0'
     var data = that.data.school_dynamic_data;
+    if (that.data.currentTab == 2) {
+      dynamic_type = '1';
+      data = that.data.class_dynamic_data;
+    }
     var index = e.currentTarget.dataset.index;
     common.get_request({
-      url: '/dynamic/collect_school_dynamic?collection_id=' + data[index].id,
+      url: '/dynamic/collect_dynamic?collection_id=' + data[index].id + "&dynamic_type=" + dynamic_type,
       header: {
         'cookie': wx.getStorageSync("sessionid")
       },
@@ -237,15 +250,30 @@ Page({
         if (res.data.code == 1) {
           data[index].collection_id = res.data.id;
           data[index].heart_count += 1;
-          that.setData({ school_dynamic_data: data });
+          if (that.data.currentTab == 0) {
+            that.setData({ school_dynamic_data: data });
+          } else if (that.data.currentTab == 2) {
+            that.setData({ class_dynamic_data: data });
+          } else { }
         }
       }
     })
   },
-  //浏览校园动态
+  //浏览动态
   view_dynamic: function (e) {
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var dynamic_type = '0';
+    var id = this.data.school_dynamic_data[index].id;
+    if (that.data.currentTab == 2) {
+      dynamic_type = '1';
+      id = this.data.class_dynamic_data[index].id;
+    } else if (that.data.currentTab == 1) {
+      dynamic_type = e.currentTarget.dataset.dynamic_type;
+      id = this.data.my_dynamic_data[index].id;
+    } else { }
     wx.navigateTo({
-      url: 'school_dynamic/school_dynamic?id=' + this.data.school_dynamic_data[e.currentTarget.dataset.index].id,
+      url: 'dynamic_detail/dynamic_detail?id=' + id + "&dynamic_type=" + dynamic_type,
     });
   },
   //下拉刷新
@@ -284,7 +312,7 @@ Page({
   //添加动态
   add_dynamic: function () {
     wx.navigateTo({
-      url: 'add_dynamic/add_dynamic',
+      url: 'add_dynamic/add_dynamic?user_type=' + this.data.user_type,
     })
   },
   //我的动态操作菜单

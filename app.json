@@ -28,7 +28,7 @@
     "pages/index/library/library",
     "pages/index/library/book/book",
     "pages/index/lostandfound/mylost/mylost",
-    "pages/me/dynamic/school_dynamic/school_dynamic"
+    "pages/me/dynamic/dynamic_detail/dynamic_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

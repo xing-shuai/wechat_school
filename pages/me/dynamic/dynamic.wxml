@@ -37,7 +37,7 @@
           <view data-index='{{list_index}}' bindtap='view_dynamic' class='dynamic_content'>{{item.content}}</view>
 
           <!-- 图片区 -->
-          <view wx:if="{{item.have_img>0}}">
+          <view wx:if="{{item.have_img}}">
             <block wx:if="{{item.images[0].length==1}}">
               <image mode='aspectFill' bindtap='preview_images' data-mode="0" data-index='{{list_index}}' class='images_block' src='{{images_host+item.images[0][0]}}'></image>
             </block>
@@ -89,10 +89,10 @@
           </view>
 
           <!-- 文字区 -->
-          <view data-index='{{list_index}}' bindtap='view_dynamic' class='dynamic_content'>{{item.content}}</view>
+          <view data-dynamic_type="{{item.dynamic_type}}" data-index='{{list_index}}' bindtap='view_dynamic' class='dynamic_content'>{{item.content}}</view>
 
           <!-- 图片区 -->
-          <view wx:if="{{item.have_img>0}}">
+          <view wx:if="{{item.have_img}}">
             <block wx:if="{{item.images[0].length==1}}">
               <image mode='aspectFill' bindtap='preview_images' data-mode="0" data-index='{{list_index}}' class='images_block' src='{{images_host+item.images[0][0]}}'></image>
             </block>
@@ -109,13 +109,14 @@
 
           <!-- 底部操作条 -->
           <view class='bar'>
-            <view class='love'>
-              <image bindtap='collect' data-index='{{list_index}}' src='../../../resources/icons/heart.png' wx:if="{{item.collection_id==''}}"></image>
-              <image bindtap='uncollect' data-index='{{list_index}}' data-collection-id='{{item.collection_id}}' src='../../../resources/icons/red_heart.png' wx:if="{{item.collection_id!=''}}"></image>
+            <view class='dynamic_type'>{{item.dynamic_type=='0'?'校园动态':'班级动态'}}</view>
+            <view class='love_my'>
+              <image data-index='{{list_index}}' src='../../../resources/icons/heart.png' wx:if="{{item.collection_id==''}}"></image>
+              <image data-index='{{list_index}}' data-collection-id='{{item.collection_id}}' src='../../../resources/icons/red_heart.png' wx:if="{{item.collection_id!=''}}"></image>
               <view>{{item.heart_count}}</view>
             </view>
             <view class='comment'>
-              <image data-index='{{list_index}}' bindtap='view_dynamic' src='../../../resources/icons/comment.png'></image>
+              <image data-index='{{list_index}}' data-dynamic_type="{{item.dynamic_type}}" bindtap='view_dynamic' src='../../../resources/icons/comment.png'></image>
               <view>{{item.comment_count}}</view>
             </view>
           </view>
@@ -147,7 +148,7 @@
           <view data-index='{{list_index}}' bindtap='view_dynamic' class='dynamic_content'>{{item.content}}</view>
 
           <!-- 图片区 -->
-          <view wx:if="{{item.have_img>0}}">
+          <view wx:if="{{item.have_img}}">
             <block wx:if="{{item.images[0].length==1}}">
               <image mode='aspectFill' bindtap='preview_images' data-mode="0" data-index='{{list_index}}' class='images_block' src='{{images_host+item.images[0][0]}}'></image>
             </block>

@@ -1,10 +1,10 @@
 <form style='height:{{winHeight}}px' bindsubmit='publish_dynamic'>
-  <radio-group class='radio_group' bindchange="radioChange">
+  <radio-group wx:if="{{user_type=='s'}}" class='radio_group' bindchange="radioChange">
     <label class='radio_label'>
-      <radio value="0" checked />班级动态
+      <radio value="0" checked />校园动态
     </label>
     <label class='radio_label'>
-      <radio value="1" />校园动态
+      <radio value="1" />班级动态
     </label>
   </radio-group>
   <textarea name='content' maxlength='-1' style='width:{{winWidth}}px' placeholder='说点什么吧....'></textarea>

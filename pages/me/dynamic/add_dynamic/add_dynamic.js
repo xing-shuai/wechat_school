@@ -1,6 +1,7 @@
 var common = require("../../../../utils/util.js");
 Page({
   data: {
+    user_type: '',
     winHeight: 0,
     winWidth: 0,
     dynamic_type: '0',
@@ -10,6 +11,8 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
+    var user_type = options.user_type;
+    that.setData({ user_type: user_type });
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -76,6 +79,10 @@ Page({
   },
   do_upload: function (id, images, index) {
     var that = this;
+    if (images.length == 0) {
+      common.showMsg("发布成功", 'success');
+      return;
+    }
     wx.showLoading({
       title: '正在上传第' + (index + 1) + '张图片',
     })
@@ -84,7 +91,8 @@ Page({
       filePath: images[index],
       name: 'file',
       formData: {
-        'id': id
+        'id': id,
+        'dynamic_type': that.data.dynamic_type
       },
       success: function (res) {
       },
@@ -112,9 +120,10 @@ Page({
       title: '正在发布',
     })
     common.post_request({
-      url: '/dynamic/add_school_dynamic',
+      url: '/dynamic/add_dynamic',
       data: {
-        content: content
+        content: content,
+        dynamic_type: that.data.dynamic_type
       },
       header: {
         'cookie': wx.getStorageSync("sessionid")
