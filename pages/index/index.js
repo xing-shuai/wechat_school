@@ -17,7 +17,8 @@ Page({
     weather_img: '',
     weather_margin: 0,
     user_type: 's',
-    reload_this_page: false
+    reload_this_page: false,
+    absence_count: 0
   },
   index_init: function () {
     var that = this;
@@ -48,6 +49,18 @@ Page({
                   display: true,
                   reload_this_page: false
                 });
+                //检测学生缺勤情况
+                if (res.data.user_type == 's') {
+                  common.get_request({
+                    url: '/student/check_absences',
+                    header: {
+                      'cookie': wx.getStorageSync("sessionid")
+                    },
+                    success: function (re) {
+                      that.setData({ absence_count: re.data.count });
+                    }
+                  })
+                }
               } else if (code == '0') {//未绑定
                 that.setData({ reload_this_page: true });
                 wx.navigateTo({
@@ -91,5 +104,8 @@ Page({
   onShow: function () {
     if (this.data.reload_this_page)
       this.index_init();
+  },
+  clear_absence_count: function () {
+    this.setData({ absence_count: 0 });
   }
 })

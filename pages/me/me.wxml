@@ -10,7 +10,7 @@
 </navigator>
 
 <view style='background-color:white;margin-bottom:10px;'>
-  <navigator url='myclass/myclass' class='me_menu'>
+  <navigator wx:if="{{user_type=='s'}}" url='myclass/myclass' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/classes.png'></image>
     <view class='menu_name'>我的班级</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>

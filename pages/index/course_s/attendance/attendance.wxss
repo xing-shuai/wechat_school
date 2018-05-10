@@ -1,15 +1,17 @@
 .course {
-  padding: 10px;
-  background-color: #e8e9e9;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: gray;
 }
 
 .records {
+  font-size: 15px;
+  background-color: #ebebeb;
   width: 85%;
-  margin-left: 12%;
-  border-bottom: 1px solid #edece8;
-  margin-right: 10px;
-  padding-bottom: 5px;
-  font-size: 16px;
+  margin: 0 auto;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 5px;
 }
 
 .records view {

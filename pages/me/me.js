@@ -2,11 +2,13 @@ var common = require('../../utils/util.js');
 var url = getApp().globalData.server_url;
 Page({
   data: {
+    user_type: '',
     myinfo: {},
     host: url + "/user_head/"
   },
   load_info: function () {
     var that = this;
+    that.setData({ user_type: getApp().globalData.user_type });
     common.get_request({
       url: '/get_user_info?mode=0',
       header: {
