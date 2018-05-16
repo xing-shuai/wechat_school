@@ -117,7 +117,6 @@ Page({
       return;
     } else {
       that.setData({ currentTab: e.target.dataset.current });
-      that.loadList(e.target.dataset.current);
     }
   },
   //滑到底部加载下一页

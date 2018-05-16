@@ -70,7 +70,6 @@ Page({
       return false;
     } else {
       that.setData({ currentTab: e.target.dataset.current });
-      that.loadList(e.target.dataset.current);
     }
   },
   //下拉刷新

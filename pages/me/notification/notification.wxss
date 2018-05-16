@@ -39,8 +39,13 @@
 }
 
 .comment {
-  padding: 0 5px 5px 55px;
+  margin: 0 5px 5px 50px;
   font-size: 15px;
+  background-color: #f0f0f0;
+  border-radius: 9px;
+  padding: 5px;
+  line-height: 22px;
+  color: #364149;
 }
 
 .dynamic_summarize {
@@ -48,4 +53,18 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+}
+
+.system_message_time {
+  font-size: 13px;
+  color: gray;
+  padding-left: 5px;
+}
+
+.system_message_content {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 9px;
+  line-height: 23px;
+  color: #364149;
 }

@@ -48,6 +48,13 @@
   <swiper-item>
     <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">
       <block wx:for="{{system_message_data}}" wx:for-index="list_index">
+        <view style='padding:10px;'>
+          <view class='system_message_time'>{{item.create_time}}</view>
+          <view class='system_message_content'>
+            <view style='font-size:16px;'>{{item.title}}</view>
+            <view style='font-size:15px;'>{{item.content}}</view>
+          </view>
+        </view>
       </block>
       <template wx:if="{{system_message_data.length==0}}" is="nothing" />
     </scroll-view>
