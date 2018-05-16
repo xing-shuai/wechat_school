@@ -47,20 +47,17 @@ Page({
                 that.setData({
                   user_type: res.data.user_type,
                   display: true,
-                  reload_this_page: false
+                  reload_this_page: false,
+                  absence_count: res.data.notification.absence_count
                 });
-                //检测学生缺勤情况
-                if (res.data.user_type == 's') {
-                  common.get_request({
-                    url: '/student/check_absences',
-                    header: {
-                      'cookie': wx.getStorageSync("sessionid")
-                    },
-                    success: function (re) {
-                      that.setData({ absence_count: re.data.count });
-                    }
-                  })
-                }
+                //初始化通知红点信息
+                that.reset_red_dot();
+                var notification = res.data.notification;
+                if (notification.comment_count > 0 || notification.course_notification > 0)
+                  wx.showTabBarRedDot({
+                    index: 2
+                  });
+                getApp().globalData.notification = notification;
               } else if (code == '0') {//未绑定
                 that.setData({ reload_this_page: true });
                 wx.navigateTo({
@@ -104,8 +101,20 @@ Page({
   onShow: function () {
     if (this.data.reload_this_page)
       this.index_init();
+    this.reset_red_dot()
   },
   clear_absence_count: function () {
     this.setData({ absence_count: 0 });
+    this.reset_red_dot();
+  },
+  reset_red_dot: function () {
+    if (this.data.absence_count > 0)
+      wx.showTabBarRedDot({
+        index: 0
+      });
+    else
+      wx.hideTabBarRedDot({
+        index: 0
+      })
   }
 })

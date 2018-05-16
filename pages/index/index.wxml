@@ -113,10 +113,10 @@
       </view>
     </navigator>
     <navigator bindtap='clear_absence_count' url='course_s/attendance/attendance?mode=1' class="flex-item" hover-class='flex-item_hover'>
+      <label wx:if="{{absence_count>0}}" class='badge_label'></label>
       <view class='menu_icon'>
         <image src='../../resources/icons/queqin.png'></image>
       </view>
-      <label wx:if="{{absence_count>0}}" class='badge_label'>{{absence_count}}</label>
       <view class='menu_name'>
         <text>缺勤记录</text>
       </view>

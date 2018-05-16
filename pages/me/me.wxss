@@ -57,3 +57,17 @@ page {
   float: right;
   margin-top: 15px;
 }
+
+.badge_label {
+  display: block;
+  background-color: red;
+  border-radius: 12px;
+  width: 10px;
+  text-align: center;
+  height: 10px;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  margin-top: 10px;
+  margin-left: 262rpx;
+}

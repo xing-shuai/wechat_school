@@ -21,7 +21,7 @@
   width: 95%;
   margin: 10px auto;
   display: block;
-  line-height: 21px;
+  line-height: 28px;
   text-indent: 60rpx;
 }
 

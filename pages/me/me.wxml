@@ -20,9 +20,10 @@
     <view class='menu_name'>动态查看</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
   </navigator>
-  <navigator url='notification/notification' class='me_menu'>
+  <navigator bindtap='navigate_notification' url='notification/notification' class='me_menu'>
     <image class='menu_icon' src='../../resources/icons/notification.png'></image>
     <view class='menu_name'>我的消息</view>
+    <label wx:if="{{notification_show}}" class='badge_label'></label>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
   </navigator>
 </view>
@@ -33,9 +34,4 @@
     <view class='menu_name'>设置</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
   </navigator>
-  <!-- <navigator url='about/about' class='me_menu'>
-    <image class='menu_icon' src='../../resources/icons/about.png'></image>
-    <view class='menu_name'>关于</view>
-    <image class='menu_open' src='../../resources/icons/open.png'></image>
-  </navigator> -->
 </view>

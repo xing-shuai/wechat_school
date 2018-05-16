@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/me/notification/notification",
     "pages/me/myclass/myclass",
     "pages/me/me",
     "pages/index/course_s/course_s",
