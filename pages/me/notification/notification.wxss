@@ -1,0 +1,51 @@
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 50%;
+  color: #777;
+}
+
+.on {
+  color: #449d44;
+  border-bottom: 5rpx solid #449d44;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.comment_head {
+  display: flex;
+  font-size: 14px;
+  color: gray;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment_head image {
+  height: 35px;
+  width: 35px;
+  border-radius: 15px;
+}
+
+.comment {
+  padding: 0 5px 5px 55px;
+  font-size: 15px;
+}
+
+.dynamic_summarize {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
