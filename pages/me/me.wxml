@@ -34,4 +34,9 @@
     <view class='menu_name'>设置</view>
     <image class='menu_open' src='../../resources/icons/open.png'></image>
   </navigator>
+  <navigator url='feedback/feedback' class='me_menu'>
+    <image class='menu_icon' src='../../resources/icons/feedback.png'></image>
+    <view class='menu_name'>反馈</view>
+    <image class='menu_open' src='../../resources/icons/open.png'></image>
+  </navigator>
 </view>

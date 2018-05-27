@@ -21,7 +21,7 @@ Page({
     class_dynamic_cur_page: 0,
     class_dynamic_data: []
   },
-  onLoad: function () {
+  onLoad: function (options) {
     common.set_navi_color();
     this.setData({ user_type: getApp().globalData.user_type });
     var that = this;
@@ -31,6 +31,9 @@ Page({
           winHeight: res.windowHeight,
           images_height: parseInt(res.windowWidth * 0.32)
         });
+        if (options.mode == 'view_class_dynamic') {
+          that.setData({ currentTab: 2 });
+        }
         that.onPullDownRefresh();
       }
     });
@@ -183,7 +186,7 @@ Page({
       data_source = 'my_dynamic_data';
     else if (this.data.currentTab == 2)
       data_source = 'class_dynamic_data';
-    else{}
+    else { }
     if (dataset.mode == "0") {
       url = this.data[data_source][dataset.index].images[0][0]
       urls.push(url);
@@ -263,14 +266,16 @@ Page({
     var that = this;
     var index = e.currentTarget.dataset.index;
     var dynamic_type = '0';
-    var id = this.data.school_dynamic_data[index].id;
+    var id = '';
     if (that.data.currentTab == 2) {
       dynamic_type = '1';
       id = this.data.class_dynamic_data[index].id;
     } else if (that.data.currentTab == 1) {
       dynamic_type = e.currentTarget.dataset.dynamic_type;
       id = this.data.my_dynamic_data[index].id;
-    } else { }
+    } else {
+      id = this.data.school_dynamic_data[index].id;
+    }
     wx.navigateTo({
       url: 'dynamic_detail/dynamic_detail?id=' + id + "&dynamic_type=" + dynamic_type,
     });

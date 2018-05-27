@@ -1,0 +1,5 @@
+<form style='height:{{winHeight}}px' bindsubmit='submit_feedback'>
+  <textarea name='content' maxlength='-1' style='width:{{winWidth}}px' placeholder='说点什么吧....'></textarea>
+
+  <button form-type='submit' type='primary'>提交反馈</button>
+</form>

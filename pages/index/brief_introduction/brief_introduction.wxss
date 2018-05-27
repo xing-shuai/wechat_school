@@ -1,0 +1,8 @@
+text {
+  font-size: 15px;
+  color: gray;
+  display: block;
+  line-height: 28px;
+  text-indent: 60rpx;
+  padding: 0 10px 0 10px;
+}

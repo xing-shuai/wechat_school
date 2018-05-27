@@ -2,7 +2,7 @@
   <block wx:for="{{losts}}">
     <view style='border-bottom: 1px solid #edece8;'>
       <view class='list'>
-        <image bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFit' src='{{host + item.img_url}}'> </image>
+        <image bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFill' src='{{host + item.img_url}}'> </image>
         <view class='info'>
           <view class='title'>{{item.title}}</view>
           <view class='time'>发布人：{{item.publisher_name}}</view>

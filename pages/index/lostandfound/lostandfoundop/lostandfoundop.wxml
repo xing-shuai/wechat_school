@@ -2,7 +2,7 @@
   <input name='title' placeholder="标题 " auto-focus/>
   <textarea name='description' placeholder="描述一下丢失物品，记得留下联系方式。。。 "></textarea>
   <view class='lost_image'>
-    <image src='{{host+upload_image_name}}' class='upload_image' wx:if="{{is_uploaded_image}}" mode='aspectFit'></image>
+    <image src='{{host+upload_image_name}}' class='upload_image' wx:if="{{is_uploaded_image}}" mode='aspectFill'></image>
     <view bindtap='upload_image' wx:if="{{!is_uploaded_image}}">
       <image class='add_iamge' src='../../../../resources/icons/add.png'></image>
     </view>

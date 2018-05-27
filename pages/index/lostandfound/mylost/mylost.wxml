@@ -1,7 +1,7 @@
 <block wx:for="{{losts}}">
   <view style='border-bottom: 1px solid #edece8;'>
     <view class='list'>
-      <image bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFit' src='{{host + item.img_url}}'> </image>
+      <image bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFill' src='{{host + item.img_url}}'> </image>
       <view bindlongpress='modify_lost' data-id='{{item.id}}' class='info'>
         <view class='title'>{{item.title}}</view>
         <view class='time' style='display:flex;'>

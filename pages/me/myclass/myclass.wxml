@@ -1,3 +1,32 @@
-<view>
-  
+<image class='class_bg' src='../../../resources/images/class_bg.jpg'>
+  <view class='class_name'>{{class_info.name}}</view>
+</image>
+
+<view style='padding-bottom:4px;border-bottom:1px solid #edece8;'>
+  <navigator url='member/member?class_id={{class_info.id}}' class='class_member'>
+    <view style='flex-grow:1;'>班级成员</view>
+    <view style='font-size:15px;'>共{{class_info.count}}人</view>
+    <image class='all_menu' src='../../../resources/icons/open.png'></image>
+  </navigator>
+  <view class='class_head_group'>
+
+    <view wx:for="{{class_info.students}}">
+      <image style='height:{{class_member_head_scale}}px;width:{{class_member_head_scale}}px' src="{{item.head_img?host_url+item.head_img:'../../../resources/icons/default_user_boy.png'}}"></image>
+      <view class='class_member_name'>{{item.name}}</view>
+    </view>
+
+  </view>
 </view>
+
+<navigator url='../dynamic/dynamic?mode=view_class_dynamic' class='menu'>
+  <image class='menu_icon' src='../../../resources/icons/dynamic.png'></image>
+  <view class='menu_name'>班级动态</view>
+  <image class='menu_open' src='../../../resources/icons/open.png'></image>
+</navigator>
+
+<navigator bindtap='navigate_notification' url='notification/notification' class='menu'>
+  <image class='menu_icon' src='../../../resources/icons/album.png'></image>
+  <view class='menu_name'>班级相册</view>
+  <label wx:if="{{notification_show}}" class='badge_label'></label>
+  <image class='menu_open' src='../../../resources/icons/open.png'></image>
+</navigator>

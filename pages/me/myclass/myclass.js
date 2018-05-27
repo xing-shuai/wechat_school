@@ -1,66 +1,30 @@
-// pages/me/myclass/myclass.js
+var common = require("../../../utils/util.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    class_member_head_scale: 0,
+    class_info: {},
+    host_url: getApp().globalData.server_url +'/user_head/'
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    common.set_navi_color();
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          class_member_head_scale: (res.windowWidth - 60) / 6
+        });
+      }
+    });
+    wx.showNavigationBarLoading();
+    common.get_request({
+      url: '/student/get_class_info',
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
+      success: function (res) {
+        wx.hideNavigationBarLoading();
+        that.setData({ class_info: res.data.class });
+      }
+    })
   }
 })

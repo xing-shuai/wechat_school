@@ -96,5 +96,6 @@ module.exports = {
   showMsg: showMsg,
   get_request: get_request,
   post_request: post_request,
-  set_navi_color: set_navi_color
+  set_navi_color: set_navi_color,
+  getWeatherImg: getWeatherImg
 }

@@ -9,7 +9,7 @@
 </view>
 
 <view class='logo'>
-  <view class='header'>
+  <view bindtap='school_introduce' class='header'>
     <image src='/resources/images/school_logo.jpg' style='height:55px;width:55px;'></image>
     <view style='text-align:center;width:44%;padding-top:16px;font-size:15px;'>安徽工业大学</view>
   </view>

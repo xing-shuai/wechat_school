@@ -24,7 +24,7 @@
   <view class="swiper-tab-list {{currentTab==3? 'on' : ''}}" data-current="3" bindtap="swichNav">问卷调查</view>
 </view>
 
-<swiper current="{{currentTab}}" class="swiper-box" style="height:{{winHeight - 50}}px" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="swiper-box" style="height:{{winHeight}}px" bindchange="bindChange">
 
   <swiper-item>
     <scroll-view scroll-y="true" bindscrolltolower="scrolltolower" style="height:inherit;">

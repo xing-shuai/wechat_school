@@ -1,0 +1,6 @@
+<block wx:for="{{students}}">
+  <view class='student_list'>
+    <image src='{{item.head_img?host_url+item.head_img:"../../../../resources/icons/default_user_boy.png"}}'></image>
+    <view>{{item.name}} {{item.number}}</view>
+  </view>
+</block>

@@ -58,6 +58,14 @@ Page({
                     index: 2
                   });
                 getApp().globalData.notification = notification;
+                //获取天气信息
+                // common.get_request({
+                //   url: '/get_weather?city_code=' + getApp().globalData.city_code,
+                //   success: function (weather) {
+                //     var info = weather.data;
+                //     that.setData({ weather_info: weather.data, weather_img: common.getWeatherImg(info), weather_margin: ((4 - info.length) * 15).toString() });
+                //   }
+                // })
               } else if (code == '0') {//未绑定
                 that.setData({ reload_this_page: true });
                 wx.navigateTo({
@@ -84,20 +92,6 @@ Page({
     common.set_navi_color();
     this.index_init();
   },
-  onReady: function () {
-    var that = this;
-    // wx.request({
-    //   url: url + '/get_weather?city_code=58336',
-    //   success: function (res) {
-    //     var info = res.data;
-    //     that.setData({ weather_info: res.data, weather_img: common.getWeatherImg(info), weather_margin: ((4 - info.length) * 15).toString() });
-    //     wx.hideNavigationBarLoading();
-    //   },
-    //   fail: function () {
-    //     wx.hideNavigationBarLoading();
-    //   }
-    // })
-  },
   onShow: function () {
     if (this.data.reload_this_page)
       this.index_init();
@@ -116,5 +110,10 @@ Page({
       wx.hideTabBarRedDot({
         index: 0
       })
+  },
+  school_introduce:function(){
+    wx.navigateTo({
+      url: 'brief_introduction/brief_introduction',
+    })
   }
 })
