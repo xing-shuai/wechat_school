@@ -38,6 +38,9 @@ Page({
       }
     });
   },
+  onShow:function(){
+    // this.onPullDownRefresh();
+  },
   //tab切换时加载列表数据
   loadList: function (currentTab) {
     var that = this;

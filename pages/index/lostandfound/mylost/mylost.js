@@ -14,7 +14,11 @@ Page({
         'cookie': wx.getStorageSync("sessionid")
       },
       success: function (res) {
-        that.setData({ losts: res.data.data });
+        var data = res.data.data;
+        for (var i = 0; i < data.length; i++) {
+          data[i].add_time = common.moment(data[i].add_time);
+        }
+        that.setData({ losts: data });
       }
     });
   },

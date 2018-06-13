@@ -1,6 +1,6 @@
 <view class='header'>
   <image src='/resources/images/school_logo.jpg' style='height:65px;width:65px;'></image>
-  <view style='text-align:center;width:74%;padding-top:19px;'>安徽工业大学智慧校园</view>
+  <view style='text-align:center;width:74%;padding-top:19px;'>安徽工业大学校园助手</view>
 </view>
 
 

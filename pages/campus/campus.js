@@ -39,8 +39,12 @@ Page({
         that.setData({
           winHeight: res.windowHeight
         });
+        wx.showLoading({
+          title: '加载数据...',
+        });
         getList('?urltype=tree.TreeTempUrl&wbtreeid=1002', '0', function (data) {
           that.setData({ schoolnewsListData: data.news, schoolnewsNextPageUrl: data.nextPageUrl, schoolnewsLoaded: 1 });
+          wx.hideLoading();
         })
       }
     });

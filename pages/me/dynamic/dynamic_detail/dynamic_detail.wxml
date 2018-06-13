@@ -60,6 +60,7 @@
           <view style='padding-bottom:2px;font-size:15px;'>{{item.commenter_name}}</view>
           <view style='font-size:13px;color:gray;'>{{item.time}}</view>
         </view>
+        <view wx:if="{{item.commenter==user_number}}" data-id='{{item.id}}' bindtap='delete_comment' class='comment_delete'>删除</view>
       </view>
       <view class='c_dynamic_content'>{{item.comment}}</view>
     </view>

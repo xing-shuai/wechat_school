@@ -12,12 +12,13 @@ Page({
     comment: [],
     has_next_page: true,
     cur_page: 0,
-    comment_input: ''
+    comment_input: '',
+    user_number: ""
   },
   onLoad: function (options) {
     common.set_navi_color();
     var that = this;
-    that.setData({ dynamic_id: options.id, dynamic_type: options.dynamic_type });
+    that.setData({ dynamic_id: options.id, dynamic_type: options.dynamic_type, "user_number": getApp().globalData.user_number });
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -159,5 +160,38 @@ Page({
         }
       }
     })
+  },
+  delete_comment: function (e) {
+    var that = this;
+
+    wx.showModal({
+      title: '提示',
+      content: '确认删除评论?',
+      success: function (res) {
+        if (res.confirm) {
+          common.get_request({
+            url: '/dynamic/delete_comment?id=' + e.currentTarget.dataset.id,
+            success: function (res) {
+              if (res.data.code == 1) {
+                common.showMsg("删除成功");
+                var dynamic_data = that.data.dynamic_data;
+                dynamic_data.comment_count -= 1;
+                that.setData({
+                  comment: [],
+                  has_next_page: true,
+                  cur_page: 0,
+                  comment_input: '',
+                  dynamic_data: dynamic_data
+                });
+                that.scrolltolower();
+              }
+              else
+                common.showMsg("删除失败");
+            }
+          })
+        }
+      }
+    })
+
   }
 })

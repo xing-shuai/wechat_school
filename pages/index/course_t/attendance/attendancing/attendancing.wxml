@@ -14,7 +14,7 @@
 
   <view wx:if="{{is_begin}}">
     <view>
-      <image class='stu_head' src='{{attendancing_stu[current_index].head_url?attendancing_stu[current_index].head_url:"../../../../../resources/icons/default_user_boy.png"}}'></image>
+      <image class='stu_head' src='{{attendancing_stu[current_index].head_url?host_url+attendancing_stu[current_index].head_url:"../../../../../resources/icons/default_user_boy.png"}}'></image>
     </view>
     <view class='stu_info'>
       <view>{{attendancing_stu[current_index].name}}</view>

@@ -43,6 +43,7 @@ Page({
     });
   },
   unbind: function () {
+    var that = this;
     wx.showModal({
       title: '提示',
       content: '取消绑定将无法使用小程序喽',
@@ -55,6 +56,7 @@ Page({
               'cookie': wx.getStorageSync("sessionid")
             },
             success: function (res) {
+              that.clear_cache();
               wx.reLaunch({
                 url: '../../index/index'
               });

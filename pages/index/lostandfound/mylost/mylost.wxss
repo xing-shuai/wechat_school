@@ -20,9 +20,10 @@
 }
 
 .desc {
-  font-size: 16px;
+  font-size: 15px;
   padding: 0 10px;
   margin-bottom: 7px;
+  color: gray;
 }
 
 .title {
@@ -34,5 +35,5 @@
 .time {
   font-size: 15px;
   color: gray;
-  line-height: 23px;
+  line-height: 17px;
 }

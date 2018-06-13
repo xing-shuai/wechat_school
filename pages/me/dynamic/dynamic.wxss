@@ -40,6 +40,7 @@
   height: 55px;
   display: block;
   margin: 10px auto;
+  border-radius: 30px;
 }
 
 .info {

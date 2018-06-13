@@ -11,14 +11,27 @@ Page({
   load_info: function () {
     var that = this;
     that.setData({ user_type: getApp().globalData.user_type });
-    common.get_request({
-      url: '/get_user_info?mode=0',
-      header: {
-        'cookie': wx.getStorageSync("sessionid")
-      },
+    wx.getStorage({
+      key: 'myinfo',
       success: function (res) {
+        wx.hideLoading();
         that.setData({ myinfo: res.data });
-        wx.stopPullDownRefresh();
+      },
+      fail: function () {
+        common.get_request({
+          url: '/get_user_info?mode=0',
+          header: {
+            'cookie': wx.getStorageSync("sessionid")
+          },
+          success: function (res) {
+            that.setData({ myinfo: res.data });
+            wx.setStorage({
+              key: "myinfo",
+              data: res.data
+            });
+            wx.stopPullDownRefresh();
+          }
+        })
       }
     })
   },
@@ -37,6 +50,7 @@ Page({
       success: function (res) {
         that.setData({ reload_notification: false });
         that.reset_red_dot(res.data.notification);
+        wx.stopPullDownRefresh();
       }
     })
   },

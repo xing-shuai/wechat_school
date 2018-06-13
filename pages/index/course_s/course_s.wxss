@@ -7,7 +7,15 @@
 .course_name {
   font-size: 19px;
   color: white;
+  flex-grow: 0.9;
   padding: 10px;
+}
+
+.course_noti {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 45rpx;
 }
 
 .course_detail {

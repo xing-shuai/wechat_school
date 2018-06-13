@@ -3,11 +3,15 @@ var common = require("../../../../utils/util.js");
 Page({
   data: {
     e_course_id: 'db048f31-3a35-11e8-8bfe-f46d04228b99',
-    notifications: []
+    notifications: [],
+    modify_status: false
   },
   onLoad: function (options) {
     common.set_navi_color();
-    this.setData({ e_course_id: options.e_course_id });
+    this.setData({
+      e_course_id: options.e_course_id,
+      modify_status: options.mode == "0" ? true : false
+    });
   },
   load_list: function () {
     var that = this;
@@ -30,6 +34,8 @@ Page({
     })
   },
   delete_noti: function (e) {
+    if (this.data.modify_status)
+      return;
     var that = this;
     wx.showActionSheet({
       itemList: ["删除"],

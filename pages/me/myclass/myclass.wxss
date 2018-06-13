@@ -30,6 +30,7 @@
 
 .class_head_group image {
   margin: 5px 5px -5px 5px;
+  border-radius: 25px;
 }
 
 .menu {

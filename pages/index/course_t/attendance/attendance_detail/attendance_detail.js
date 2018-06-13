@@ -6,7 +6,8 @@ Page({
     absences: [],
     height: 0,
     absence_type: ['请假', '迟到', '缺勤'],
-    attendance_id: ''
+    attendance_id: '',
+    host_url: getApp().globalData.server_url + '/user_head/'
   },
   loadList: function () {
     var that = this;

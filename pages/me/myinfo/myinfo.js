@@ -47,16 +47,30 @@ Page({
     wx.showLoading({
       title: '加载个人信息中...'
     });
-    common.get_request({
-      url: '/get_user_info?mode=1',
-      header: {
-        'cookie': wx.getStorageSync("sessionid")
-      },
+    wx.getStorage({
+      key: 'myinfo',
       success: function (res) {
         wx.hideLoading();
         that.setData({ myinfo: res.data });
+      },
+      fail: function () {
+        common.get_request({
+          url: '/get_user_info?mode=1',
+          header: {
+            'cookie': wx.getStorageSync("sessionid")
+          },
+          success: function (res) {
+            wx.hideLoading();
+            that.setData({ myinfo: res.data });
+            wx.setStorage({
+              key: "myinfo",
+              data: res.data
+            });
+          }
+        });
       }
-    });
+    })
+
   },
   edit: function () {
     var animation = wx.createAnimation({

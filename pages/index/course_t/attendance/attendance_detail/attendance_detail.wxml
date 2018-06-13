@@ -1,7 +1,7 @@
 <block wx:for="{{absences}}">
   <view class="item" bindtap='press' hover-class='item_hover' data-absence-id="{{item.id}}">
     <view class='head'>
-      <image src="{{item.stu_head?item.stu_head:'../../../../../resources/icons/default_user_boy.png'}}" data-stu-number="{{item.student_id}}" catchtap='check_stu'></image>
+      <image src="{{item.stu_head?host_url+item.stu_head:'../../../../../resources/icons/default_user_boy.png'}}" data-stu-number="{{item.student_id}}" catchtap='check_stu'></image>
     </view>
     <view class='info'>
       <view class='info_d'>
@@ -17,3 +17,10 @@
     </view>
   </view>
 </block>
+
+<view wx:if="{{absences.length==0}}" style='position:fixed;width:100%;top:200px'>
+  <view>
+    <image style='height:50px;width:75px;display:block;margin:0 auto;' src='../../../../../resources/icons/nothing.png'></image>
+  </view>
+  <view style='color:gray;text-align:center;font-size:14px;margin-top:5px;'>什么都没有...</view>
+</view>

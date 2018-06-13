@@ -3,26 +3,29 @@
   display: flex;
 }
 
-.list image {
-  height: 80px;
-  width: 80px;
+.lost_image {
+  height: 70px;
+  width: 70px;
   background-color: white;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 .list .info {
-  width: 70%;
+  flex-grow: 0.9;
   padding: 0px 0 0 10px;
 }
 
-.info view {
-  margin-bottom: 5px;
+.list text {
+  font-size: 14px;
+  color: #4080d0;
+  width: 50px;
 }
 
 .desc {
-  font-size: 16px;
+  font-size: 15px;
   padding: 0 10px;
   margin-bottom: 7px;
+  color: gray;
 }
 
 .title {
@@ -34,12 +37,12 @@
 .time {
   font-size: 15px;
   color: gray;
-  line-height: 23px;
+  line-height: 24px;
 }
 
 .float_button {
   width: 60px;
-  background-color: #1eadbf;
+  background-color: red;
   border-radius: 32px;
   height: 60px;
   text-align: center;
@@ -53,7 +56,7 @@
 
 .float_button_ {
   width: 60px;
-  background-color: #1eadbf;
+  background-color: red;
   border-radius: 32px;
   height: 60px;
   text-align: center;
@@ -61,4 +64,13 @@
   position: fixed;
   right: 26px;
   box-shadow: 5px 6px 20px 0px #dcdada;
+}
+
+.search_input {
+  margin: 5px;
+  background: #f0f0f0;
+  padding: 10px 5px;
+  border-radius: 4px;
+  font-size: 15px;
+  text-align: center;
 }

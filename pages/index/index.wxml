@@ -10,8 +10,8 @@
 
 <view class='logo'>
   <view bindtap='school_introduce' class='header'>
-    <image src='/resources/images/school_logo.jpg' style='height:55px;width:55px;'></image>
-    <view style='text-align:center;width:44%;padding-top:16px;font-size:15px;'>安徽工业大学</view>
+    <image src='/resources/images/school_logo.jpg' style='height:100rpx;width:100rpx;'></image>
+    <view style='text-align:center;width:44%;font-size:15px;'>安徽工业大学</view>
   </view>
 
   <navigator url='/pages/index/weather/weather' hover-class='none' class='weather'>
@@ -43,7 +43,7 @@
         <image src='../../resources/icons/calendar.png'></image>
       </view>
       <view class='menu_name'>
-        <text>校历查看</text>
+        <text>校历</text>
       </view>
     </navigator>
     <navigator url='lostandfound/lostandfound' class="flex-item">

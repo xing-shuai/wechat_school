@@ -1,5 +1,4 @@
 var common = require("../../../../utils/util.js")
-
 Page({
   data: {
     height: 0,
@@ -17,7 +16,8 @@ Page({
     multi_pingding: [],
     start_multi_pingding: false,
     multi_grade: 80,
-    single_pingding_stu_index: 0
+    single_pingding_stu_index: 0,
+    host_url: getApp().globalData.server_url + '/user_head/'
   },
   onLoad: function (options) {
     common.set_navi_color();
@@ -27,7 +27,7 @@ Page({
     });
     wx.getSystemInfo({
       success: function (res) {
-        that.setData({ height: res.windowHeight - 90 })
+        that.setData({ height: res.windowHeight - 70 })
       },
     });
     wx.showLoading({
@@ -74,7 +74,7 @@ Page({
       timingFunction: 'ease'
     });
     this.setData({
-      ani_settingData: animation.height(260).step().export(),
+      ani_settingData: animation.height(245).step().export(),
       auto_switch: false,
       setting_mode: true,
       multi_mode: false,
@@ -108,7 +108,7 @@ Page({
       success: function (res) {
         common.showMsg("已保存修改", "success");
         that.setData({
-          ani_settingData: animation.height(90).step().export(),
+          ani_settingData: animation.height(70).step().export(),
           auto_switch: true,
           setting_mode: false
         });

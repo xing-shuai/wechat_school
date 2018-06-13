@@ -3,6 +3,7 @@ var common = require('../../../../../utils/util.js')
 
 Page({
   data: {
+    host_url: getApp().globalData.server_url + '/user_head/',
     height: 0,
     e_course_id: '',
     attendance_total: 100,

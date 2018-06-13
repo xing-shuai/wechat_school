@@ -71,7 +71,7 @@
 
 .float_button {
   width: 60px;
-  background-color: #1eadbf;
+  background-color: red;
   border-radius: 32px;
   height: 60px;
   text-align: center;

@@ -2,7 +2,7 @@ var common = require('../../../utils/util.js');
 
 Page({
   data: {
-    colors: ['#FFA500', '#409DEA', '#F46665', '#9563B2', '#04C576', '#02497F', '#7A9CB5'],
+    colors: [['#FFA500', '#FF9500'], ['#409DEA', '#408DEA'], ['#F46665', '#F45665'], ['#9563B2', '#9553B2'], ['#04C576', '#04B576'], ['#02497F', '02397F'], ['#7A9CB5', '7A8CB5']],
     courses: [],
     // animationData1: {},
     // animationData2: {},
@@ -33,6 +33,11 @@ Page({
   dailygrade: function (e) {
     wx.navigateTo({
       url: 'dailygrade/dailygrade?e_course_id=' + e.currentTarget.dataset.e_course_id
+    })
+  },
+  final_grade: function (e) {
+    wx.navigateTo({
+      url: 'final_grade/final_grade?e_course_id=' + e.currentTarget.dataset.e_course_id
     })
   },
   notification: function (e) {

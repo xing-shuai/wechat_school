@@ -1,6 +1,9 @@
 <block wx:for="{{courses}}">
   <view class='card' style="background-color:{{colors[index%7]}};">
-    <view class='course_name'>{{item.course}}</view>
+    <view style='display:flex;align-items:center;'>
+      <view class='course_name'>{{item.course}}</view>
+      <image data-e_course_id="{{item.esc_id}}" bindtap='notification' class='course_noti' src='../../../resources/icons/notification.png'></image>
+    </view>
     <view class='course_detail'>
       <view style='width:60%;'>{{item.course_time}}</view>
       <view style='width:25%;'>{{item.course_place}}</view>

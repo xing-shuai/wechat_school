@@ -34,10 +34,15 @@ Page({
   },
   formSubmit: function (e) {
     var that = this;
-    if (e.detail.value.title.trim() == "")
+    if (e.detail.value.place.trim() == "" || e.detail.value.lost_object.trim() == "")
       return
 
     var data = e.detail.value;
+    var reg = /^1[345789]\d{9}$/;
+    if (!reg.test(data.telephone)) {
+      common.showMsg("请输入正确的联系方式");
+      return;
+    }
     data["img_url"] = that.data.upload_image_name;
     common.post_request({
       url: '/lostandfound/add_lost',
@@ -52,5 +57,8 @@ Page({
         }
       }
     })
+  },
+  cancel_publish: function () {
+    wx.navigateBack();
   }
 })

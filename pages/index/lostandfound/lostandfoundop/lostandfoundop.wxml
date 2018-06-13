@@ -1,6 +1,8 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <input name='title' placeholder="标题 " auto-focus/>
-  <textarea name='description' placeholder="描述一下丢失物品，记得留下联系方式。。。 "></textarea>
+  <input style='margin-top:2px;' name='lost_object' placeholder="物品" confirm-type="next" auto-focus />
+  <input style='margin-top:2px;' name='place' placeholder="地点" confirm-type="next" />
+  <input style='margin-top:2px;' type='number' name='telephone' placeholder="联系方式" confirm-type="next" />
+  <textarea name='description' placeholder="描述一下丢失物品，方便失主确认..."></textarea>
   <view class='lost_image'>
     <image src='{{host+upload_image_name}}' class='upload_image' wx:if="{{is_uploaded_image}}" mode='aspectFill'></image>
     <view bindtap='upload_image' wx:if="{{!is_uploaded_image}}">
@@ -9,6 +11,6 @@
   </view>
   <view>
     <button form-type='submit' type='primary'>发布</button>
-    <button formType="reset" type='warn'>取消</button>
+    <button formType="reset" type='warn' bindtap='cancel_publish'>取消</button>
   </view>
 </form>

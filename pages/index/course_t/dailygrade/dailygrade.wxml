@@ -2,7 +2,7 @@
 
   <view style='display:flex;'>
     <view style='width:80%;'>
-      <view style='padding:10px;'>
+      <view style='padding:5px 10px;'>
         <label style='line-height:35px;'>自动合算平时分</label>
         <switch bindchange='switch_change' checked='{{switch_checked}}' disabled='{{auto_switch}}' style='float:right;'></switch>
       </view>
@@ -30,20 +30,17 @@
 
 <checkbox-group bindchange="checkboxChange">
   <scroll-view animation="{{ani_muti_panel}}" scroll-y="true" style='height:{{height}}px'>
-
     <block wx:for="{{stu}}">
       <view class='stu_list'>
-        <checkbox style='margin:21px -15px 0 10px;' wx:if="{{multi_mode}}" value="{{index}}" checked="{{default_checkbox}}" />
-        <view class='stu_image'>
-          <image src='{{item.head?item.head:"../../../../resources/icons/default_user_boy.png"}}'></image>
-        </view>
+        <checkbox style='margin:0px -15px 0 10px;' wx:if="{{multi_mode}}" value="{{index}}" checked="{{default_checkbox}}" />
+        <image class='stu_image' src='{{item.head?host_url+item.head:"../../../../resources/icons/default_user_boy.png"}}'></image>
         <view class='stu_info'>
           <view style='padding:11px 0 0 0;font-size:15px;'>
             <label>{{item.name}}</label>
             <label>{{item.c_name}}</label>
             <label>{{item.stu_id}}</label>
           </view>
-          <view style='display:flex;padding:6px 0 0 0;color:gray;'>
+          <view style='display:flex;color:gray;'>
             <label>期末成绩:{{item.f_grade?item.f_grade:"--"}}</label>
             <label>平时分:{{item.p_grade}}</label>
           </view>
@@ -51,6 +48,12 @@
         <view wx:if="{{!multi_mode}}" data-stu-index="{{index}}" hover-class='pingding_hover' class='pingding' bindtap='single_pingding'>评定</view>
       </view>
     </block>
+    <view wx:if="{{stu.length==0}}" style='position:fixed;width:100%;top:200px'>
+      <view>
+        <image style='height:50px;width:75px;display:block;margin:0 auto;' src='../../../../resources/icons/nothing.png'></image>
+      </view>
+      <view style='color:gray;text-align:center;font-size:14px;margin-top:5px;'>什么都没有...</view>
+    </view>
   </scroll-view>
 </checkbox-group>
 

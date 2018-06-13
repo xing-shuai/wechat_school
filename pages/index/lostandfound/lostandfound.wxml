@@ -1,18 +1,29 @@
-<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='scrolltolower'>
+<form>
+  <input class='search_input' placeholder='物品关键字' bindconfirm="search"></input>
+</form>
+<scroll-view scroll-y='true' style="height:{{height-55}}px" bindscrolltolower='scrolltolower'>
   <block wx:for="{{losts}}">
     <view style='border-bottom: 1px solid #edece8;'>
       <view class='list'>
-        <image bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFill' src='{{host + item.img_url}}'> </image>
+        <image class='lost_image' bindtap='preview_image' data-url="{{item.img_url}}" mode='aspectFill' src='{{host + item.img_url}}'> </image>
         <view class='info'>
-          <view class='title'>{{item.title}}</view>
-          <view class='time'>发布人：{{item.publisher_name}}</view>
-          <view class='time'>发布日期：{{item.add_time}}</view>
+          <view class='title'>{{item.lost_object}}</view>
+          <view class='time'>发布人：{{item.publisher_name}} {{item.add_time}}</view>
+          <view class='time'>地点：{{item.place}}</view>
         </view>
+        <text data-phone='{{item.phone}}' bindtap='make_phone_call'>联系他</text>
       </view>
-      <view class='desc'>{{item.description}}</view>
+      <view class='desc'>补充说明: {{item.description?item.description:'--'}}</view>
     </view>
   </block>
 </scroll-view>
+
+<view wx:if="{{losts.length==0}}" style='position:fixed;width:100%;top:200px'>
+  <view>
+    <image style='height:50px;width:75px;display:block;margin:0 auto;' src='../../../resources/icons/nothing.png'></image>
+  </view>
+  <view style='color:gray;text-align:center;font-size:14px;margin-top:5px;'>什么都没有...</view>
+</view>
 
 <view animation="{{ani_mylost}}" class='float_button_' style='bottom: 45px;' bindtap='mylost'>
   <image style='width:30px;height:30px;' src='../../../resources/icons/mylost.png'></image>

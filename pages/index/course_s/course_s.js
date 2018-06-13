@@ -25,5 +25,10 @@ Page({
     wx.navigateTo({
       url: 'attendance/attendance?mode=0&esc_id=' + e.currentTarget.dataset.e_course_id
     })
+  },
+  notification: function (e) {
+    wx.navigateTo({
+      url: '../course_t/notification/notification?mode=0&e_course_id=' + e.currentTarget.dataset.e_course_id,
+    })
   }
 })

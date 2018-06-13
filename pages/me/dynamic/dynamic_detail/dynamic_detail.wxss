@@ -5,6 +5,7 @@
 
 .top {
   display: flex;
+  align-items: center;
 }
 
 .user_head {
@@ -16,6 +17,7 @@
   height: 55px;
   display: block;
   margin: 10px auto;
+  border-radius: 30px;
 }
 
 .info {
@@ -79,6 +81,16 @@
   padding: 10px;
 }
 
+.comment_delete {
+  height: 17px;
+  font-size: 11px;
+  width: 30px;
+  border: 1px solid #b0dcf3;
+  border-radius: 11px;
+  text-align: center;
+  color: red;
+}
+
 .comment image {
   height: 20px;
   width: 20px;
@@ -134,11 +146,11 @@
   height: 35px;
   display: block;
   margin: 10px auto;
+  border-radius: 22px;
 }
 
 .c_info {
-  padding: 9px 0 5px 5px;
-  width: 60%;
+  flex-grow: 0.9;
 }
 
 .c_dynamic_content {

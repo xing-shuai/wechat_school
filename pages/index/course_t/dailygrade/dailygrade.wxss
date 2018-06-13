@@ -1,6 +1,6 @@
 .setting {
   background-color: #f0f0f0;
-  height: 90px;
+  height: 70px;
   overflow: hidden;
 }
 
@@ -11,8 +11,8 @@
 .setting_button {
   width: 20%;
   text-align: center;
-  padding-top: 31px;
-  height: 58px;
+  padding-top: 23px;
+  height: 46px;
   background-color: #1aac19;
   color: white;
 }
@@ -73,24 +73,22 @@
 
 .stu_list {
   display: flex;
+  align-items: center;
   padding-top: 10px;
   border-bottom: 1px solid #edece8;
   padding-bottom: 10px;
 }
 
 .stu_image {
-  width: 30%;
-}
-
-.stu_image image {
-  width: 65px;
-  height: 65px;
-  margin: 0 auto;
+  width: 50px;
+  height: 50px;
   display: block;
+  margin: 0 40rpx;
+  border-radius: 25px;
 }
 
 .stu_info {
-  width: 60%;
+  flex-grow: 0.9;
   font-size: 14px;
 }
 
@@ -101,8 +99,8 @@
 .pingding {
   width: 15%;
   text-align: center;
-  padding-top: 21px;
   font-size: 15px;
+  margin-left: 20rpx;
   border-left: 1px solid #edece8;
 }
 

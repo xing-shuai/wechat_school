@@ -16,7 +16,7 @@ form textarea {
   background-color: white;
   width: inherit;
   margin-top: 3px;
-  height: 253px;
+  height: 223px;
 }
 
 form view {

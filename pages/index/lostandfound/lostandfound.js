@@ -7,7 +7,9 @@ Page({
     host: url + '/lostandfound/images/',
     has_next_page: true,
     cur_page: 0,
-    op_button: false
+    search_text: '',
+    op_button: false,
+    search_mode: false
   },
   onLoad: function (options) {
     common.set_navi_color();
@@ -17,19 +19,16 @@ Page({
         that.setData({ height: res.windowHeight })
       },
     })
-    common.get_request({
-      url: '/lostandfound/load_list?page=' + (that.data.cur_page + 1).toString(),
-      success: function (res) {
-        that.setData({ losts: res.data.data, has_next_page: res.data.has_next_page, cur_page: that.data.cur_page + 1 });
-      }
-    });
+  },
+  onShow: function () {
+    this.onPullDownRefresh();
   },
   scrolltolower: function () {
     var that = this;
     if (that.data.has_next_page) {
       wx.showNavigationBarLoading();
       common.get_request({
-        url: '/lostandfound/load_list?page=' + (that.data.cur_page + 1).toString(),
+        url: '/lostandfound/load_list?page=' + (that.data.cur_page + 1).toString() + '&search_text=' + that.data.search_text,
         success: function (res) {
           if (res.data.has_next_page) {
             that.setData({ losts: that.data.losts.concat(res.data.data), cur_page: that.data.cur_page + 1 });
@@ -71,12 +70,14 @@ Page({
   add_lost: function () {
     wx.navigateTo({
       url: 'lostandfoundop/lostandfoundop'
-    })
+    });
+    this.op();
   },
   mylost: function () {
     wx.navigateTo({
       url: 'mylost/mylost'
-    })
+    });
+    this.op();
   },
   onPullDownRefresh: function () {
     var that = this;
@@ -85,11 +86,28 @@ Page({
       cur_page: 0
     })
     common.get_request({
-      url: '/lostandfound/load_list?page=' + (that.data.cur_page + 1).toString(),
+      url: '/lostandfound/load_list?page=' + (that.data.cur_page + 1).toString() + '&search_text=' + that.data.search_text,
       success: function (res) {
-        that.setData({ losts: res.data.data, has_next_page: res.data.has_next_page, cur_page: that.data.cur_page + 1 });
+        var data = res.data.data;
+        for (var i = 0; i < data.length; i++) {
+          data[i].add_time = common.moment(data[i].add_time);
+        }
+        that.setData({ losts: data, has_next_page: res.data.has_next_page, cur_page: that.data.cur_page + 1 });
         wx.stopPullDownRefresh();
       }
     });
+  },
+  make_phone_call: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone
+    })
+  },
+  search: function (e) {
+    var value = e.detail.value;
+    if (value.trim() == "" && !this.data.search_mode) {
+      return;
+    }
+    this.setData({ search_text: value, search_mode: value.trim() == "" ? false : true });
+    this.onPullDownRefresh();
   }
 })

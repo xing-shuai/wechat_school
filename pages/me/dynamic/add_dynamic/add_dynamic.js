@@ -81,6 +81,7 @@ Page({
     var that = this;
     if (images.length == 0) {
       common.showMsg("发布成功", 'success');
+      wx.navigateBack();
       return;
     }
     wx.showLoading({
@@ -103,6 +104,7 @@ Page({
         index++;
         if (index >= images.length) {
           common.showMsg("发布成功", 'success');
+          wx.navigateBack();
           return;
         }
         else {

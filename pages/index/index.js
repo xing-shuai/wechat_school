@@ -44,6 +44,7 @@ Page({
               var code = res.data.code;
               if (code == '1') {//已绑定
                 app.globalData.user_type = res.data.user_type;
+                app.globalData.user_number = res.data.user_number;
                 that.setData({
                   user_type: res.data.user_type,
                   display: true,
