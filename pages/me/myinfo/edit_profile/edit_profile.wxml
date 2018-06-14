@@ -1,0 +1,55 @@
+<view bindtap='upload_user_head' class='profile_list' style='border-top:1px solid #f0f0f0;'>
+  <label style='padding-top:18px;'>头像</label>
+  <view>
+    <image class='user_head' src="{{myinfo.img_url?host+myinfo.img_url:'../../../../resources/icons/default_user_boy.png'}}"></image>
+  </view>
+</view>
+
+<view class='profile_list'>
+  <label>出生日期</label>
+  <view>
+    <picker mode="date" value="{{myinfo.birth_day?myinfo.birth_day:'1900-01-01'}}" bindchange="edit_birth">
+      <view class="picker">
+        {{myinfo.birth_day?myinfo.birth_day:'1900-01-01'}}
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='profile_list'>
+  <label>家乡</label>
+  <view>
+    <picker mode="region" bindchange="edit_hometown" value="{{myinfo.hometown?myinfo.hometown:'北京市'}}">
+      <view class="picker">
+        {{myinfo.hometown?myinfo.hometown:'北京市'}}
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='profile_list'>
+  <label>邮箱</label>
+  <view>
+    <input bindblur='edit_profile' data-name='mail' placeholder='点击修改' value="{{myinfo.mail?myinfo.mail:''}}"></input>
+  </view>
+</view>
+
+<view class='profile_list'>
+  <label>手机</label>
+  <view>
+    <input bindblur='edit_profile' data-name='telephone' placeholder='点击修改' value="{{myinfo.telephone?myinfo.telephone:''}}"></input>
+  </view>
+</view>
+<view class='profile_list'>
+  <label>兴趣爱好</label>
+  <view>
+    <input bindblur='edit_profile' data-name='hobbies' placeholder='点击修改' value="{{myinfo.hobbies?myinfo.hobbies:''}}"></input>
+  </view>
+</view>
+
+<view class='profile_list'>
+  <label>个人签名</label>
+  <view>
+    <input bindblur='edit_profile' data-name='signature' placeholder='点击修改' value="{{myinfo.signature?myinfo.signature:''}}"></input>
+  </view>
+</view>

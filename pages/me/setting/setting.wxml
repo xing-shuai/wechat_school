@@ -11,6 +11,22 @@
       </view>
     </view>
   </view>
+
+  <view style='display:flex;' class='me_menu'>
+    <label class='menu_name'>资料卡展示班级</label>
+    <view style='display:flex;justify-content:flex-end;flex-grow:1;align-items:center;'>
+      <switch checked="{{permission[0]=='1'?true:false}}" bindchange="is_show_class" />
+    </view>
+  </view>
+
+  <view style='display:flex;' class='me_menu'>
+    <label class='menu_name'>资料卡展示动态</label>
+    <view style='display:flex;justify-content:flex-end;flex-grow:1;align-items:center;'>
+      <switch checked="{{permission[1]=='1'?true:false}}" bindchange="is_show_dynamic" />
+    </view>
+  </view>
+
+
   <view bindtap='clear_cache' hover-class='hover_menu' class='me_menu'>
     <view class='menu_name'>清除缓存</view>
   </view>

@@ -4,29 +4,165 @@
   display: block;
   margin: 10px auto;
   border-radius: 64px;
+  border: 1px solid #e8e9e9;
 }
 
-.row_input {
+.signature {
+  font-size: 15px;
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit_profile {
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  top: 9px;
+  right: 12px;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #f0f0f0;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  color: #777;
+}
+
+.on {
+  color: #598edd;
+  border-bottom: 5rpx solid #598edd;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.profile_list {
+  display: flex;
+  font-size: 15px;
+  padding: 13px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile_list label {
+  color: gray;
+  margin-right: 5px;
+}
+
+.profile_list view {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.school_dynamic_list {
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.top {
+  display: flex;
+}
+
+.user_head_ {
+  width: 25%;
+}
+
+.user_head_ image {
+  width: 55px;
+  height: 55px;
+  display: block;
+  margin: 10px auto;
+  border-radius: 30px;
+}
+
+.info {
+  padding: 13px 0 10px 10px;
+  width: 60%;
+}
+
+.op {
+  width: 15%;
+}
+
+.op image {
+  height: 15px;
+  width: 15px;
+  display: block;
+  margin: 30px auto;
+}
+
+.dynamic_content {
+  padding: 0 15px;
+  font-size: 15px;
+}
+
+.bar {
+  display: flex;
+  font-size: 14px;
+  color: gray;
+  height: 40px;
+}
+
+.dynamic_type {
+  padding: 10px;
+}
+
+.love {
   display: flex;
   padding: 10px;
-  background-color: #f3f3f3;
-  margin: 5px;
-  border-radius: 3px;
+  margin-left: 62%;
 }
 
-.row_input label {
-  margin-left: 10px;
-  margin-right: 10px;
+.love_my {
+  display: flex;
+  padding: 10px;
+  margin-left: 43%;
 }
 
-.float_button {
-  position: fixed;
-  bottom: 1px;
-  width: 100%;
-  height: 40px;
-  line-height: 41px;
+.love_my image {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
 }
 
-picker {
-  width: 70%;
+.love image {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.comment {
+  display: flex;
+  padding: 10px;
+}
+
+.comment image {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.images_block {
+  display: flex;
+  width: 95%;
+  margin: 7px auto;
+}
+
+.images_block image {
+  width: 32%;
+  margin: 0 2px;
 }

@@ -1,0 +1,33 @@
+<form>
+  <block wx:for="{{stu}}">
+    <view class='stu_list'>
+      <image class='stu_image' src='{{item.head?host_url+item.head:"../../../../resources/icons/default_user_boy.png"}}'></image>
+      <view class='stu_info'>
+        <view style='padding:11px 0 0 0;font-size:15px;'>
+          <label>{{item.name}}</label>
+          <label>{{item.c_name}}</label>
+          <label>{{item.stu_id}}</label>
+        </view>
+        <view style='display:flex;color:gray;'>
+          <label style='{{item.f_grade?"":"color:red;"}}'>期末:{{item.f_grade?item.f_grade:"--"}}</label>
+          <label>平时分:{{item.p_grade}}</label>
+          <label>核算:{{item.c_grade?item.c_grade:"--"}}</label>
+        </view>
+      </view>
+      <image wx:if="{{!entry_status}}" class='menu_open' src='../../../../resources/icons/open.png'></image>
+      <input wx:if="{{entry_status}}" data-stu_id='{{item.stu_id}}' class='final_grade_input' placeholder="期末分数" type='digit' bindblur='input_blur' value='{{item.f_grade}}' />
+    </view>
+  </block>
+
+  <view wx:if="{{stu.length==0}}" style='position:fixed;width:100%;top:200px'>
+    <view>
+      <image style='height:50px;width:75px;display:block;margin:0 auto;' src='../../../../resources/icons/nothing.png'></image>
+    </view>
+    <view style='color:gray;text-align:center;font-size:14px;margin-top:5px;'>什么都没有...</view>
+  </view>
+</form>
+
+<view animation="{{float_button}}" class='float_button' style='bottom: 45px;' bindtap='start_entry'>
+  <image wx:if="{{!entry_status}}" style='width:20px;height:20px;' src='../../../../resources/icons/options.png'></image>
+  <image wx:if="{{entry_status}}" style='width:20px;height:20px;' src='../../../../resources/icons/confirm.png'></image>
+</view>

@@ -2,10 +2,20 @@ var common = require("../../../utils/util.js");
 
 Page({
   data: {
-    color_list: [['#1ABC9C', '#FF0000', '#FFFFFF', '#0FAEFF'], ['#008000', '#E08031', '#77C34F', '#FF6E97']]
+    color_list: [['#1ABC9C', '#FF0000', '#FFFFFF', '#0FAEFF'], ['#008000', '#E08031', '#77C34F', '#FF6E97']],
+    permission: "",
+    myinfo: {}
   },
   onLoad: function (options) {
     common.set_navi_color();
+    var that = this;
+    wx.getStorage({
+      key: 'myinfo',
+      success: function (res) {
+        var permission = res.data.profile_permission;
+        that.setData({ myinfo: res.data, permission: permission });
+      },
+    })
   },
   change_color: function (e) {
     wx.setNavigationBarColor({
@@ -21,18 +31,9 @@ Page({
     })
   },
   clear_cache: function () {
-    var color = "";
-    wx.getStorage({
-      key: 'navi_color',
+    wx.removeStorage({
+      key: 'myinfo',
       success: function (res) {
-        color = res.data;
-        wx.clearStorageSync();
-        wx.setStorage({
-          key: 'navi_color',
-          data: color
-        })
-      },
-      complete: function () {
         common.showMsg("清理成功");
       }
     })
@@ -64,5 +65,36 @@ Page({
           })
       }
     })
+  },
+  save_switch: function (index, value) {
+    var permission = this.data.permission;
+    if (index == 0)
+      permission = (value ? '1' : '0') + permission[1];
+    else
+      permission = permission[0] + (value ? '1' : '0');
+    this.setData({ permission: permission });
+    var that = this;
+    common.get_request({
+      url: '/save_user_info?name=profile_permission&value=' + permission,
+      header: {
+        'cookie': wx.getStorageSync("sessionid")
+      },
+      success: function (res) {
+        if (res.data.code == 1) {
+          var myinfo = that.data.myinfo;
+          myinfo["profile_permission"] = permission;
+          wx.setStorage({
+            key: 'myinfo',
+            data: myinfo
+          })
+        }
+      }
+    })
+  },
+  is_show_class: function (e) {
+    this.save_switch(0, e.detail.value);
+  },
+  is_show_dynamic: function (e) {
+    this.save_switch(1, e.detail.value);
   }
 })

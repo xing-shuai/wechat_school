@@ -1,0 +1,28 @@
+/* .profile_list {
+  display: flex;
+  align-items: center;
+} */
+
+.user_head {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+
+
+.profile_list {
+  display: flex;
+  font-size: 16px;
+  padding: 17px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile_list label {
+  color: gray;
+  margin-right: 5px;
+}
+
+.profile_list view {
+  flex-grow: 1;
+  text-align: right;
+}

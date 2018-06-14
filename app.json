@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/me/myinfo/myinfo",
     "pages/index/lostandfound/lostandfound",
     "pages/me/feedback/feedback",
     "pages/me/myclass/myclass",
@@ -12,7 +13,6 @@
     "pages/me/dynamic/add_dynamic/add_dynamic",
     "pages/campus/campus",
     "pages/index/school_calendar/school_calendar",
-    "pages/me/myinfo/myinfo",
     "pages/me/setting/setting",
     "pages/me/setting/about/about",
     "pages/index/lostandfound/lostandfoundop/lostandfoundop",
@@ -34,7 +34,8 @@
     "pages/me/dynamic/dynamic_detail/dynamic_detail",
     "pages/me/myclass/member/member",
     "pages/index/brief_introduction/brief_introduction",
-    "pages/index/course_t/final_grade/final_grade"
+    "pages/index/course_t/final_grade/final_grade",
+    "pages/me/myinfo/edit_profile/edit_profile"
   ],
   "window": {
     "backgroundTextStyle": "light",
