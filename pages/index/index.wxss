@@ -47,25 +47,26 @@ page {
 
 .header {
   display: flex;
-  width: 63%;
+  flex-grow: 0.9;
   margin-left: 7px;
   align-items: center;
 }
 
 .weather {
-  width: 37%;
+  width: 27%;
   display: flex;
 }
 
 .weather image {
-  width: 30px;
-  height: 30px;
-  margin-top: 12px;
+  width: 27px;
+  height: 27px;
+  margin-top: 15px;
 }
 
 .weather view {
-  font-size: 15px;
-  padding: 16px 10px 0 0;
+  font-size: 13px;
+  padding: 21px 10px 0 0;
+  color: gray;
 }
 
 .flex-item_hover {

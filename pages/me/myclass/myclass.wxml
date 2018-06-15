@@ -11,7 +11,7 @@
   <view class='class_head_group'>
 
     <view wx:for="{{class_info.students}}">
-      <image style='height:{{class_member_head_scale}}px;width:{{class_member_head_scale}}px' src="{{item.head_img?host_url+item.head_img:'../../../resources/icons/default_user_boy.png'}}"></image>
+      <image data-number='{{item.number}}' bindtap='student_info' style='height:{{class_member_head_scale}}px;width:{{class_member_head_scale}}px' src="{{item.head_img?host_url+item.head_img:'../../../resources/icons/default_user_boy.png'}}"></image>
       <view class='class_member_name'>{{item.name}}</view>
     </view>
 

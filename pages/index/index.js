@@ -20,7 +20,7 @@ Page({
     reload_this_page: false,
     absence_count: 0
   },
-  index_init: function () {
+  index_init: function() {
     var that = this;
     var app = getApp();
     wx.setNavigationBarTitle({
@@ -30,7 +30,7 @@ Page({
       title: '登陆中...',
     })
     wx.login({
-      success: function (code) {
+      success: function(code) {
         if (code.code) {
           wx.request({
             url: app.globalData.server_url + '/check_user',
@@ -38,11 +38,11 @@ Page({
             data: {
               code: code.code
             },
-            success: function (res) {
+            success: function(res) {
               wx.hideLoading();
               wx.setStorageSync("sessionid", res.header["Set-Cookie"])
               var code = res.data.code;
-              if (code == '1') {//已绑定
+              if (code == '1') { //已绑定
                 app.globalData.user_type = res.data.user_type;
                 app.globalData.user_number = res.data.user_number;
                 that.setData({
@@ -59,50 +59,78 @@ Page({
                     index: 2
                   });
                 getApp().globalData.notification = notification;
-                //获取天气信息
-                // common.get_request({
-                //   url: '/get_weather?city_code=' + getApp().globalData.city_code,
-                //   success: function (weather) {
-                //     var info = weather.data;
-                //     that.setData({ weather_info: weather.data, weather_img: common.getWeatherImg(info), weather_margin: ((4 - info.length) * 15).toString() });
+
+                //获取周数
+                common.get_request({
+                  url: '/get_week',
+                  success: function(res) {
+                    if (res.data.code == 1)
+                      wx.setNavigationBarTitle({
+                        title: '校园(' + res.data.week + ")",
+                      })
+                  }
+                })
+
+
+                // // 获取天气信息
+                // wx.getLocation({
+                //   type: 'wgs84',
+                //   success: function(res) {
+                //     common.get_request({
+                //       url: '/get_weather?lon=' + res.longitude.toString() + "&lat=" + res.latitude.toString(),
+                //       success: function(weather) {
+                //         var info = weather.data;
+                //         if (info.resultcode == '200')
+                //           that.setData({
+                //             weather_info: info.result,
+                //             weather_img: common.getWeatherImg(info.result),
+                //             weather_margin: ((4 - info.result.length) * 15).toString()
+                //           });
+                //       }
+                //     })
                 //   }
                 // })
-              } else if (code == '0') {//未绑定
-                that.setData({ reload_this_page: true });
+
+              } else if (code == '0') { //未绑定
+                that.setData({
+                  reload_this_page: true
+                });
                 wx.navigateTo({
                   url: '/pages/bind/bind',
                 })
-              } else {//验证失败
+              } else { //验证失败
                 common.showMsg(res.data.msg)
               }
             },
-            fail: function () {
+            fail: function() {
               wx.hideLoading();
               common.showMsg('连接服务器失败')
             }
           })
         }
       },
-      fail: function () {
+      fail: function() {
         wx.hideLoading();
         common.showMsg('登录失败')
       }
     })
   },
-  onLoad: function (option) {
+  onLoad: function(option) {
     common.set_navi_color();
     this.index_init();
   },
-  onShow: function () {
+  onShow: function() {
     if (this.data.reload_this_page)
       this.index_init();
     this.reset_red_dot()
   },
-  clear_absence_count: function () {
-    this.setData({ absence_count: 0 });
+  clear_absence_count: function() {
+    this.setData({
+      absence_count: 0
+    });
     this.reset_red_dot();
   },
-  reset_red_dot: function () {
+  reset_red_dot: function() {
     if (this.data.absence_count > 0)
       wx.showTabBarRedDot({
         index: 0
@@ -112,7 +140,7 @@ Page({
         index: 0
       })
   },
-  school_introduce:function(){
+  school_introduce: function() {
     wx.navigateTo({
       url: 'brief_introduction/brief_introduction',
     })
